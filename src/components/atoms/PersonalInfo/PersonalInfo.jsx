@@ -3,6 +3,9 @@ import classes from "./PersonalInfo.module.css";
 import ShadowWrapper from "../ShadowWrapper/ShadowWrapper";
 import Wrapper from "../Wrapper/Wrapper";
 import Image from "next/image";
+import { FaCalendarDays } from "react-icons/fa6";
+import { FaLocationDot } from "react-icons/fa6";
+import { BiWorld } from "react-icons/bi";
 
 export default function PersonalInfo() {
   return (
@@ -15,6 +18,18 @@ export default function PersonalInfo() {
       </Wrapper>
       <h3 className={classes.personalInfoTitle}>Personal Info</h3>
       <hr className={classes.divider}/>
+      <div className={classes.infoDiv}>
+        <FaCalendarDays className={classes.icon}/>
+        <p className={classes.keyValue}>Email {' '} <span>anastasya@yahoo.com</span></p>
+      </div>
+      <div className={classes.infoDiv}>
+        <FaLocationDot  className={classes.icon}/>
+        <p className={classes.keyValue}>Location {' '} <span>Ondrickachester</span></p>
+      </div>
+      <div className={classes.infoDiv}>
+        <BiWorld className={classes.icon}/>
+        <p className={classes.keyValue}>Language {' '} <span>English</span></p>
+      </div>
 
     </ShadowWrapper>
   );

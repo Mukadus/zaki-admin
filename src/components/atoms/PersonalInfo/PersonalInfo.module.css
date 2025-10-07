@@ -27,7 +27,7 @@
   padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
 }
 
 .personalInfoTitle {
@@ -39,7 +39,40 @@
   line-height: normal;
 }
 
-.divider{
-    stroke-width: 1px;
-stroke: rgba(172, 228, 224, 0.56);
+.divider {
+  height: 1px;
+  background-color: rgba(172, 228, 224, 0.56);
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.infoDiv {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.icon {
+  color: #116063;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 1.5px;
+}
+
+.keyValue {
+  color: var(--Heading-color, #032e38);
+  font-family: var(--font-inter), sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+}
+
+.keyValue span {
+  color: #277f93;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 12px;
+  font-weight: 500;
 }
