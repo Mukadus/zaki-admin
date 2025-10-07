@@ -7,16 +7,20 @@ import ShadowWrapper from "@/components/atoms/ShadowWrapper/ShadowWrapper";
 import TableHeader from "@/components/molecules/TableHeader/TableHeader";
 import ResponsiveTable from "@/components/organisms/ResponsiveTable/ResponsiveTable";
 import PopOver from "@/components/molecules/PopOver";
+import Button from "@/components/atoms/Button";
 import { categoryFilter } from "@/developmentContent/enums/enums";
-import { categoryTableHeader } from "@/developmentContent/tableData/tableHeader";
-import { categoryData } from "@/developmentContent/tableData/tableBody";
+import { categoryTableHeader, requestedTableHeader } from "@/developmentContent/tableData/tableHeader";
+import { categoryData, requestedData } from "@/developmentContent/tableData/tableBody";
 import { dashboardPopoverOptions } from "@/developmentContent/popoverOptions";
 import { useRouter } from "next/navigation";
 
 const CategoryTemplate = () => {
   const [SelectedData, setSelectedData] = useState(categoryFilter[0]);
   const [search, setSearch] = useState("");
-  const [data, setData] = useState({ categories: categoryData });
+  const [data, setData] = useState({ 
+    categories: categoryData,
+    requested: requestedData 
+  });
   const [loading, setLoading] = useState("");
   
   const router = useRouter();
@@ -28,6 +32,20 @@ const CategoryTemplate = () => {
   const getStatusClass = (status) => {
     return status === "Active" ? classes.activeStatus : classes.inactiveStatus;
   };
+
+  const handleAccept = (rowItem) => {
+    console.log("Accept:", rowItem);
+    // Handle accept logic here
+  };
+
+  const handleReject = (rowItem) => {
+    console.log("Reject:", rowItem);
+    // Handle reject logic here
+  };
+
+  // Simple data and header selection
+  const currentData = SelectedData?.value === "requested" ? data?.requested : data?.categories;
+  const currentTableHeader = SelectedData?.value === "requested" ? requestedTableHeader : categoryTableHeader;
 
   return (
     <>
@@ -42,12 +60,12 @@ const CategoryTemplate = () => {
             setSelectedData={setSelectedData}
           />
           <ResponsiveTable
-            data={data?.categories}
-            tableHeader={categoryTableHeader}
+            data={currentData}
+            tableHeader={currentTableHeader}
             hasPagination={false}
             loading={loading === "get-data"}
             renderItem={({ item, key, rowIndex, renderValue }) => {
-              const rowItem = data?.categories[rowIndex];
+              const rowItem = currentData[rowIndex];
               
               if (renderValue) {
                 return renderValue(item, rowItem);
@@ -62,16 +80,31 @@ const CategoryTemplate = () => {
               }
 
               if (key === "actions") {
-                return (
-                  <div className={classes.actionButtons}>
-                    <PopOver
-                      popover={dashboardPopoverOptions}
-                      onClick={(label) => {
-                        onClickPopover(label, rowItem);
-                      }}
-                    />
-                  </div>
-                );
+                if (SelectedData?.value === "requested") {
+                  return (
+                    <div className={classes.actionButtons}>
+                      <Button 
+                        variant="primary" 
+                        label="Accept"
+                        onClick={() => handleAccept(rowItem)}
+                      />
+                      <Button 
+                        variant="secondary" 
+                        label="Reject"
+                        onClick={() => handleReject(rowItem)}
+                      />
+                    </div>
+                  );
+                } else {
+                  return (
+                    <div className={classes.actionButtons}>
+                      <PopOver
+                        popover={dashboardPopoverOptions}
+                        onClick={(label) => onClickPopover(label, rowItem)}
+                      />
+                    </div>
+                  );
+                }
               }
 
               return item || "";

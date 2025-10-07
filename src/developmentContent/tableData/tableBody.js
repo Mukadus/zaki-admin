@@ -175,3 +175,49 @@ export const categoryData = [
     status: "In-Active"
   }
 ];
+
+// Requested Data
+export const requestedData = [
+  {
+    id: 1,
+    categoryName: "Loretta Rippin",
+    therapistName: "Loretta Rippin",
+    date: "October 30, 2017"
+  },
+  {
+    id: 2,
+    categoryName: "Everett Rodriguez",
+    therapistName: "Everett Rodriguez",
+    date: "October 30, 2017"
+  },
+  {
+    id: 3,
+    categoryName: "Everett Rodriguez",
+    therapistName: "Everett Rodriguez",
+    date: "October 30, 2017"
+  },
+  {
+    id: 4,
+    categoryName: "Everett Rodriguez",
+    therapistName: "Everett Rodriguez",
+    date: "October 30, 2017"
+  },
+  {
+    id: 5,
+    categoryName: "Everett Rodriguez",
+    therapistName: "Everett Rodriguez",
+    date: "October 30, 2017"
+  },
+  {
+    id: 6,
+    categoryName: "Everett Rodriguez",
+    therapistName: "Everett Rodriguez",
+    date: "October 30, 2017"
+  },
+  {
+    id: 7,
+    categoryName: "Casey Beer",
+    therapistName: "Casey Beer",
+    date: "October 30, 2017"
+  }
+];

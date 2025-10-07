@@ -24,3 +24,20 @@
   color: #666666;
   border: 1px solid #E0E0E0;
 }
+
+
+/* Button Layout */
+.actionButtons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.acceptButton {
+  min-width: 70px;
+}
+
+.rejectButton {
+  min-width: 70px;
+}

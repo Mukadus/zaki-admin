@@ -204,3 +204,44 @@ export const categoryTableHeader = [
     },
   },
 ];
+
+// Requested Table Header
+export const requestedTableHeader = [
+  {
+    title: "Category Name",
+    key: "categoryName",
+    style: {
+      width: "30%",
+    },
+    renderValue: (cellValue) => (
+      <RenderTextCell cellValue={cellValue} bold />
+    ),
+  },
+  {
+    title: "Therapist Name",
+    key: "therapistName",
+    style: {
+      width: "25%",
+    },
+    renderValue: (cellValue) => (
+      <RenderTextCell cellValue={cellValue} />
+    ),
+  },
+  {
+    title: "Date",
+    key: "date",
+    style: {
+      width: "15%",
+    },
+    renderValue: (cellValue) => (
+      <RenderTextCell cellValue={cellValue} />
+    ),
+  },
+  {
+    title: "Actions",
+    key: "actions",
+    style: {
+      width: "30%",
+    },
+  },
+];
