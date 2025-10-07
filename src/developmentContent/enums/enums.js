@@ -13,3 +13,17 @@ export const registerUserFilter = [
     },
 ]
 
+export const appointmentFilter = [
+    {
+        label:"All",
+        value:"all",
+    },
+    {
+        label:"Upcoming",
+        value:"upcoming",
+    },
+    {
+        label:"Completed",
+        value:"completed",
+    }
+]
