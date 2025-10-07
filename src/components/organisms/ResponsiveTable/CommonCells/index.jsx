@@ -10,6 +10,12 @@ const statusClassMap = {
   "Completed": {
     className: classes.completedStatus,
   },
+  "Active": {
+    className: classes.upcomingStatus,
+  },
+  "In-Active": {
+    className: classes.inactiveStatus,
+  },
   "cancelled": {
     className: classes.cancelledStatus,
   },

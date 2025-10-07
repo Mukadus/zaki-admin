@@ -129,3 +129,49 @@ export const appointmentData = [
     status: "Upcoming"
   }
 ];
+
+// Category Data
+export const categoryData = [
+  {
+    id: 1,
+    categoryName: "Loretta Rippin",
+    date: "October 30, 2017",
+    status: "Active"
+  },
+  {
+    id: 2,
+    categoryName: "Everett Rodriguez",
+    date: "October 30, 2017",
+    status: "In-Active"
+  },
+  {
+    id: 3,
+    categoryName: "Everett Rodriguez",
+    date: "October 30, 2017",
+    status: "Active"
+  },
+  {
+    id: 4,
+    categoryName: "Everett Rodriguez",
+    date: "October 30, 2017",
+    status: "In-Active"
+  },
+  {
+    id: 5,
+    categoryName: "Everett Rodriguez",
+    date: "October 30, 2017",
+    status: "In-Active"
+  },
+  {
+    id: 6,
+    categoryName: "Everett Rodriguez",
+    date: "October 30, 2017",
+    status: "Active"
+  },
+  {
+    id: 7,
+    categoryName: "Casey Beer",
+    date: "October 30, 2017",
+    status: "In-Active"
+  }
+];

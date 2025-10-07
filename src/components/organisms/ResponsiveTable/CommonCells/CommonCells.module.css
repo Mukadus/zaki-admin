@@ -28,6 +28,11 @@
   background: var(--rescheduled);
 }
 
+.inactiveStatus {
+  background: #F8F8F8;
+  color: #666666;
+}
+
 .date {
   font-family: var(--font-inter);
 }

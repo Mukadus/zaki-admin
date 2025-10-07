@@ -161,3 +161,46 @@ export const appointmentTableHeader = [
     },
   },
 ];
+
+// Category Table Header
+export const categoryTableHeader = [
+  {
+    title: "Category Name",
+    key: "categoryName",
+    style: {
+      width: "40%",
+      minWidth: "200px",
+    },
+    renderValue: (cellValue) => (
+      <RenderTextCell cellValue={cellValue} bold />
+    ),
+  },
+  {
+    title: "Date",
+    key: "date",
+    style: {
+      width: "30%",
+      minWidth: "150px",
+    },
+    renderValue: (cellValue) => (
+      <RenderTextCell cellValue={cellValue} />
+    ),
+  },
+  {
+    title: "Status",
+    key: "status",
+    style: {
+      width: "20%",
+      minWidth: "120px",
+    },
+    renderValue: (cellValue) => <RenderStatusCell cellValue={cellValue} />,
+  },
+  {
+    title: "Actions",
+    key: "actions",
+    style: {
+      width: "10%",
+      minWidth: "80px",
+    },
+  },
+];
