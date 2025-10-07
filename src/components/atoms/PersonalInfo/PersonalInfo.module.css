@@ -211,6 +211,12 @@ letter-spacing: -0.28px;
   align-items: center;
 }
 
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 .priceDiv{
   display: flex;
   flex-direction: column;

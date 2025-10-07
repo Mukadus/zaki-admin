@@ -121,19 +121,26 @@ export default function PersonalInfo({
           <h6 className={classes.category}>Psychodynamic Therapy</h6>
         </div>
       )}
-      {!isAppointment && (
-        <h3 className={classes.personalInfoTitle}>Personal Info</h3>
-      )}
-      <hr className={classes.divider} />
-      {isAppointment && (
-        <div className={classes.appointmentInfoDiv}>
-          {personalInfoData?.map(renderInfoItem)}
-          <div className={classes.priceDiv}>
-            <h4>$96.99</h4>
-            <p>Total Bill</p>
-          </div>
-        </div>
-      )}
+       {!isAppointment && (
+         <h3 className={classes.personalInfoTitle}>Personal Info</h3>
+       )}
+       <hr className={classes.divider} />
+       {!isAppointment && (
+         <div className={classes.flexColumn}>
+           {personalInfoData?.map(renderInfoItem)}
+         </div>
+       )}
+       {isAppointment && (
+         <div className={classes.appointmentInfoDiv}>
+           <div className={classes.flexColumn}>
+             {personalInfoData?.map(renderInfoItem)}
+           </div>
+           <div className={classes.priceDiv}>
+             <h4>$96.99</h4>
+             <p>Total Bill</p>
+           </div>
+         </div>
+       )}
       {isAppointment && (
         <>
           <hr className={classes.divider} />
