@@ -17,7 +17,7 @@ const UserRegisterationoDetailTemplate = ({slug}) => {
     <>
         <Container>
             <TopHeader title="User Registration" backButton={false} />
-            <PersonalInfo/>
+            <PersonalInfo showCertifications={id !== ''}/>
         </Container>
     </>
   )

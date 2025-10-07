@@ -13,6 +13,9 @@
   border: 1px solid #c5f1ee;
 }
 
+.marginTop {
+  margin-top: 24px;
+}
 .userName {
   color: #024757;
   font-family: var(--font-inter), sans-serif;
@@ -75,4 +78,54 @@
   font-family: var(--font-inter), sans-serif;
   font-size: 12px;
   font-weight: 500;
+}
+
+.certificationsDiv {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.certificateItem {
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  backdrop-filter: blur(40px);
+  display: flex;
+  padding: 20px 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.certificateImageDiv{
+  margin: 0 auto;
+width: 45px;
+height: 59px;
+  position: relative;
+}
+
+.certificateInfo{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.certificateName{
+  color: var(--Heading-color, #032E38);
+  font-family: var(--font-inter), sans-serif;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px;
+letter-spacing: -0.078px;
+}
+
+.certificateDate{
+  color: var(--Mine-Shaft-500, #6D6D6D);
+  font-family: var(--font-inter), sans-serif;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
 }
