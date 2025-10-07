@@ -1,0 +1,50 @@
+import { CustomProvider } from "@/store/customProvider";
+import "aos/dist/aos.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./styles/globals.css";
+import { Archivo, Inter } from "next/font/google";
+import localFont from "next/font/local";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+const archivo = Archivo({
+  variable: "--font-archivo",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+// Local Georgia font
+const ranade = localFont({
+  src: "./fonts/ranade/Ranade-Variable.ttf",
+  variable: "--font-ranade",
+  weight: "400 500 600 700",
+  style: "normal",
+});
+
+export const metadata = {
+  title: "next-web",
+  description: `A Next.js web application with custom fonts and styles`,
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body
+        className={`${inter.variable} ${archivo.variable} ${ranade.variable}`}
+        suppressHydrationWarning
+      >
+        <ToastContainer />
+        <CustomProvider>
+          {/* <SocketProvider> */}
+          {children}
+          {/* </SocketProvider> */}
+        </CustomProvider>
+      </body>
+    </html>
+  );
+}
