@@ -14,7 +14,6 @@ export default function PersonalInfo() {
       <Wrapper className={classes.photoNameDiv}>
         <div className={classes?.photoDiv}>
             <ImageComponent src={'/app-images/userDummy.png'}/>
-            {/* <Image src={'/app-images/userDummy.png'} fill/> */}
         </div>
         <h4 className={classes.userName}>John Doe</h4>
       </Wrapper>
