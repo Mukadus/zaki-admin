@@ -12,6 +12,12 @@ import { FaPhone } from "react-icons/fa6";
 import Button from "../Button";
 
 export default function PersonalInfo({ showCertifications = false }) {
+  const getStatusClass = (status) => {
+    return status === "Completed"
+      ? classes.completedStatus
+      : classes.upcomingStatus;
+  };
+
   const personalInfoData = [
     {
       icon: FaCalendarDays,
@@ -64,13 +70,18 @@ export default function PersonalInfo({ showCertifications = false }) {
   return (
     <ShadowWrapper className={classes?.shadowWrapper}>
       <Wrapper className={classes.photoNameDiv}>
-        <div className={classes?.photoDiv}>
+        <div className={classes.basicInfoDiv}>
+          <div className={classes?.photoDiv}>
           <ImageComponent src={"/app-images/userDummy.png"} />
         </div>
         <div className={classes.profileInfoDiv}>
           <h4 className={classes.userName}>John Doe</h4>
           <p className={classes.email}>janie_Hermann13@yahoo.com</p>
         </div>
+        </div>
+        <span className={`${classes.statusPill} ${getStatusClass('Completed')}`}>
+          Completed
+        </span>
       </Wrapper>
       <h3 className={classes.personalInfoTitle}>Personal Info</h3>
       <hr className={classes.divider} />
