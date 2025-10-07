@@ -5,6 +5,7 @@ import React from 'react'
 import { Container } from 'react-bootstrap';
 import classes from "./UserRegisterationoDetailTemplate.module.css"
 import Wrapper from '@/components/atoms/Wrapper/Wrapper';
+import ResponsiveTable from '@/components/organisms/ResponsiveTable/ResponsiveTable';
 
 const UserRegisterationoDetailTemplate = ({slug}) => {
   return (
@@ -15,6 +16,7 @@ const UserRegisterationoDetailTemplate = ({slug}) => {
                 <Wrapper>
                     das
                 </Wrapper>
+                <ResponsiveTable />
             </ShadowWrapper>
         </Container>
     </>
