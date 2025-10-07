@@ -177,3 +177,28 @@ line-height: normal;
   color: #024757;
   border: 1px solid #C5F1EE;
 }
+
+.categoryDiv{
+  display: flex;
+  flex-direction: column;
+}
+
+.categoryLabel{
+  color: #696969;
+  font-family: var(--font-inter), sans-serif;
+font-size: 10px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: -0.2px;
+}
+
+.category{
+  color: var(--Heading-color, #032E38);
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 24px; 
+letter-spacing: -0.28px;
+}

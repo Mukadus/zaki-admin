@@ -10,8 +10,13 @@ import ImageComponent from "../ImageComponent/ImageComponent";
 import { mergeClass } from "@/resources/utils/helper";
 import { FaPhone } from "react-icons/fa6";
 import Button from "../Button";
+import { MdEmail } from "react-icons/md";
+import { MdOutlineAccessTimeFilled } from "react-icons/md";
 
-export default function PersonalInfo({ showCertifications = false, isAppointment = false }) {
+export default function PersonalInfo({
+  showCertifications = false,
+  isAppointment = false,
+}) {
   const getStatusClass = (status) => {
     return status === "Completed"
       ? classes.completedStatus
@@ -21,18 +26,28 @@ export default function PersonalInfo({ showCertifications = false, isAppointment
   const personalInfoData = [
     {
       icon: FaCalendarDays,
-      label: "Email",
-      value: "anastasya@yahoo.com",
+      label: "Date",
+      value: "Mon Feb, 16",
+    },
+     {
+      icon: MdOutlineAccessTimeFilled,
+      label: "Time",
+      value: "9:00 AM",
     },
     {
-      icon: FaLocationDot,
-      label: "Location",
-      value: "Ondrickachester",
+      icon: MdEmail,
+      label: "Email",
+      value: "anastasya@yahoo.com",
     },
     {
       icon: FaPhone,
       label: "Contact",
       value: "(209) 555-0104",
+    },
+    {
+      icon: FaLocationDot,
+      label: "Location",
+      value: "Ondrickachester",
     },
     {
       icon: BiWorld,
@@ -72,18 +87,28 @@ export default function PersonalInfo({ showCertifications = false, isAppointment
       <Wrapper className={classes.photoNameDiv}>
         <div className={classes.basicInfoDiv}>
           <div className={classes?.photoDiv}>
-          <ImageComponent src={"/app-images/userDummy.png"} />
+            <ImageComponent src={"/app-images/userDummy.png"} />
+          </div>
+          <div className={classes.profileInfoDiv}>
+            <h4 className={classes.userName}>John Doe</h4>
+            <p className={classes.email}>janie_Hermann13@yahoo.com</p>
+          </div>
         </div>
-        <div className={classes.profileInfoDiv}>
-          <h4 className={classes.userName}>John Doe</h4>
-          <p className={classes.email}>janie_Hermann13@yahoo.com</p>
-        </div>
-        </div>
-       {isAppointment && <span className={`${classes.statusPill} ${getStatusClass('Completed')}`}>
-          Completed
-        </span>}
+        {isAppointment && (
+          <span
+            className={`${classes.statusPill} ${getStatusClass("Completed")}`}
+          >
+            Completed
+          </span>
+        )}
       </Wrapper>
-      <h3 className={classes.personalInfoTitle}>Personal Info</h3>
+      {isAppointment && (
+        <div className={classes.categoryDiv}>
+          <p className={classes.categoryLabel}>Category</p>
+          <h6 className={classes.category}>Psychodynamic Therapy</h6>
+        </div>
+      )}
+     {!isAppointment && <h3 className={classes.personalInfoTitle}>Personal Info</h3>}
       <hr className={classes.divider} />
       {personalInfoData.map(renderInfoItem)}
       {showCertifications && (
