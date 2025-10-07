@@ -125,7 +125,15 @@ export default function PersonalInfo({
         <h3 className={classes.personalInfoTitle}>Personal Info</h3>
       )}
       <hr className={classes.divider} />
-      {personalInfoData.map(renderInfoItem)}
+      {isAppointment && (
+        <div className={classes.appointmentInfoDiv}>
+          {personalInfoData?.map(renderInfoItem)}
+          <div className={classes.priceDiv}>
+            <h4>$96.99</h4>
+            <p>Total Bill</p>
+          </div>
+        </div>
+      )}
       {isAppointment && (
         <>
           <hr className={classes.divider} />
