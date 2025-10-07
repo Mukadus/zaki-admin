@@ -23,38 +23,51 @@ export default function PersonalInfo({
       : classes.upcomingStatus;
   };
 
-  const personalInfoData = [
-    {
-      icon: FaCalendarDays,
-      label: "Date",
-      value: "Mon Feb, 16",
-    },
-     {
-      icon: MdOutlineAccessTimeFilled,
-      label: "Time",
-      value: "9:00 AM",
-    },
-    {
-      icon: MdEmail,
-      label: "Email",
-      value: "anastasya@yahoo.com",
-    },
-    {
-      icon: FaPhone,
-      label: "Contact",
-      value: "(209) 555-0104",
-    },
-    {
-      icon: FaLocationDot,
-      label: "Location",
-      value: "Ondrickachester",
-    },
-    {
-      icon: BiWorld,
-      label: "Language",
-      value: "English",
-    },
-  ];
+  const personalInfoData = isAppointment
+    ? [
+        {
+          icon: FaCalendarDays,
+          label: "Date",
+          value: "Mon Feb, 16",
+        },
+        {
+          icon: MdOutlineAccessTimeFilled,
+          label: "Time",
+          value: "9:00 AM",
+        },
+        {
+          icon: FaLocationDot,
+          label: "Location",
+          value: "Ondrickachester",
+        },
+        {
+          icon: BiWorld,
+          label: "Language",
+          value: "English",
+        },
+      ]
+    : [
+        {
+          icon: MdEmail,
+          label: "Email",
+          value: "anastasya@yahoo.com",
+        },
+        {
+          icon: FaPhone,
+          label: "Contact",
+          value: "(209) 555-0104",
+        },
+        {
+          icon: FaLocationDot,
+          label: "Location",
+          value: "Ondrickachester",
+        },
+        {
+          icon: BiWorld,
+          label: "Language",
+          value: "English",
+        },
+      ];
 
   const renderInfoItem = (item, index) => {
     const IconComponent = item.icon;
@@ -108,9 +121,28 @@ export default function PersonalInfo({
           <h6 className={classes.category}>Psychodynamic Therapy</h6>
         </div>
       )}
-     {!isAppointment && <h3 className={classes.personalInfoTitle}>Personal Info</h3>}
+      {!isAppointment && (
+        <h3 className={classes.personalInfoTitle}>Personal Info</h3>
+      )}
       <hr className={classes.divider} />
       {personalInfoData.map(renderInfoItem)}
+      {isAppointment && (
+        <>
+          <hr className={classes.divider} />
+          <div className={classes.categoryDiv}>
+            <p className={classes.categoryLabel}>Client Name</p>
+            <div className={classes.basicInfoDiv}>
+              <div className={classes?.photoDiv}>
+                <ImageComponent src={"/app-images/userDummy.png"} />
+              </div>
+              <div className={classes.profileInfoDiv}>
+                <h4 className={classes.userName}>John Doe</h4>
+                <p className={classes.email}>janie_Hermann13@yahoo.com</p>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
       {showCertifications && (
         <>
           <h3

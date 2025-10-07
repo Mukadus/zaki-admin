@@ -181,6 +181,7 @@ line-height: normal;
 .categoryDiv{
   display: flex;
   flex-direction: column;
+  gap: 4px;
 }
 
 .categoryLabel{
