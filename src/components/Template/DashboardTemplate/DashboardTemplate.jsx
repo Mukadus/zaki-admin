@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import classes from "./DashboardTemplate.module.css";
 import TopHeader from "@/components/atoms/TopHeader/TopHeader";
@@ -5,15 +6,28 @@ import { Col, Container, Row } from "react-bootstrap";
 import Wrapper from "@/components/atoms/Wrapper/Wrapper";
 import SeeAll from "@/components/atoms/SeeAll/SeeAll";
 import TherapistCard from "@/components/molecules/TherapistCard/TherapistCard";
+import ResponsiveTable from "@/components/organisms/ResponsiveTable/ResponsiveTable";
+import PopOver from "@/components/molecules/PopOver";
 import {
   notificationCardData,
   recentTherapistData,
 } from "@/developmentContent/dummyData/dummyData";
+import { tableHeader } from "@/developmentContent/tableData/tableHeader";
+import { tableBodyData } from "@/developmentContent/tableData/tableBody";
+import { dashboardPopoverOptions } from "@/developmentContent/popoverOptions";
 import { GoArrowUpRight } from "react-icons/go";
 import NotificationCard from "@/components/atoms/NotificationCard/NotificationCard";
 import NoDataFound from "@/components/atoms/NoDataFound/NoDataFound";
 
 const DashboardTemplate = () => {
+  const onClickPopover = (label, rowItem) => {
+    console.log(label, rowItem);
+  };
+
+  const getStatusClass = (status) => {
+    return status === "Completed" ? classes.completedStatus : classes.upcomingStatus;
+  };
+
   return (
     <>
       <div className={classes?.dashboardTemplate}>
@@ -52,6 +66,48 @@ const DashboardTemplate = () => {
                 )}
               </Wrapper>
             </Col>
+          </Row>
+          <Row className="mt-4">
+            <Col lg={7}>
+              <Wrapper>
+                <h4 className="mb-3">User Management</h4>
+                <ResponsiveTable
+                  data={tableBodyData}
+                  tableHeader={tableHeader}
+                  hasPagination={false}
+                  renderItem={({ item, key, rowIndex, renderValue }) => {
+                    const rowItem = tableBodyData[rowIndex];
+                    if (renderValue) {
+                      return renderValue(item, rowItem);
+                    }
+
+                    if (key === "status") {
+                      return (
+                        <span className={`${classes.statusPill} ${getStatusClass(item)}`}>
+                          {item}
+                        </span>
+                      );
+                    }
+
+                    if (key === "actions") {
+                      return (
+                        <div className={classes.actionButtons}>
+                          <PopOver
+                            popover={dashboardPopoverOptions}
+                            onClick={(label) => {
+                              onClickPopover(label, rowItem);
+                            }}
+                          />
+                        </div>
+                      );
+                    }
+
+                    return item || "";
+                  }}
+                />
+              </Wrapper>
+            </Col>
+            <Col lg={5}>2</Col>
           </Row>
         </Container>
       </div>
