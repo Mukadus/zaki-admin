@@ -16,6 +16,11 @@
 .marginTop {
   margin-top: 12px;
 }
+
+.profileInfoDiv{
+  display: flex;
+  flex-direction: column;
+}
 .userName {
   color: var(--deep-teal);
   font-family: var(--font-inter), sans-serif;
@@ -24,6 +29,15 @@
   font-weight: 600;
   line-height: normal;
   text-transform: capitalize;
+}
+
+.email{
+    color: var(--deep-teal);
+  font-family: var(--font-inter), sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .shadowWrapper {

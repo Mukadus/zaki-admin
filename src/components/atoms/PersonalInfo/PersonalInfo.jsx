@@ -67,7 +67,10 @@ export default function PersonalInfo({ showCertifications = false }) {
         <div className={classes?.photoDiv}>
           <ImageComponent src={"/app-images/userDummy.png"} />
         </div>
-        <h4 className={classes.userName}>John Doe</h4>
+        <div className={classes.profileInfoDiv}>
+          <h4 className={classes.userName}>John Doe</h4>
+          <p className={classes.email}>janie_Hermann13@yahoo.com</p>
+        </div>
       </Wrapper>
       <h3 className={classes.personalInfoTitle}>Personal Info</h3>
       <hr className={classes.divider} />
