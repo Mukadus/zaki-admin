@@ -10,14 +10,14 @@
   height: 44px;
   position: relative;
   border-radius: 8px;
-  border: 1px solid #c5f1ee;
+  border: 1px solid var(--border-thin);
 }
 
 .marginTop {
   margin-top: 12px;
 }
 .userName {
-  color: #024757;
+  color: var(--deep-teal);
   font-family: var(--font-inter), sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -34,7 +34,7 @@
 }
 
 .personalInfoTitle {
-  color: var(--primary-500, #116063);
+  color: var(--title);
   font-family: var(--font-inter), sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -44,7 +44,7 @@
 
 .divider {
   height: 1px;
-  background-color: rgba(172, 228, 224, 0.56);
+  background-color: var(--sea-mist-50);
   border: none;
   margin: 0;
   padding: 0;
@@ -58,14 +58,14 @@
 }
 
 .icon {
-  color: #116063;
+  color: var(--title);
   width: 16px;
   height: 16px;
   margin-bottom: 1.5px;
 }
 
 .keyValue {
-  color: var(--Heading-color, #032e38);
+  color: var(--Heading-color);
   font-family: var(--font-inter), sans-serif;
   font-size: 12px;
   font-style: normal;
@@ -74,7 +74,7 @@
 }
 
 .keyValue span {
-  color: #277f93;
+  color: var(--tidewater-blue);
   font-family: var(--font-inter), sans-serif;
   font-size: 12px;
   font-weight: 500;
@@ -89,7 +89,7 @@
 
 .certificateItem {
   border-radius: 10px;
-  border: 1px solid #d1d5db;
+  border: 1px solid var(--border-gray);
   backdrop-filter: blur(40px);
   display: flex;
   padding: 20px 16px;
@@ -112,7 +112,7 @@ height: 59px;
 }
 
 .certificateName{
-  color: var(--Heading-color, #032E38);
+  color: var(--Heading-color);
   font-family: var(--font-inter), sans-serif;
 font-size: 14px;
 font-style: normal;
