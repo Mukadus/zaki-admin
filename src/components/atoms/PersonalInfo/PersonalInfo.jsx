@@ -6,13 +6,15 @@ import Image from "next/image";
 import { FaCalendarDays } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
 import { BiWorld } from "react-icons/bi";
+import ImageComponent from "../ImageComponent/ImageComponent";
 
 export default function PersonalInfo() {
   return (
     <ShadowWrapper className={classes?.shadowWrapper}>
       <Wrapper className={classes.photoNameDiv}>
         <div className={classes?.photoDiv}>
-            <Image src={'/app-images/userDummy.png'} fill/>
+            <ImageComponent src={'/app-images/userDummy.png'}/>
+            {/* <Image src={'/app-images/userDummy.png'} fill/> */}
         </div>
         <h4 className={classes.userName}>John Doe</h4>
       </Wrapper>
