@@ -40,6 +40,20 @@ export default function PersonalInfo({ showCertifications = false }) {
     );
   };
 
+  const renderCertificateItem = (item, index) => {
+    return (
+      <div className={classes.certificateItem}>
+        <div className={classes.certificateImageDiv}>
+          <ImageComponent src={"/app-images/pdf.png"} />
+        </div>
+        <div className={classes.certificateInfo}>
+          <p className={classes.certificateName}>Document.pdf</p>
+          <p className={classes.certificateDate}>Jan 17, 2022</p>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <ShadowWrapper className={classes?.shadowWrapper}>
       <Wrapper className={classes.photoNameDiv}>
@@ -53,18 +67,14 @@ export default function PersonalInfo({ showCertifications = false }) {
       {personalInfoData.map(renderInfoItem)}
       {showCertifications && (
         <>
-          <h3 className={mergeClass(classes.personalInfoTitle, classes.marginTop)}>Certifications</h3>
+          <h3
+            className={mergeClass(classes.personalInfoTitle, classes.marginTop)}
+          >
+            Certifications
+          </h3>
           <hr className={classes.divider} />
           <div className={classes.certificationsDiv}>
-            <div className={classes.certificateItem}>
-              <div className={classes.certificateImageDiv}>
-                <ImageComponent src={"/app-images/pdf.png"} />
-              </div>
-              <div className={classes.certificateInfo}>
-                <p className={classes.certificateName}>Document.pdf</p>
-                <p className={classes.certificateDate}>Jan 17, 2022</p>
-              </div> 
-            </div>
+            {[1, 2].map(renderCertificateItem)}
           </div>
         </>
       )}
