@@ -8,6 +8,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { BiWorld } from "react-icons/bi";
 import ImageComponent from "../ImageComponent/ImageComponent";
 import { mergeClass } from "@/resources/utils/helper";
+import { FaPhone } from "react-icons/fa6";
 
 export default function PersonalInfo({ showCertifications = false }) {
   const personalInfoData = [
@@ -20,6 +21,11 @@ export default function PersonalInfo({ showCertifications = false }) {
       icon: FaLocationDot,
       label: "Location",
       value: "Ondrickachester",
+    },
+    {
+      icon: FaPhone,
+      label: "Contact",
+      value: "(209) 555-0104",
     },
     {
       icon: BiWorld,
