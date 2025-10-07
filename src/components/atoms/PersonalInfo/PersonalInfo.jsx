@@ -11,7 +11,7 @@ import { mergeClass } from "@/resources/utils/helper";
 import { FaPhone } from "react-icons/fa6";
 import Button from "../Button";
 
-export default function PersonalInfo({ showCertifications = false }) {
+export default function PersonalInfo({ showCertifications = false, isAppointment = false }) {
   const getStatusClass = (status) => {
     return status === "Completed"
       ? classes.completedStatus
@@ -79,9 +79,9 @@ export default function PersonalInfo({ showCertifications = false }) {
           <p className={classes.email}>janie_Hermann13@yahoo.com</p>
         </div>
         </div>
-        <span className={`${classes.statusPill} ${getStatusClass('Completed')}`}>
+       {isAppointment && <span className={`${classes.statusPill} ${getStatusClass('Completed')}`}>
           Completed
-        </span>
+        </span>}
       </Wrapper>
       <h3 className={classes.personalInfoTitle}>Personal Info</h3>
       <hr className={classes.divider} />

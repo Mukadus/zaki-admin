@@ -9,7 +9,7 @@ const AppointmentDetailTemplate = () => {
     <>
         <Container>
             <TopHeader title="Appointment Detail" route="/appointment" />
-            <PersonalInfo />
+            <PersonalInfo isAppointment/>
         </Container>
     </>
   )
