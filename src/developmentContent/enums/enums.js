@@ -27,3 +27,14 @@ export const appointmentFilter = [
         value:"completed",
     }
 ]
+
+export const categoryFilter = [
+    {
+        label:"All",
+        value:"all",
+    },
+    {
+        label:"Requested",
+        value:"requested",
+    }
+]

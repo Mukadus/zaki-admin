@@ -16,7 +16,6 @@ const UserRegisterationoDetailTemplate = ({slug}) => {
                 <Wrapper>
                     das
                 </Wrapper>
-                <ResponsiveTable />
             </ShadowWrapper>
         </Container>
     </>

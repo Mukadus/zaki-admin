@@ -5,11 +5,11 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import { useRouter } from "next/navigation";
 
 
-const TopHeader = ({ title = "", backButton = true,route="" }) => {
+const TopHeader = ({ title = "",route="" }) => {
   const router = useRouter();
   return (
     <div className={classes?.topHeader}>
-      {backButton && (
+      {route && (
         <div onClick={()=>{
           router.push(route);
         }} className={classes?.backButton}>

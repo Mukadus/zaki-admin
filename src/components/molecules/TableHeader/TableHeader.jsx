@@ -11,6 +11,7 @@ const TableHeader = ({
   setSelectedData,
   onSearch,
   search,
+  rightSide=true,
 }) => {
   return (
     <div className={classes?.tableHeader}>
@@ -21,22 +22,27 @@ const TableHeader = ({
           setSelectedData={setSelectedData}
         />
       </div>
-      <div className={classes?.rightSide}>
-        <Input
-          className={classes?.searchInput}
-          value={search}
-          setValue={onSearch}
-          inputClass={classes?.inputClass}
-          type="search"
-          placeholder="Search"
-          rightIcon={<IoSearch size={20} color="#024757" />}
-        />
-        <DropDown
-          containerClassName={classes?.dropdownContainer}
-          options={filterData}
-          onChange={setSelectedData}
-        />
-      </div>
+      {
+        rightSide && (
+          <div className={classes?.rightSide}>
+          <Input
+            className={classes?.searchInput}
+            value={search}
+            setValue={onSearch}
+            inputClass={classes?.inputClass}
+            type="search"
+            placeholder="Search"
+            rightIcon={<IoSearch size={20} color="#024757" />}
+          />
+          <DropDown
+            containerClassName={classes?.dropdownContainer}
+            options={filterData}
+            onChange={setSelectedData}
+          />
+        </div>
+        )
+      }
+     
     </div>
   );
 };
