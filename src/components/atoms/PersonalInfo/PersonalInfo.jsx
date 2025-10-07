@@ -9,6 +9,34 @@ import { BiWorld } from "react-icons/bi";
 import ImageComponent from "../ImageComponent/ImageComponent";
 
 export default function PersonalInfo() {
+  const personalInfoData = [
+    {
+      icon: FaCalendarDays,
+      label: 'Email',
+      value: 'anastasya@yahoo.com'
+    },
+    {
+      icon: FaLocationDot,
+      label: 'Location',
+      value: 'Ondrickachester'
+    },
+    {
+      icon: BiWorld,
+      label: 'Language',
+      value: 'English'
+    }
+  ];
+
+  const renderInfoItem = (item, index) => {
+    const IconComponent = item.icon;
+    return (
+      <div key={index} className={classes.infoDiv}>
+        <IconComponent className={classes.icon}/>
+        <p className={classes.keyValue}>{item.label} {' '} <span>{item.value}</span></p>
+      </div>
+    );
+  };
+
   return (
     <ShadowWrapper className={classes?.shadowWrapper}>
       <Wrapper className={classes.photoNameDiv}>
@@ -19,19 +47,7 @@ export default function PersonalInfo() {
       </Wrapper>
       <h3 className={classes.personalInfoTitle}>Personal Info</h3>
       <hr className={classes.divider}/>
-      <div className={classes.infoDiv}>
-        <FaCalendarDays className={classes.icon}/>
-        <p className={classes.keyValue}>Email {' '} <span>anastasya@yahoo.com</span></p>
-      </div>
-      <div className={classes.infoDiv}>
-        <FaLocationDot  className={classes.icon}/>
-        <p className={classes.keyValue}>Location {' '} <span>Ondrickachester</span></p>
-      </div>
-      <div className={classes.infoDiv}>
-        <BiWorld className={classes.icon}/>
-        <p className={classes.keyValue}>Language {' '} <span>English</span></p>
-      </div>
-
+      {personalInfoData.map(renderInfoItem)}
     </ShadowWrapper>
   );
 }
