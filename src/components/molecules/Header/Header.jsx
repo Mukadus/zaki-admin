@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import classes from "./Header.module.css";
 import Image from "next/image";
@@ -8,9 +9,10 @@ import { BiMenu, BiOutline } from "react-icons/bi";
 import { IoNotificationsOutline } from "react-icons/io5";
 import HeaderList from "@/components/atoms/HeaderList/HeaderList";
 import { headerData } from "@/developmentContent/developmentData/HeaderData";
-
+import { useRouter } from "next/navigation";
 
 const Header = () => {
+  const router = useRouter();
   return (
     <header className={classes.header}>
       <Container>
@@ -30,6 +32,9 @@ const Header = () => {
           {/* right side action */}
           <div className={classes?.rightSideAction}>
             <Button
+            onClick={()=>{
+              router.push("/notification");
+            }}
               className={classes?.btn}
               label="Notifications"
               leftIcon={<IoNotificationsOutline size={18} />}

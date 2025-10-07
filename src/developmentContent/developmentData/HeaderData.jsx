@@ -34,7 +34,7 @@ export const headerData = [
   {
     _id: 5,
     label: "Analytics",
-    link: "/analytic",
+    link: "/analytics",
     icon: <GrAnalytics size={18} />,
   },
   {
