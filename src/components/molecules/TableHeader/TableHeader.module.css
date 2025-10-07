@@ -1,0 +1,45 @@
+
+.tableHeader{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    min-width: 0;
+}
+.tableHeader .rightSide{
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+.leftSide{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.searchInput input{
+    width: 250px !important;
+    border-radius: 15px !important;
+    height: 45px;
+}
+
+.inputClass{
+ background-color: var(--cloud-white) !important;   
+}
+
+.dropdownContainer{
+    width: 140px !important;
+    /* background-color: ; */
+    border-radius: 15px !important;
+}
+
+.dropdownContainer :global(.react-dropdown-select) {
+    border-radius: 15px !important;
+    background-color: var(--cloud-white) !important;   
+    border: 1px solid #e0e0e0 !important;
+    min-height: 44px !important;
+    padding: 8px 12px !important;
+}
+

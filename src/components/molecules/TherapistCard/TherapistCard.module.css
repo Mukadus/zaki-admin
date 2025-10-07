@@ -1,0 +1,82 @@
+.therapistCard {
+  padding: 16px;
+  border-radius: 20px;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.therapistName{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.profileImage {
+  width: 44px;
+  height: 44px;
+  position: relative;
+  border-radius: 8px;
+}
+
+.profileImage img {
+  border-radius: 8px;
+  object-fit: cover;
+}
+.wrapper {
+  padding: 14px !important;
+}
+
+.therapistInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.therapistInfo h4 {
+  color: var(--deep-teal);
+  font-family: var(--font-inter);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+  width: 70px;
+}
+
+.therapistdetails {
+  color: var(--Heading-color);
+  font-family: var(--font-inter);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 200% */
+  letter-spacing: -0.2px;
+  height: 60px;
+}
+.therapistCard hr{
+    color: var(--pastel-aqua);
+    margin: 0px;
+}
+
+.bottom{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.slot{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.slot p{
+    color: var(--Heading-color);
+    font-family: var(--font-inter);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; 
+    text-transform: capitalize;   
+}

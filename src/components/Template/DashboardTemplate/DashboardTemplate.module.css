@@ -1,0 +1,39 @@
+
+
+.notification{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.notification h4{
+    color: var(--Heading-color);
+    font-family: var(--font-inter);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: capitalize;   
+}
+
+.notificationCardContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.arrow{
+    width: 28px;
+    height: 28px;
+    background-color: var(--deep-teal);
+    border-radius: 8px;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.noDataFound{
+    min-height: 27vh !important;
+}

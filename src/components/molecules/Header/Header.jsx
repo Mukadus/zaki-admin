@@ -7,7 +7,7 @@ import Button from "@/components/atoms/Button";
 import { BiMenu, BiOutline } from "react-icons/bi";
 import { IoNotificationsOutline } from "react-icons/io5";
 import HeaderList from "@/components/atoms/HeaderList/HeaderList";
-import { headerData } from "@/developmentContent/HeaderData";
+import { headerData } from "@/developmentContent/developmentData/HeaderData";
 
 
 const Header = () => {

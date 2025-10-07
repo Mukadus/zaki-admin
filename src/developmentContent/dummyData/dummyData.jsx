@@ -1,0 +1,44 @@
+export const recentTherapistData = [
+    {
+        _id: 1,
+        name: "John Doe",
+        description: "As a licensed therapist with 10+ years of experience, I help families and couples build stronger relationships through open communication and trust.",
+        slots: "11:00 - 12:00 PM",
+        location: "11:00 - 12:00 PM",
+        image: "/svgs/profile.svg",
+        rating: 4.5,
+    },
+    {
+        _id: 2,
+        name: "Jane Doe",
+        description: "As a licensed therapist with 10+ years of experience, I help families and couples build stronger relationships through open communication and trust.",
+        slots: "11:00 - 12:00 PM",
+        location: "11:00 - 12:00 PM",
+        image: "/svgs/profile.svg",
+        rating: 4.5,
+    },
+    {
+        _id: 3,
+        name: "John Doe",
+        description: "As a licensed therapist with 10+ years of experience, I help families and couples build stronger relationships through open communication and trust.",
+        slots: "11:00 - 12:00 PM",
+        location: "11:00 - 12:00 PM",
+        image: "/svgs/profile.svg",
+        rating: 4.5,
+    },
+]
+
+export const notificationCardData = [
+    {
+        _id: 1,
+        title: "New Therapist Registration",
+        description: "John Smith has registered as a therapist and is awaiting profile verification. Please review and approve or reject the request.",
+        time: "Today 11:50 PM",
+    },
+    {
+        _id: 2,
+        title: "New Therapist Registration",
+        description: "John Smith has registered as a therapist and is awaiting profile verification.",
+        time: "Today 11:50 PM",
+    }
+]

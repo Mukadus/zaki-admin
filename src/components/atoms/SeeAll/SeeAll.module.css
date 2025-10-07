@@ -1,0 +1,32 @@
+
+.seeAll{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+.seeAll h3{
+    color: var(--tidewater-blue);
+font-family: var(--font-inter);
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+text-transform: capitalize;
+}
+
+.arrow{
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    background-color: #90b1b6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--deep-teal);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: capitalize;
+}

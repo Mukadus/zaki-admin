@@ -47,7 +47,7 @@
 }
 
 .inputClassName::placeholder {
-  color: var(--gray-v1);
+  color: var(--industrial-gray);
   font-size: 14px;
   text-transform: capitalize;
   font-family: var(--font-inter);

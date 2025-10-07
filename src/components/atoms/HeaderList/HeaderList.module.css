@@ -5,10 +5,10 @@
   padding: 15px 20px;
   color: var(--white);
   border-radius: 16px;
-
+cursor: pointer;
 }
 
-.headerList label {
+.headerList span {
   color: var(--white);
   font-family: var(--font-sen);
   font-size: 16px;
@@ -18,7 +18,7 @@
 }
 
 
-.active,.active label{
+.active,.active span{
   background-color: var(--white) !important;
   color: var(--Heading-color) !important;
 }

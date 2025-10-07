@@ -3,10 +3,11 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  border-bottom: 0.667px solid var(--white-2);
+  /* border-bottom: 0.667px solid var(--white-2); */
   background: #ffffffcc;
   backdrop-filter: blur(6px);
   padding: 20px 0px;
+  margin-bottom: 20px;
 }
 
 
@@ -41,8 +42,13 @@
   padding: 13px 10px;
   margin-top:0px;
 }
+
 .headerList{
-  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 0 1 auto;
+  min-width: 0;
 }
 
 .profile{
@@ -63,8 +69,3 @@
   gap: 10px;
 }
 
-.headerList{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}

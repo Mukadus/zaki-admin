@@ -1,0 +1,26 @@
+.backButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: var(--deep-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.topHeader h1 {
+  color: var(--Heading-color);
+  font-family: var(--font-inter);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+}
