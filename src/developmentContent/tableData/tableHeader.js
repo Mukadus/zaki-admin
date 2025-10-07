@@ -245,3 +245,51 @@ export const requestedTableHeader = [
     },
   },
 ];
+
+// Billing Table Header
+export const billingTableHeader = [
+  {
+    title: "Client Name",
+    key: "clientName",
+    style: {
+      width: "25%",
+      minWidth: "150px",
+    },
+    renderValue: (cellValue) => (
+      <RenderTextCell cellValue={cellValue} bold />
+    ),
+  },
+  {
+    title: "Email",
+    key: "email",
+    style: {
+      width: "35%",
+      minWidth: "200px",
+    },
+    renderValue: (cellValue) => (
+      <RenderTextCell cellValue={cellValue} />
+    ),
+  },
+  {
+    title: "Date",
+    key: "date",
+    style: {
+      width: "20%",
+      minWidth: "120px",
+    },
+    renderValue: (cellValue) => (
+      <RenderTextCell cellValue={cellValue} />
+    ),
+  },
+  {
+    title: "Amount",
+    key: "amount",
+    style: {
+      width: "20%",
+      minWidth: "100px",
+    },
+    renderValue: (cellValue) => (
+      <RenderTextCell cellValue={cellValue} />
+    ),
+  },
+];

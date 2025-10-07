@@ -38,3 +38,15 @@ export const categoryFilter = [
         value:"requested",
     }
 ]
+
+
+export const walletFilter = [
+    {
+        label:"Package",
+        value:"package",
+    },
+    {
+        label:"Billing",
+        value:"billing",
+    }
+]

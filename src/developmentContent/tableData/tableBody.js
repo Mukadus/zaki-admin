@@ -221,3 +221,56 @@ export const requestedData = [
     date: "October 30, 2017"
   }
 ];
+
+// Billing Data
+export const billingData = [
+  {
+    id: 1,
+    clientName: "Loretta Rippin",
+    email: "Loretta.Rippin51@gmail.com",
+    date: "October 30, 2017",
+    amount: "$56.7"
+  },
+  {
+    id: 2,
+    clientName: "Everett Rodriguez",
+    email: "Everett70@yahoo.com",
+    date: "October 30, 2017",
+    amount: "$56.7"
+  },
+  {
+    id: 3,
+    clientName: "Everett Rodriguez",
+    email: "Everett70@yahoo.com",
+    date: "October 30, 2017",
+    amount: "$56.7"
+  },
+  {
+    id: 4,
+    clientName: "Everett Rodriguez",
+    email: "Everett70@yahoo.com",
+    date: "October 30, 2017",
+    amount: "$56.7"
+  },
+  {
+    id: 5,
+    clientName: "Everett Rodriguez",
+    email: "Everett70@yahoo.com",
+    date: "October 30, 2017",
+    amount: "$56.7"
+  },
+  {
+    id: 6,
+    clientName: "Everett Rodriguez",
+    email: "Everett70@yahoo.com",
+    date: "October 30, 2017",
+    amount: "$56.7"
+  },
+  {
+    id: 7,
+    clientName: "Casey Beer",
+    email: "Janie_Hermann13@yahoo.com",
+    date: "October 30, 2017",
+    amount: "$56.7"
+  }
+];
