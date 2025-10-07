@@ -5,17 +5,14 @@ import React from 'react'
 import { Container } from 'react-bootstrap';
 import classes from "./UserRegisterationoDetailTemplate.module.css"
 import Wrapper from '@/components/atoms/Wrapper/Wrapper';
+import PersonalInfo from '@/components/atoms/PersonalInfo/PersonalInfo';
 
 const UserRegisterationoDetailTemplate = ({slug}) => {
   return (
     <>
         <Container>
             <TopHeader title="User Registration" backButton={false} />
-            <ShadowWrapper className={classes?.shadowWrapper}>
-                <Wrapper>
-                    das
-                </Wrapper>
-            </ShadowWrapper>
+            <PersonalInfo/>
         </Container>
     </>
   )

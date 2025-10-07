@@ -1,0 +1,45 @@
+.photoNameDiv {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px !important;
+}
+
+.photoDiv {
+  width: 44px;
+  height: 44px;
+  position: relative;
+  border-radius: 8px;
+  border: 1px solid #c5f1ee;
+}
+
+.userName {
+  color: #024757;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.shadowWrapper {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.personalInfoTitle {
+  color: var(--primary-500, #116063);
+  font-family: var(--font-inter), sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.divider{
+    stroke-width: 1px;
+stroke: rgba(172, 228, 224, 0.56);
+}
