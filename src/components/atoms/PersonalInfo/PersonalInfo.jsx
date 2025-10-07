@@ -9,6 +9,7 @@ import { BiWorld } from "react-icons/bi";
 import ImageComponent from "../ImageComponent/ImageComponent";
 import { mergeClass } from "@/resources/utils/helper";
 import { FaPhone } from "react-icons/fa6";
+import Button from "../Button";
 
 export default function PersonalInfo({ showCertifications = false }) {
   const personalInfoData = [
@@ -81,6 +82,10 @@ export default function PersonalInfo({ showCertifications = false }) {
           <hr className={classes.divider} />
           <div className={classes.certificationsDiv}>
             {[1, 2].map(renderCertificateItem)}
+          </div>
+          <div className={classes.btnsDiv}>
+            <Button variant={"primary"} label={"Accept"} />
+            <Button variant={"secondary"} label={"Reject"} />
           </div>
         </>
       )}

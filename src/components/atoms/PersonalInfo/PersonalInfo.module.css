@@ -129,3 +129,10 @@ font-style: normal;
 font-weight: 400;
 line-height: normal;
 }
+
+.btnsDiv{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 8px;
+}
