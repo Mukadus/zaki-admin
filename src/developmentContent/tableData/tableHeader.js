@@ -74,3 +74,90 @@ export const tableHeader = [
     },
   },
 ];
+
+// Appointment Table Header
+export const appointmentTableHeader = [
+  {
+    title: "Client Name",
+    key: "clientName",
+    style: {
+      width: "18%",
+      minWidth: "140px",
+    },
+    renderValue: (cellValue) => (
+      <RenderTextCell cellValue={cellValue} bold />
+    ),
+  },
+  {
+    title: "Email",
+    key: "email",
+    style: {
+      width: "20%",
+      minWidth: "160px",
+    },
+    renderValue: (cellValue) => (
+      <RenderTextCell cellValue={cellValue} />
+    ),
+  },
+  {
+    title: "Therapist",
+    key: "therapist",
+    style: {
+      width: "16%",
+      minWidth: "120px",
+    },
+    renderValue: (cellValue) => (
+      <RenderTextCell cellValue={cellValue} />
+    ),
+  },
+  {
+    title: "Category",
+    key: "category",
+    style: {
+      width: "18%",
+      minWidth: "140px",
+    },
+    renderValue: (cellValue) => (
+      <RenderTextCell cellValue={cellValue} />
+    ),
+  },
+  {
+    title: "Location",
+    key: "location",
+    style: {
+      width: "14%",
+      minWidth: "110px",
+    },
+    renderValue: (cellValue) => (
+      <RenderTextCell cellValue={cellValue} />
+    ),
+  },
+  {
+    title: "Date",
+    key: "date",
+    style: {
+      width: "12%",
+      minWidth: "100px",
+    },
+    renderValue: (cellValue) => (
+      <RenderTextCell cellValue={cellValue} />
+    ),
+  },
+  {
+    title: "Status",
+    key: "status",
+    style: {
+      width: "10%",
+      minWidth: "90px",
+    },
+    renderValue: (cellValue) => <RenderStatusCell cellValue={cellValue} />,
+  },
+  {
+    title: "Actions",
+    key: "actions",
+    style: {
+      width: "12%",
+      minWidth: "100px",
+    },
+  },
+];

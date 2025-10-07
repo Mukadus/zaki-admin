@@ -1,3 +1,4 @@
+// User Registration Data
 export const tableBodyData = [
   {
     id: 1,
@@ -52,5 +53,79 @@ export const tableBodyData = [
     date: "November 2, 2017",
     category: "Therapy Specialist",
     status: "Completed"
+  }
+];
+
+// Appointment Data
+export const appointmentData = [
+  {
+    id: 1,
+    clientName: "Loretta Rippin",
+    email: "Loretta.Rippin51@gmail.com",
+    therapist: "Marvin McKinney",
+    category: "Psychodynamic Therapy",
+    location: "United States",
+    date: "October 30, 2017",
+    status: "Upcoming"
+  },
+  {
+    id: 2,
+    clientName: "Everett Rodriguez",
+    email: "Everett70@yahoo.com",
+    therapist: "Leslie Alexander",
+    category: "Interpersonal Therapy",
+    location: "Portland, Illinois",
+    date: "October 30, 2017",
+    status: "Completed"
+  },
+  {
+    id: 3,
+    clientName: "Everett Rodriguez",
+    email: "Everett70@yahoo.com",
+    therapist: "Guy Hawkins",
+    category: "Mindfulness-Based Therapy",
+    location: "Corona, Michigan",
+    date: "October 30, 2017",
+    status: "Upcoming"
+  },
+  {
+    id: 4,
+    clientName: "Everett Rodriguez",
+    email: "Everett70@yahoo.com",
+    therapist: "Wade Warren",
+    category: "Hypnotherapy",
+    location: "Everett70@yahoo.com",
+    date: "October 30, 2017",
+    status: "Completed"
+  },
+  {
+    id: 5,
+    clientName: "Everett Rodriguez",
+    email: "Everett70@yahoo.com",
+    therapist: "Jacob Jones",
+    category: "Transpersonal Therapy",
+    location: "Everett70@yahoo.com",
+    date: "October 30, 2017",
+    status: "Upcoming"
+  },
+  {
+    id: 6,
+    clientName: "Everett Rodriguez",
+    email: "Everett70@yahoo.com",
+    therapist: "Albert Flores",
+    category: "Interpersonal Therapy",
+    location: "Everett70@yahoo.com",
+    date: "October 30, 2017",
+    status: "Completed"
+  },
+  {
+    id: 7,
+    clientName: "Casey Beer",
+    email: "Janie_Hermann13@yahoo.com",
+    therapist: "Ralph Edwards",
+    category: "Mindfulness-Based Therapy",
+    location: "Janie_Hermann13@yahoo.com",
+    date: "October 30, 2017",
+    status: "Upcoming"
   }
 ];

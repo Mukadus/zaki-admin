@@ -15,13 +15,18 @@ import {
 import { tableHeader } from "@/developmentContent/tableData/tableHeader";
 import { tableBodyData } from "@/developmentContent/tableData/tableBody";
 import { dashboardPopoverOptions } from "@/developmentContent/popoverOptions";
+import { useRouter } from "next/navigation";
 import { GoArrowUpRight } from "react-icons/go";
 import NotificationCard from "@/components/atoms/NotificationCard/NotificationCard";
 import NoDataFound from "@/components/atoms/NoDataFound/NoDataFound";
 
 const DashboardTemplate = () => {
+
+  const router = useRouter();
+
+
   const onClickPopover = (label, rowItem) => {
-    console.log(label, rowItem);
+    label === 'view'?router.push(`/user-registration/${rowItem?._id}`):null;
   };
 
   const getStatusClass = (status) => {

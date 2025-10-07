@@ -8,6 +8,7 @@ import { tableHeader } from "@/developmentContent/tableData/tableHeader";
 import { tableBodyData } from "@/developmentContent/tableData/tableBody";
 import { dashboardPopoverOptions } from "@/developmentContent/popoverOptions";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Container } from "react-bootstrap";
 import classes from "./UserRegistrationTemplate.module.css";
 import PopOver from "@/components/molecules/PopOver";
@@ -17,20 +18,18 @@ const UserRegistrationTemplate = () => {
   const [search, setSearch] = useState("");
   const [data, setData] = useState({ therapists: tableBodyData });
   const [loading, setLoading] = useState("");
+  
+  const router = useRouter();
+
 
   const onClickPopover = (label, rowItem) => {
-    console.log(label, rowItem);
+    label === 'view'?router.push(`/user-registration/${rowItem?._id}`):null;
   };
 
   const getStatusClass = (status) => {
     return status === "Completed" ? classes.completedStatus : classes.upcomingStatus;
   };
 
-  // Debug logging
-  console.log("Table data:", data?.therapists);
-  console.log("Table data length:", data?.therapists?.length);
-  console.log("Table header:", tableHeader);
-  console.log("First row data:", data?.therapists?.[0]);
 
   return (
     <div>

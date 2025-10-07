@@ -3,18 +3,17 @@ import clsx from "clsx";
 import moment from "moment";
 import classes from "./CommonCells.module.css";
 
-// statusClassMap - a map of status classes
 const statusClassMap = {
-  upcoming: {
+  "Upcoming": {
     className: classes.upcomingStatus,
   },
-  completed: {
+  "Completed": {
     className: classes.completedStatus,
   },
-  cancelled: {
+  "cancelled": {
     className: classes.cancelledStatus,
   },
-  rescheduled: {
+  "rescheduled": {
     className: classes.rescheduledStatus,
   },
 };
@@ -37,6 +36,7 @@ export const RenderDateCell = ({ cellValue: item }) => {
 
 export const RenderStatusCell = ({ cellValue: item }) => {
   const isBoolean = typeof item === "boolean";
+  
   const displayValue = isBoolean ? (item ? "active" : "inactive") : item;
 
   const statusClass = statusClassMap[displayValue];

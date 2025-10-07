@@ -34,10 +34,13 @@
 }
 
 .btn[color-variant="primary"] {
-  color: var(--white-1);
-  background: var(--gradient-primary);
+  color: var(--white);
+  background-color:var(--deep-teal);
 }
-
+.btn[color-variant="secondary"] {
+  color: var(--Heading-color);
+  background-color:rgba(172, 228, 224, 0.26);;
+}
 .btn[color-variant="outlined"] {
   border: 1px solid var(--blue-1) !important;
   color: var(--blue);
