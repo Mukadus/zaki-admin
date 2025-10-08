@@ -58,7 +58,7 @@ const AnalyticsTemplate = () => {
           <Col lg={6} md={6} sm={12} className="mb-3">
           </Col>
         </Row>
-        <GraphsFilter/>
+        <GraphsFilter startingYear={'2022'} title={'New Sign Ups'}/>
       </Container>
     </div>
   )
