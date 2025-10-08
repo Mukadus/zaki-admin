@@ -8,6 +8,11 @@
     height: 220px !important;
 }
 
+.areaChartContainer{
+    padding: 0px !important;
+    height: 220px !important;
+}
+
 .analyticsCardsGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;

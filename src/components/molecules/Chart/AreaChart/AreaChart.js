@@ -34,7 +34,7 @@ const options = {
   layout: {
     padding: {
       right: 20,
-      bottom: 20,
+      bottom: 0,
     },
   },
   animation: {

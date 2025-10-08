@@ -12,6 +12,7 @@ import {
 } from "react-icons/hi2";
 import GraphsFilter from "@/components/atoms/GraphsFilter/GraphsFilter";
 import BarChart from "@/components/molecules/Chart/BarChart/BarChart";
+import AreaChart from "@/components/molecules/Chart/AreaChart/AreaChart";
 import ShadowWrapper from "@/components/atoms/ShadowWrapper/ShadowWrapper";
 
 const AnalyticsTemplate = () => {
@@ -69,7 +70,20 @@ const AnalyticsTemplate = () => {
             </ShadowWrapper>
           </Col>
         </Row>
-        <GraphsFilter startingYear={"2022"} title={"New Sign Ups"} />
+        <Row className="mt-4">
+          <Col lg={6} md={6} sm={12} className="mb-3">
+            <ShadowWrapper className={classes.shadowWrapper}>
+              <GraphsFilter startingYear={"2022"} title={"New Sign Ups"} />
+              <BarChart className={classes.barChartContainer}/>
+            </ShadowWrapper>
+          </Col>
+          <Col lg={6} md={6} sm={12} className="mb-3">
+            <ShadowWrapper className={classes.shadowWrapper}>
+              <GraphsFilter startingYear={"2022"} title={"Total Appointments Booked"} />
+              <AreaChart className={classes.areaChartContainer}/>
+            </ShadowWrapper>
+          </Col>
+        </Row>
       </Container>
     </div>
   );
