@@ -62,7 +62,7 @@ const AnalyticsTemplate = () => {
               ))}
             </div>
           </Col>
-          <Col lg={6} md={6} sm={12} className="mb-3">
+          <Col lg={6} md={6} sm={12} className="">
             <ShadowWrapper className={classes.shadowWrapper}>
               <GraphsFilter startingYear={"2022"} title={"Subscription sales breakdown"} />
               <BarChart className={classes.barChartContainer}/>
