@@ -11,6 +11,7 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import classes from './BarChart.module.css';
+import { mergeClass } from '@/resources/utils/helper';
 
 ChartJS.register(
   CategoryScale,
@@ -133,9 +134,9 @@ const data = {
   ],
 };
 
-export default function BarChart() {
+export default function BarChart({className}) {
   return (
-    <div className={classes.chartContainer}>
+    <div className={mergeClass(classes.chartContainer, className)}>
       <Bar options={options} data={data} />
     </div>
   );
