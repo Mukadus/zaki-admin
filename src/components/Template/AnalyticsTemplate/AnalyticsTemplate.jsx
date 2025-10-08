@@ -4,6 +4,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import TopHeader from '@/components/atoms/TopHeader/TopHeader';
 import AnalyticsCard from '@/components/atoms/AnalyticsCard/AnalyticsCard';
 import { HiMiniUsers, HiMiniUserGroup, HiMiniCalendarDays, HiMiniCurrencyDollar } from 'react-icons/hi2';
+import GraphsFilter from '@/components/atoms/GraphsFilter/GraphsFilter';
 
 const AnalyticsTemplate = () => {
   // Sample analytics data
@@ -56,6 +57,7 @@ const AnalyticsTemplate = () => {
           <Col lg={6} md={6} sm={12} className="mb-3">
           </Col>
         </Row>
+        <GraphsFilter/>
       </Container>
     </div>
   )
