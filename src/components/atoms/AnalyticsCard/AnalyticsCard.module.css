@@ -57,4 +57,13 @@
   font-style: normal;
   font-weight: 500;
   line-height: 21px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.arrowIcon {
+  width: 12px;
+  height: 12px;
+  color: var(--green-500, #22c55e);
 }
