@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from "./AnalyticsTemplate.module.css"
-import { Container } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import TopHeader from '@/components/atoms/TopHeader/TopHeader';
 
 const AnalyticsTemplate = () => {
@@ -8,6 +8,14 @@ const AnalyticsTemplate = () => {
     <div>
       <Container>
         <TopHeader title="Analytics" backButton={false} />
+        <Row>
+          <Col lg={6}>  
+          1
+          </Col>
+          <Col lg={6}>  
+          2
+          </Col>
+        </Row>
       </Container>
     </div>
   )
