@@ -49,18 +49,18 @@ const AnalyticsTemplate = () => {
         <TopHeader title="Analytics" backButton={false} />
         <Row>
           <Col lg={6} md={6} sm={12}>
-            <Row>
+            <div className={classes.analyticsCardsGrid}>
               {analyticsData.map((data, index) => (
-                <Col key={index} lg={6} md={6} sm={12} className="mb-3">
+                <div key={index} className={classes.analyticsCardWrapper}>
                   <AnalyticsCard
                     title={data.title}
                     value={data.value}
                     change={data.change}
                     icon={data.icon}
                   />
-                </Col>
+                </div>
               ))}
-            </Row>
+            </div>
           </Col>
           <Col lg={6} md={6} sm={12} className="mb-3">
             <ShadowWrapper className={classes.shadowWrapper}>
