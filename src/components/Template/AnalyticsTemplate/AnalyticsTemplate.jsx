@@ -13,9 +13,6 @@ const AnalyticsTemplate = () => {
           <Col lg={6}>  
           <AnalyticsCard />
           </Col>
-          <Col lg={6}>  
-          2
-          </Col>
         </Row>
       </Container>
     </div>
