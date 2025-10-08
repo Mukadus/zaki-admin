@@ -9,6 +9,30 @@
   max-width: 120px;
 }
 
+.dropdownContainer :global(.react-dropdown-select) {
+  display: flex !important;
+  padding: 2px 8px !important;
+  align-items: center !important;
+  gap: 4px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(2, 71, 87, 0.51) !important;
+  min-height: 35px !important;
+  height: 35px !important;
+}
+
+.dropdownContainer :global(.react-dropdown-select .react-dropdown-select-content) {
+  height: 35px !important;
+  min-height: 35px !important;
+  max-height: 35px !important;
+}
+
+.dropdownContainer :global(.react-dropdown-select .react-dropdown-select-input) {
+  height: 35px !important;
+  min-height: 35px !important;
+  max-height: 35px !important;
+  line-height: 35px !important;
+}
+
 .mainDiv h4 {
   color: var(--Heading-color, #032e38);
   font-family: var(--font-inter), sans-serif;
