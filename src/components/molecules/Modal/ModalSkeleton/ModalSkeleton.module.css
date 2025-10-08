@@ -60,7 +60,7 @@
 
 .modal {
   position: fixed;
-  right: 20px;
+  right: 0px;
   top: 10px;
   width: 60%;
   max-width: 350px;

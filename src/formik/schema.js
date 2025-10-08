@@ -22,3 +22,10 @@ export const AddCategorySchema = Yup.object({
     .oneOf(["Active", "In-Active"], "Status must be either Active or In-Active")
     .required("Status is required"),
 });
+
+export const ReasonForRejectionSchema = Yup.object({
+  reason: Yup.string()
+    .required("Reason is required")
+    .min(5, "Reason must be at least 5 characters")
+    .max(500, "Reason must be less than 500 characters"),
+});

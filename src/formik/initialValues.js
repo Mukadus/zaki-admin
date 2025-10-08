@@ -20,3 +20,7 @@ export const addCategoryValues = {
   categoryName: "",
   status: "Active",
 };
+
+export const reasonForRejectionValues = {
+  reason: "",
+};

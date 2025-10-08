@@ -9,6 +9,7 @@ import ResponsiveTable from "@/components/organisms/ResponsiveTable/ResponsiveTa
 import PopOver from "@/components/molecules/PopOver";
 import Button from "@/components/atoms/Button";
 import AddCategoryModal from "@/components/molecules/Modal/AddCategoryModal/AddCategoryModal";
+import ReasonForRejectionModal from "@/components/molecules/Modal/ReasonForRejectionModal/ReasonForRejectionModal";
 import { categoryFilter } from "@/developmentContent/enums/enums";
 import { categoryTableHeader, requestedTableHeader } from "@/developmentContent/tableData/tableHeader";
 import { categoryData, requestedData } from "@/developmentContent/tableData/tableBody";
@@ -23,7 +24,9 @@ const CategoryTemplate = () => {
     requested: requestedData 
   });
   const [loading, setLoading] = useState("");
-  const [showAddModal, setShowAddModal] = useState(true);
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [showRejectionModal, setShowRejectionModal] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
   
   const router = useRouter();
 
@@ -41,8 +44,15 @@ const CategoryTemplate = () => {
   };
 
   const handleReject = (rowItem) => {
-    console.log("Reject:", rowItem);
-    // Handle reject logic here
+    setSelectedItem(rowItem);
+    setShowRejectionModal(true);
+  };
+
+  const handleRejectionSubmit = (rejectionData) => {
+    console.log("Rejecting item:", selectedItem, "with reason:", rejectionData.reason);
+    // Handle rejection logic here
+    setShowRejectionModal(false);
+    setSelectedItem(null);
   };
 
   const handleAddCategory = async (formData) => {
@@ -130,6 +140,12 @@ const CategoryTemplate = () => {
         show={showAddModal}
         setShow={setShowAddModal}
         onSubmit={handleAddCategory}
+      />
+      
+      <ReasonForRejectionModal
+        show={showRejectionModal}
+        setShow={setShowRejectionModal}
+        onSubmit={handleRejectionSubmit}
       />
     </>
   );
