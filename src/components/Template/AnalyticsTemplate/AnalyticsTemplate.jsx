@@ -39,18 +39,22 @@ const AnalyticsTemplate = () => {
       <Container>
         <TopHeader title="Analytics" backButton={false} />
         <Row>
-          {analyticsData.map((data, index) => (
-            <Col key={index} lg={6} md={6} sm={12} className="mb-3">
-              <AnalyticsCard 
-                title={data.title}
-                value={data.value}
-                change={data.change}
-                icon={data.icon}
-              />
-            </Col>
-          ))}
-          <Col md={6}>
-          <p>dedew</p></Col>
+          <Col lg={6} md={6} sm={12}>
+            <Row>
+              {analyticsData.map((data, index) => (
+                <Col key={index} lg={6} md={6} sm={12} className="mb-3">
+                  <AnalyticsCard 
+                    title={data.title}
+                    value={data.value}
+                    change={data.change}
+                    icon={data.icon}
+                  />
+                </Col>
+              ))}
+            </Row>
+          </Col>
+          <Col lg={6} md={6} sm={12} className="mb-3">
+          </Col>
         </Row>
       </Container>
     </div>
@@ -58,24 +62,3 @@ const AnalyticsTemplate = () => {
 }
 
 export default AnalyticsTemplate
-
-{/* <Row>
-          <Col  lg={6} md={6} sm={12} className="mb-3">
-          <Row className='gy-4'>
-          {analyticsData.map((data, index) => (
-            <Col lg={6}>
-              <AnalyticsCard 
-                title={data.title}
-                value={data.value}
-                change={data.change}
-                icon={data.icon}
-                key={index}
-                />
-                </Col>
-          ))}
-
-          </Row>
-            </Col>
-          <Col md={6}>
-          <p>dedew</p></Col>
-        </Row> */}
