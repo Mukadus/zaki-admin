@@ -9,19 +9,13 @@ import { addCategoryValues } from "@/formik/initialValues";
 import { AddCategorySchema } from "@/formik/schema";
 import classes from "./AddCategoryModal.module.css";
 
-const AddCategoryModal = ({ show, setShow, onSubmit }) => {
+const AddCategoryModal = ({ show, setShow }) => {
   // Formik hook
   const formik = useFormik({
     initialValues: addCategoryValues,
     validationSchema: AddCategorySchema,
     onSubmit: async (values) => {
-      try {
-        await onSubmit(values);
-        formik.resetForm();
-        setShow(false);
-      } catch (error) {
-        console.error("Error submitting category:", error);
-      }
+      onSubmit(values);
     }
   });
 
@@ -40,6 +34,10 @@ const AddCategoryModal = ({ show, setShow, onSubmit }) => {
   const handleCancel = () => {
     formik.resetForm();
     setShow(false);
+  };
+
+  const onSubmit = (values) => {
+    console.log("Adding category:", values);
   };
 
   return (
@@ -66,7 +64,7 @@ const AddCategoryModal = ({ show, setShow, onSubmit }) => {
                    isActive={formik.values.status === "Active"}
                    onChange={handleStatusChange}
                    label="Status"
-                   size="medium"
+                   size="small"
                  />
              </div>
          </div>
