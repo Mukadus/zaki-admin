@@ -15,3 +15,8 @@ export const updatePasswordValues = {
   password: "",
   confirmPassword: "",
 };
+
+export const addCategoryValues = {
+  categoryName: "",
+  status: "Active",
+};

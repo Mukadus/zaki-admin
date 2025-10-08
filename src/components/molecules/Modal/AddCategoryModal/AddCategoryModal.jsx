@@ -1,53 +1,44 @@
 "use client";
 import React, { useState } from "react";
+import { useFormik } from "formik";
 import ModalSkeleton from "../ModalSkeleton/ModalSkeleton";
 import Input from "@/components/atoms/Input/Input";
 import Button from "@/components/atoms/Button";
 import StatusToggle from "@/components/atoms/StatusToggle/StatusToggle";
+import { addCategoryValues } from "@/formik/initialValues";
+import { AddCategorySchema } from "@/formik/schema";
 import classes from "./AddCategoryModal.module.css";
 
 const AddCategoryModal = ({ show, setShow, onSubmit }) => {
-  const [formData, setFormData] = useState({
-    categoryName: "",
-    status: "Active"
+  // Formik hook
+  const formik = useFormik({
+    initialValues: addCategoryValues,
+    validationSchema: AddCategorySchema,
+    onSubmit: async (values) => {
+      try {
+        await onSubmit(values);
+        formik.resetForm();
+        setShow(false);
+      } catch (error) {
+        console.error("Error submitting category:", error);
+      }
+    }
   });
-  const [loading, setLoading] = useState(false);
 
   const handleInputChange = (field, value) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: value
-    }));
+    formik.setFieldValue(field, value);
   };
 
   const handleStatusChange = (isActive) => {
-    setFormData(prev => ({
-      ...prev,
-      status: isActive ? "Active" : "In-Active"
-    }));
+    formik.setFieldValue("status", isActive ? "Active" : "In-Active");
   };
 
   const handleSubmit = async () => {
-    setLoading(true);
-    try {
-      await onSubmit(formData);
-      setFormData({
-        categoryName: "",
-        status: "Active"
-      });
-      setShow(false);
-    } catch (error) {
-      console.error("Error submitting category:", error);
-    } finally {
-      setLoading(false);
-    }
+    await formik.submitForm();
   };
 
   const handleCancel = () => {
-    setFormData({
-      categoryName: "",
-      status: "Active"
-    });
+    formik.resetForm();
     setShow(false);
   };
 
@@ -59,41 +50,42 @@ const AddCategoryModal = ({ show, setShow, onSubmit }) => {
       slideFromRight={true}
       modalClass={classes.modal}
     >
-      <div className={classes.modalContent}>
-        <div className={classes.formContainer}>
-            <div className={classes.formHeader}>
-                <Input 
-                  label="Category Name" 
-                  placeholder="Psychological Therapies"
-                  value={formData.categoryName}
-                  onChange={(e) => handleInputChange("categoryName", e.target.value)}
-                />
-            </div>
-            <div className={classes.statusSection}>
-                <StatusToggle
-                  isActive={formData.status === "Active"}
-                  onChange={handleStatusChange}
-                  label="Status"
-                  size="medium"
-                />
-            </div>
-        </div>
-        <div className={classes.buttonContainer}>
-          <Button
-            variant="secondary"
-            label="Cancel"
-            onClick={handleCancel}
-            className={classes.cancelButton}
-          />
-          <Button
-            variant="primary"
-            label="Submit"
-            onClick={handleSubmit}
-            loading={loading}
-            className={classes.submitButton}
-          />
-        </div>
-      </div>
+       <div className={classes.modalContent}>
+         <div className={classes.formContainer}>
+             <div className={classes.formHeader}>
+                 <Input 
+                   label="Category Name" 
+                   placeholder="Psychological Therapies"
+                   value={formik.values.categoryName}
+                   setValue={(value) => handleInputChange("categoryName", value)}
+                   error={formik.touched.categoryName && formik.errors.categoryName}
+                 />
+             </div>
+             <div className={classes.statusSection}>
+                 <StatusToggle
+                   isActive={formik.values.status === "Active"}
+                   onChange={handleStatusChange}
+                   label="Status"
+                   size="medium"
+                 />
+             </div>
+         </div>
+         <div className={classes.buttonContainer}>
+           <Button
+             variant="secondary"
+             label="Cancel"
+             onClick={handleCancel}
+             className={classes.cancelButton}
+           />
+           <Button
+             variant="primary"
+             label="Submit"
+             onClick={handleSubmit}
+             loading={formik.isSubmitting}
+             className={classes.submitButton}
+           />
+         </div>
+       </div>
     </ModalSkeleton>
   );
 };
