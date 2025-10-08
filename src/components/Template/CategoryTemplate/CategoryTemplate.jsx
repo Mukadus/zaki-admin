@@ -8,6 +8,7 @@ import TableHeader from "@/components/molecules/TableHeader/TableHeader";
 import ResponsiveTable from "@/components/organisms/ResponsiveTable/ResponsiveTable";
 import PopOver from "@/components/molecules/PopOver";
 import Button from "@/components/atoms/Button";
+import AddCategoryModal from "@/components/molecules/Modal/AddCategoryModal/AddCategoryModal";
 import { categoryFilter } from "@/developmentContent/enums/enums";
 import { categoryTableHeader, requestedTableHeader } from "@/developmentContent/tableData/tableHeader";
 import { categoryData, requestedData } from "@/developmentContent/tableData/tableBody";
@@ -22,6 +23,7 @@ const CategoryTemplate = () => {
     requested: requestedData 
   });
   const [loading, setLoading] = useState("");
+  const [showAddModal, setShowAddModal] = useState(true);
   
   const router = useRouter();
 
@@ -43,6 +45,13 @@ const CategoryTemplate = () => {
     // Handle reject logic here
   };
 
+  const handleAddCategory = async (formData) => {
+    console.log("Adding category:", formData);
+    // Handle add category logic here
+    // You can add API call to save the category
+    // For now, just log the data
+  };
+
   // Simple data and header selection
   const currentData = SelectedData?.value === "requested" ? data?.requested : data?.categories;
   const currentTableHeader = SelectedData?.value === "requested" ? requestedTableHeader : categoryTableHeader;
@@ -58,6 +67,9 @@ const CategoryTemplate = () => {
             filterData={categoryFilter}
             SelectedData={SelectedData}
             setSelectedData={setSelectedData}
+            showAddButton={true}
+            onAddClick={() => setShowAddModal(true)}
+            addButtonLabel="Add Category"
           />
           <ResponsiveTable
             data={currentData}
@@ -113,6 +125,12 @@ const CategoryTemplate = () => {
         </ShadowWrapper>
         
       </Container>
+      
+      <AddCategoryModal
+        show={showAddModal}
+        setShow={setShowAddModal}
+        onSubmit={handleAddCategory}
+      />
     </>
   );
 };

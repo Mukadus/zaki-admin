@@ -1,0 +1,134 @@
+.statusContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--Heading-color);
+  font-family: var(--inter);
+  margin: 0;
+}
+
+.toggleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.statusToggle {
+  position: relative;
+  background-color: #e0e0e0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+  outline: none;
+}
+
+.statusToggle:hover:not(.disabled) {
+  opacity: 0.8;
+}
+
+.statusToggle.active {
+  background-color: var(--deep-teal);
+}
+
+.statusToggle.inactive {
+  background-color: #e0e0e0;
+}
+
+.statusToggle.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.toggleSlider {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.statusToggle.active .toggleSlider {
+  transform: translateX(26px);
+}
+
+.statusToggle.inactive .toggleSlider {
+  transform: translateX(2px);
+}
+
+.statusText {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--industrial-gray);
+  font-family: var(--font-inter);
+  min-width: 60px;
+}
+
+/* Size variants */
+.statusToggle.small {
+  width: 40px;
+  height: 20px;
+}
+
+.statusToggle.small .toggleSlider {
+  width: 16px;
+  height: 16px;
+  top: 2px;
+  left: 2px;
+}
+
+.statusToggle.small.active .toggleSlider {
+  transform: translateX(20px);
+}
+
+.statusToggle.medium {
+  width: 50px;
+  height: 24px;
+}
+
+.statusToggle.medium .toggleSlider {
+  width: 20px;
+  height: 20px;
+  top: 2px;
+  left: 2px;
+}
+
+.statusToggle.medium.active .toggleSlider {
+  transform: translateX(26px);
+}
+
+.statusToggle.large {
+  width: 60px;
+  height: 28px;
+}
+
+.statusToggle.large .toggleSlider {
+  width: 24px;
+  height: 24px;
+  top: 2px;
+  left: 2px;
+}
+
+.statusToggle.large.active .toggleSlider {
+  transform: translateX(32px);
+}
+
+/* Focus styles for accessibility */
+.statusToggle:focus-visible {
+  outline: 2px solid var(--primary-bg);
+  outline-offset: 2px;
+}
+
+/* Animation for smooth toggle */
+.statusToggle {
+  transition: background-color 0.3s ease;
+}
+
+.toggleSlider {
+  transition: transform 0.3s ease;
+}
