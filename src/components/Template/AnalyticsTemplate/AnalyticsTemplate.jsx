@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import classes from "./AnalyticsTemplate.module.css"
 import { Col, Container, Row } from 'react-bootstrap';

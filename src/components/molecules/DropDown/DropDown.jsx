@@ -7,6 +7,7 @@ import "./styles.css";
 const DropDown = ({
   // Essential Select props
   values = [],
+  isGraphsFilter = false,
   options = [],
   onChange,
   multi = false,
