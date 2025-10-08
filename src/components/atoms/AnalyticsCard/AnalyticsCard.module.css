@@ -23,13 +23,13 @@
   align-items: center;
   gap: 4px;
   border-radius: 14px;
-  background: #024757;
+  background: var(--deep-teal);
 }
 
 .icon {
   width: 20px;
   height: 20px;
-  color: #eef7f6;
+  color: var(--mint-whisper);
 }
 
 .valuesDiv {
