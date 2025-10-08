@@ -9,7 +9,8 @@
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  table-layout: fixed;
+  table-layout: auto;
+  min-width: 100%;
 }
 .tableHeader {
   position: sticky;
@@ -28,9 +29,10 @@
   font-weight: 500;
   text-transform: capitalize;
   padding: 10px 16px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow: visible;
+  text-overflow: unset;
+  white-space: normal;
+  min-width: fit-content;
 }
 .tableHeader th:first-child {
   border-radius: 10px 0 0 10px;
@@ -57,10 +59,10 @@
   font-weight: 500;
   font-family: var(--font-inter);
   padding: 30px 16px 30px 16px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  max-width: 0;
+  overflow: visible;
+  text-overflow: unset;
+  white-space: normal;
+  min-width: fit-content;
 }
 
 @media screen and (max-width: 1200px) {
@@ -69,6 +71,6 @@
   }
   .responsiveTable {
     border-collapse: separate;
-    min-width: 900px;
+    min-width: 100%;
   }
 }
