@@ -34,6 +34,7 @@ const DropDown = ({
   selectAll = false,
   selectAllLabel = "Select all",
   clearAllLabel = "Clear all",
+  hideDropdownHandle = false,
 
   // Callbacks
   onSelect,
@@ -54,6 +55,9 @@ const DropDown = ({
 }) => {
 
   const dropdownHandleRenderer = ({ props, state, methods }) => {
+    if (hideDropdownHandle) {
+      return null;
+    }
     console.log(state);
     return (
       <div className={classes.dropdownHandle}>

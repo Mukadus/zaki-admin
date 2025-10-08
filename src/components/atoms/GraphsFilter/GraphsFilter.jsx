@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./GraphsFilter.module.css";
 import DropDown from "@/components/molecules/DropDown/DropDown";
+import { LuCalendarDays } from "react-icons/lu";
 
 export default function GraphsFilter({ startingYear = 2025, title = '' }) {
   const generateYearOptions = () => {
@@ -22,13 +23,17 @@ export default function GraphsFilter({ startingYear = 2025, title = '' }) {
   return (
     <div className={classes.mainDiv}>
       <h4>{title}</h4>
-      <DropDown
-        containerClassName={classes?.dropdownContainer}
-        options={yearOptions}
-        onChange={() => {}}
-        placeholder={'Yearly'}
-        isGraphsFilter
-      />
+      <div className={classes.dropdownWrapper}>
+        <LuCalendarDays className={classes.calendarIcon} />
+        <DropDown
+          containerClassName={classes?.dropdownContainer}
+          options={yearOptions}
+          onChange={() => {}}
+          placeholder={'Yearly'}
+          isGraphsFilter
+          hideDropdownHandle
+        />
+      </div>
     </div>
   );
 }
