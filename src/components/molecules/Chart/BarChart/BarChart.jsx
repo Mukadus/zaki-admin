@@ -29,7 +29,7 @@ const options = {
     padding: {
       top: 20,
       right: 20,
-      bottom: 20,
+      bottom: 0,
       left: 20,
     },
   },

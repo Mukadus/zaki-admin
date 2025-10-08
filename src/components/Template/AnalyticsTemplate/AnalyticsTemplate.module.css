@@ -1,5 +1,6 @@
 .shadowWrapper{
     padding: 20px 20px 0px 20px !important;
+    height: 100% !important;
 }
 
 .barChartContainer{
@@ -17,4 +18,9 @@
 
 .analyticsCardWrapper {
     display: flex;
+}
+
+.colRight{
+    padding: 0px !important;
+    margin-bottom: 0px !important;
 }
