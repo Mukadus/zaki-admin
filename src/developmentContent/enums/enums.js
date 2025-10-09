@@ -43,6 +43,22 @@ export const yearFilter = [
     }
 ]
 
+export const userRegistrationEnum = [
+    {
+      label: "Upcoming",
+      value: "upcoming",
+    },
+    {
+      label: "Completed",
+      value: "completed",
+    },
+    {
+      label: "Rejected",
+      value: "rejected",
+    },
+  ];
+  
+
 export const categoryFilter = [
     {
         label:"All",

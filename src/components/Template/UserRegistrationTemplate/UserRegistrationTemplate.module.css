@@ -24,3 +24,15 @@
   color: #024757;
   border: 1px solid #C5F1EE;
 }
+
+.acceptedStatus {
+  background-color: #C5F1EE;
+  color: #024757;
+  border: 1px solid #C5F1EE;
+}
+
+.pendingStatus {
+  background-color: #E5E5E5;
+  color: #666666;
+  border: 1px solid #E5E5E5;
+}

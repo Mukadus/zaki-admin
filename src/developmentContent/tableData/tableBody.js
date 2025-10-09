@@ -251,6 +251,80 @@ export const requestedData = [
   }
 ];
 
+// Therapist Data
+export const therapistData = [
+  {
+    id: 1,
+    therapistName: "Loretta Rippin",
+    email: "Loretta.Rippin51@gmail.com",
+    location: "United States",
+    phoneNumber: "(209) 555-0104",
+    language: "English",
+    date: "October 30, 2017",
+    status: "Accepted"
+  },
+  {
+    id: 2,
+    therapistName: "Everett Rodriguez",
+    email: "Everett70@yahoo.com",
+    location: "Portland, Illinois",
+    phoneNumber: "(209) 555-0104",
+    language: "English",
+    date: "October 30, 2017",
+    status: "Rejected"
+  },
+  {
+    id: 3,
+    therapistName: "Everett Rodriguez",
+    email: "Everett70@yahoo.com",
+    location: "Corona, Michigan",
+    phoneNumber: "(209) 555-0104",
+    language: "English",
+    date: "October 30, 2017",
+    status: "Accepted"
+  },
+  {
+    id: 4,
+    therapistName: "Everett Rodriguez",
+    email: "Everett70@yahoo.com",
+    location: "Everett70@yahoo.com",
+    phoneNumber: "(209) 555-0104",
+    language: "German",
+    date: "October 30, 2017",
+    status: "Pending"
+  },
+  {
+    id: 5,
+    therapistName: "Everett Rodriguez",
+    email: "Everett70@yahoo.com",
+    location: "Everett70@yahoo.com",
+    phoneNumber: "(209) 555-0104",
+    language: "English",
+    date: "October 30, 2017",
+    status: "Accepted"
+  },
+  {
+    id: 6,
+    therapistName: "Everett Rodriguez",
+    email: "Everett70@yahoo.com",
+    location: "Everett70@yahoo.com",
+    phoneNumber: "(209) 555-0104",
+    language: "English",
+    date: "October 30, 2017",
+    status: "Pending"
+  },
+  {
+    id: 7,
+    therapistName: "Casey Beer",
+    email: "Janie_Hermann13@yahoo.com",
+    location: "Janie_Hermann13@yahoo.com",
+    phoneNumber: "(209) 555-0104",
+    language: "English",
+    date: "October 30, 2017",
+    status: "Accepted"
+  }
+];
+
 // Billing Data
 export const billingData = [
   {

@@ -49,6 +49,9 @@ export const userRegistrationPopoverOptions = [
   },
 ];
 
+
+
+
 // Category popover options - dynamic based on status
 export const getCategoryPopoverOptions = (status) => {
   const baseOptions = [

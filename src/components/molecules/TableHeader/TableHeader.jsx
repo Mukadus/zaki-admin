@@ -12,6 +12,7 @@ const TableHeader = ({
   onSearch,
   search,
   rightSide=true,
+  options = [],
 }) => {
   return (
     <div className={classes?.tableHeader}>
@@ -36,7 +37,7 @@ const TableHeader = ({
           />
           <DropDown
             containerClassName={classes?.dropdownContainer}
-            options={filterData}
+            options={options}
             onChange={setSelectedData}
           />
         </div>

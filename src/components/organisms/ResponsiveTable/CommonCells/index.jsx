@@ -7,6 +7,15 @@ const statusClassMap = {
   "Upcoming": {
     className: classes.upcomingStatus,
   },
+  "Accepted": {
+    className: classes.completedStatus,
+  },
+  "Pending": {
+    className: classes.upcomingStatus,
+  },
+  "Rejected": {
+    className: classes.cancelledStatus,
+  },
   "Completed": {
     className: classes.completedStatus,
   },
