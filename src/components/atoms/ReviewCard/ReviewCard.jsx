@@ -3,6 +3,7 @@ import classes from "./ReviewCard.module.css";
 import PersonalInfo from "../PersonalInfo/PersonalInfo";
 import Wrapper from "../Wrapper/Wrapper";
 import Image from "next/image";
+import Rating from "../Rating";
 
 const ReviewCard = () => {
   return (
@@ -22,7 +23,10 @@ const ReviewCard = () => {
           <div className={classes.imageDiv}>
             <Image src={"/app-images/userDummy.png"} alt="user" fill />
           </div>
-          <h4>John Doe</h4>
+          <div>
+            <h4>John Doe</h4>
+            <Rating rating={4.5} />
+          </div>
         </div>
       </Wrapper>
     </div>

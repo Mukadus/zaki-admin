@@ -14,7 +14,9 @@ const AppointmentDetailTemplate = () => {
             <PersonalInfo isAppointment/>
             <Wrapper className={classes.reviewWrapper}>
               <h4 className={classes.reviewTitle}>Review</h4>
+              <div className={classes.reviewCardWrapper}>
               <ReviewCard />
+              </div>
             </Wrapper>
         </Container>
     </>
