@@ -55,6 +55,35 @@ export const tableBodyData = [
     status: "Completed"
   }
 ];
+export const dashboardTableData = [
+  {
+    id: 1,
+    clientName: "Loretta Rippin",
+    email: "Loretta.Rippin51@gmail.com",
+    therapist: "Floyd Hackett",
+    date: "October 30, 2017",
+    category: "Therapy Specialist",
+    status: "Upcoming"
+  },
+  {
+    id: 2,
+    clientName: "Everett Rodriguez",
+    email: "Everett70@yahoo.com",
+    therapist: "Katie Rohan",
+    date: "October 30, 2017",
+    category: "Therapy Specialist",
+    status: "Completed"
+  },
+  {
+    id: 3,
+    clientName: "Casey Beer",
+    email: "Janie_Hermann13@yahoo.com",
+    therapist: "Alyssa Schulist",
+    date: "October 30, 2017",
+    category: "Therapy Specialist",
+    status: "Upcoming"
+  },
+];
 
 // Appointment Data
 export const appointmentData = [

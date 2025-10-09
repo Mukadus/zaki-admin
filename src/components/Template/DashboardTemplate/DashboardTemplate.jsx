@@ -14,7 +14,7 @@ import {
   recentTherapistData,
 } from "@/developmentContent/dummyData/dummyData";
 import { tableHeader } from "@/developmentContent/tableData/tableHeader";
-import { tableBodyData } from "@/developmentContent/tableData/tableBody";
+import { dashboardTableData, tableBodyData } from "@/developmentContent/tableData/tableBody";
 import { dashboardPopoverOptions } from "@/developmentContent/popoverOptions";
 import { useRouter } from "next/navigation";
 import { GoArrowUpRight } from "react-icons/go";
@@ -60,7 +60,7 @@ const DashboardTemplate = () => {
               <Wrapper className={classes?.wrapper}>
                 <div className={classes?.notification}>
                   <h4>Notifications</h4>
-                  <div className={classes?.arrow}>
+                  <div onClick={() => router.push("/notification")} className={classes?.arrow}>
                     <GoArrowUpRight />
                   </div>
                 </div>
@@ -80,7 +80,7 @@ const DashboardTemplate = () => {
               <Wrapper>
                 <h4 className="mb-3">User Management</h4>
                 <ResponsiveTable
-                  data={tableBodyData}
+                  data={dashboardTableData}
                   tableHeader={tableHeader}
                   hasPagination={false}
                   renderItem={({ item, key, rowIndex, renderValue }) => {
@@ -117,7 +117,12 @@ const DashboardTemplate = () => {
             </Col>
             <Col lg={5}>
             <ShadowWrapper>
+             <div className={classes?.subscription}>
+             Subscription sales breakdown
+             </div>
+             <div className={classes?.mainChart}>
             <BarChart data={barChartData} className={classes.barChartContainer}/>
+             </div>
             </ShadowWrapper>
             </Col>
           </Row>

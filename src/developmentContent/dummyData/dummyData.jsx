@@ -1,3 +1,5 @@
+import { HiMiniCalendarDays, HiMiniCurrencyDollar, HiMiniUserGroup, HiMiniUsers } from "react-icons/hi2";
+
 export const recentTherapistData = [
     {
         _id: 1,
@@ -43,6 +45,32 @@ export const notificationCardData = [
     }
 ]
 
+ export const analyticsData = [
+    {
+      title: "Total Therapists",
+      value: "344",
+      change: "+36%",
+      icon: HiMiniUsers,
+    },
+    {
+      title: "Total Clients",
+      value: "344",
+      change: "+36%",
+      icon: HiMiniUserGroup,
+    },
+    {
+      title: "Total Appointments",
+      value: "344",
+      change: "+36%",
+      icon: HiMiniCalendarDays,
+    },
+    {
+      title: "Revenue",
+      value: "$344",
+      change: "+36%",
+      icon: HiMiniCurrencyDollar,
+    },
+  ];
 
 export const signupChartData = [23.5, 12.5, 15.0, 22.0, 19.5, 10.5, 13.0, 19.5, 23.5, 13.0, 19.5, 13.0];
 

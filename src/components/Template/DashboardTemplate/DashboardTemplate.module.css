@@ -32,16 +32,31 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .noDataFound{
     min-height: 27vh !important;
 }
 
+
+
+
 .actionButtons {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.subscription{
+  color: var(--Heading-color);
+  font-family: var(--font-inter);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+  margin-bottom: 10px;
 }
 
 .statusPill {

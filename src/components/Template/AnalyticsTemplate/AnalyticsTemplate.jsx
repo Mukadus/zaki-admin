@@ -4,47 +4,15 @@ import classes from "./AnalyticsTemplate.module.css";
 import { Col, Container, Row } from "react-bootstrap";
 import TopHeader from "@/components/atoms/TopHeader/TopHeader";
 import AnalyticsCard from "@/components/atoms/AnalyticsCard/AnalyticsCard";
-import {
-  HiMiniUsers,
-  HiMiniUserGroup,
-  HiMiniCalendarDays,
-  HiMiniCurrencyDollar,
-} from "react-icons/hi2";
 import GraphsFilter from "@/components/atoms/GraphsFilter/GraphsFilter";
 import BarChart from "@/components/molecules/Chart/BarChart/BarChart";
 import AreaChart from "@/components/molecules/Chart/AreaChart/AreaChart";
 import ShadowWrapper from "@/components/atoms/ShadowWrapper/ShadowWrapper";
 import SignupChart from "@/components/molecules/Chart/SignupChart/SignupChart";
-import { barChartData, signupChartData, areaChartData } from "@/developmentContent/dummyData/dummyData";
+import { barChartData, signupChartData, areaChartData, analyticsData } from "@/developmentContent/dummyData/dummyData";
 
 const AnalyticsTemplate = () => {
-  // Sample analytics data
-  const analyticsData = [
-    {
-      title: "Total Therapists",
-      value: "344",
-      change: "+36%",
-      icon: HiMiniUsers,
-    },
-    {
-      title: "Total Clients",
-      value: "344",
-      change: "+36%",
-      icon: HiMiniUserGroup,
-    },
-    {
-      title: "Total Appointments",
-      value: "344",
-      change: "+36%",
-      icon: HiMiniCalendarDays,
-    },
-    {
-      title: "Revenue",
-      value: "$344",
-      change: "+36%",
-      icon: HiMiniCurrencyDollar,
-    },
-  ];
+
 
   return (
     <div>
@@ -83,7 +51,11 @@ const AnalyticsTemplate = () => {
           </Col>
           <Col lg={4} md={6} sm={12} className="mb-3">
             <ShadowWrapper className={classes.shadowWrapper}>
-              <GraphsFilter startingYear={"2022"} title={"Total Appointments Booked"} />
+              {/* <GraphsFilter startingYear={"2022"} title={"Total Appointments Booked"} /> */}
+              <div className={classes?.appoinment}>
+                  <div>20<span>Per Day</span></div>
+                  <h6>Total Appointments Booked</h6>
+                </div>
               <div className={classes.areaChartContainer}>
                 <div className={classes.areaChartContainerChild}>
               <AreaChart data={areaChartData} className={classes.areaChartContainer}/>

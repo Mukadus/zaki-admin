@@ -21,6 +21,42 @@
     overflow: hidden;
 }
 
+.appoinment{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 4px;
+  }
+  
+  .appoinment > div{
+  font-size: 30px;
+  color: #1F2733;
+  font-family: var(--font-inter);
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px; /* 100% */
+  }
+  
+  .appoinment > div > span{
+    color: #A0AEC0;
+  font-family: var(--font-inter);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-left: 5px;
+  }
+  
+  .appoinment h6{
+    color: #A0AEC0;
+  font-family: var(--font-inter);
+  font-size: 17.612px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26.418px; /* 150% */
+  }
+
 .analyticsCardsGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
