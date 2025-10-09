@@ -6,7 +6,6 @@ import localFont from "next/font/local";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./styles/globals.css";
-import Header from "@/components/molecules/Header/Header";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -46,7 +45,6 @@ export default function RootLayout({ children }) {
         <ToastContainer />
         <CustomProvider>
           {/* <SocketProvider> */}
-          <Header />
           {children}
           {/* </SocketProvider> */}
         </CustomProvider>

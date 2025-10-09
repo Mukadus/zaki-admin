@@ -3,12 +3,26 @@ export const loginFormValues = {
   password: "",
 };
 
-export const signUpFormValues = {
-  firstName: "",
-  lastName: "",
-  email: "",
+export const changePasswordFormValues = {
+  currentPassword: "",
   password: "",
+  confirmPassword: "",
 };
+
+
+export const forgotPasswordValues = {
+  email: "",
+};
+
+export const verifyOtpValues = {
+  code: "",
+};
+
+export const resetPasswordValues = {
+  password: "",
+  confirmPassword: "",
+};
+
 
 export const updatePasswordValues = {
   currentPassword: "",
