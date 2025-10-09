@@ -91,3 +91,7 @@
   flex-direction: column;
   gap: 20px;
 }
+
+.submitBtn{
+  width: 100% !important;
+}

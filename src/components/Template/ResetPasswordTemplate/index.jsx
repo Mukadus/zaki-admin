@@ -74,9 +74,8 @@ export default function ResetPasswordTemplate() {
 
                 <Button
                   type="submit"
-                  variant="secondary"
+                  variant="primary"
                   className={classes.submitBtn}
-                  buttonStyles={{ height: 44 }}
                   label="Update password"
                   onClick={() => {
                     form.handleSubmit();

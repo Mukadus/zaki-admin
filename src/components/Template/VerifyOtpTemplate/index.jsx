@@ -56,7 +56,7 @@ export default function VerifyOtpTemplate() {
 
                 <Button
                   type="submit"
-                  variant="secondary"
+                  variant="primary"
                   className={classes.submitBtn}
                   buttonStyles={{ height: 44 }}
                   label="Verify"

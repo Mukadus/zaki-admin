@@ -58,7 +58,7 @@ export default function ForgotPasswordTemplate() {
 
                 <Button
                   type="submit"
-                  variant="secondary"
+                  variant="primary"
                   className={classes.submitBtn}
                   label="Send code"
                   onClick={() => {

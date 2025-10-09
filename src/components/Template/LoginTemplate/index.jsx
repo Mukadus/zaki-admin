@@ -75,7 +75,7 @@ export default function LoginTemplate() {
 
                 <Button
                   type="submit"
-                  variant="secondary"
+                  variant="primary"
                   className={classes.submitBtn}
                   label="Sign in"
                   onClick={() => {
