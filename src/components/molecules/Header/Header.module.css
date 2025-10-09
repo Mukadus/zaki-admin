@@ -10,6 +10,9 @@
   margin-bottom: 20px;
 }
 
+.profile{
+  cursor: pointer;
+}
 
 .logo{
   width: 70px;

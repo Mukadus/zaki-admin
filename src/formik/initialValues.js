@@ -9,6 +9,17 @@ export const changePasswordFormValues = {
   confirmPassword: "",
 };
 
+export const profileFormValues = {
+  fullName: "",
+  email: "",
+  phoneNumber: "",
+  callingCode: "",
+  location: "",
+  language: "",
+  photo: null,
+};
+
+
 
 export const forgotPasswordValues = {
   email: "",

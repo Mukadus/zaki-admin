@@ -52,6 +52,24 @@ export const AddCategorySchema = Yup.object({
     .required("Status is required"),
 });
 
+
+export const ProfileFormSchema = Yup.object({
+  fullName: Yup.string().required("Full name is required"),
+  email: Yup.string()
+    .email("Invalid email address")
+    .required("Email is required")
+    .test(
+      "no-special-chars",
+      "Email contains invalid characters",
+      (value) => !value || emailRegex.test(value)
+    ),
+  phoneNumber: Yup.string().required("Phone number is required"),
+  callingCode: Yup.string(),
+  location: Yup.string().required("Location is required"),
+  language: Yup.object().required("Language is required"),
+  photo: Yup.mixed().required("Photo is required"),
+});
+
 export const ReasonForRejectionSchema = Yup.object({
   reason: Yup.string()
     .required("Reason is required")

@@ -5,7 +5,7 @@ import Input from "@/components/atoms/Input/Input";
 import Button from "@/components/atoms/Button";
 import { HiArrowRightCircle } from "react-icons/hi2";
 
-export default function ContactForm({ form }) {
+export default function ContactForm({ form = {} }) {
   return (
     <div className={classes.contactForm}>
       <Input
@@ -36,9 +36,8 @@ export default function ContactForm({ form }) {
         containerClass={classes.input}
       />
       <Button
-        label="Jetzt beitreten"
+        label="Save Profile"
         variant="primary"
-        leftIcon={<HiArrowRightCircle size={20} />}
         onClick={() => {
           form.handleSubmit();
         }}

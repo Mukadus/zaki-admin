@@ -1,12 +1,14 @@
 .contactForm {
   border-radius: 26px;
-  background: rgba(0, 0, 0, 0.1);
   padding: var(--p-54);
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: var(--g-20);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .inputContainer {
   width: 100%;
@@ -26,5 +28,4 @@
 .button{
     border-radius: 14px;
     border: none !important;
-    padding: var(--p-10) var(--p-16) !important;
 }
