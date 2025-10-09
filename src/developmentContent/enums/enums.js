@@ -28,6 +28,21 @@ export const appointmentFilter = [
     }
 ]
 
+export const yearFilter = [
+    {
+        label:"2019",
+        value:"2019",
+    },
+    {
+        label:"2018",
+        value:"2018",
+    },
+    {
+        label:"2017",
+        value:"2017",
+    }
+]
+
 export const categoryFilter = [
     {
         label:"All",

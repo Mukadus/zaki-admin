@@ -1,0 +1,31 @@
+.shadowWrapper{
+    padding: 20px 20px 0px 20px !important;
+    height: 100% !important;
+}
+
+.barChartContainer{
+    padding: 0px !important;
+    height: 220px !important;
+}
+
+.areaChartContainer{
+    padding: 0px !important;
+    height: 220px !important;
+}
+
+.analyticsCardsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 12px;
+    height: 100%;
+}
+
+.analyticsCardWrapper {
+    display: flex;
+}
+
+.colRight{
+    padding: 0px !important;
+    margin-bottom: 0px !important;
+}
