@@ -14,6 +14,7 @@ import GraphsFilter from "@/components/atoms/GraphsFilter/GraphsFilter";
 import BarChart from "@/components/molecules/Chart/BarChart/BarChart";
 import AreaChart from "@/components/molecules/Chart/AreaChart/AreaChart";
 import ShadowWrapper from "@/components/atoms/ShadowWrapper/ShadowWrapper";
+import SignupChart from "@/components/molecules/Chart/SignupChart/SignupChart";
 
 const AnalyticsTemplate = () => {
   // Sample analytics data
@@ -71,13 +72,13 @@ const AnalyticsTemplate = () => {
           </Col>
         </Row>
         <Row className="mt-4">
-          <Col lg={6} md={6} sm={12} className="mb-3">
+          <Col lg={8} md={6} sm={12} className="mb-3">
             <ShadowWrapper className={classes.shadowWrapper}>
               <GraphsFilter startingYear={"2022"} title={"New Sign Ups"} />
-              <BarChart className={classes.barChartContainer}/>
+              <SignupChart className={classes.barChartContainer}/>
             </ShadowWrapper>
           </Col>
-          <Col lg={6} md={6} sm={12} className="mb-3">
+          <Col lg={4} md={6} sm={12} className="mb-3">
             <ShadowWrapper className={classes.shadowWrapper}>
               <GraphsFilter startingYear={"2022"} title={"Total Appointments Booked"} />
               <AreaChart className={classes.areaChartContainer}/>

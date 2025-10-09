@@ -19,6 +19,8 @@ import { useRouter } from "next/navigation";
 import { GoArrowUpRight } from "react-icons/go";
 import NotificationCard from "@/components/atoms/NotificationCard/NotificationCard";
 import NoDataFound from "@/components/atoms/NoDataFound/NoDataFound";
+import ShadowWrapper from "@/components/atoms/ShadowWrapper/ShadowWrapper";
+import BarChart from "@/components/molecules/Chart/BarChart/BarChart";
 
 const DashboardTemplate = () => {
 
@@ -112,7 +114,11 @@ const DashboardTemplate = () => {
                 />
               </Wrapper>
             </Col>
-            <Col lg={5}>2</Col>
+            <Col lg={5}>
+            <ShadowWrapper>
+            <BarChart className={classes.barChartContainer}/>
+            </ShadowWrapper>
+            </Col>
           </Row>
         </Container>
       </div>
