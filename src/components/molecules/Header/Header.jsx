@@ -36,9 +36,7 @@ const Header = () => {
     if (value === "profile") {
       router.push("/profile");
     } else if (value === "logout") {
-      // Add logout logic here
-      console.log("Logging out...");
-      // You can add actual logout logic like clearing tokens, redirecting to login, etc.
+      logout();
     }
   };
 
