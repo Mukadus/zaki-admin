@@ -6,7 +6,7 @@ import TopHeader from "@/components/atoms/TopHeader/TopHeader";
 import ShadowWrapper from "@/components/atoms/ShadowWrapper/ShadowWrapper";
 import ResponsiveTable from "@/components/organisms/ResponsiveTable/ResponsiveTable";
 import PopOver from "@/components/molecules/PopOver";
-import { appointmentFilter } from "@/developmentContent/enums/enums";
+import { appointmentFilter, userRegistrationEnum } from "@/developmentContent/enums/enums";
 import {
   appointmentTableHeader,
   appointmentData,
@@ -45,6 +45,7 @@ const AppointmentTemplate = () => {
             filterData={appointmentFilter}
             SelectedData={SelectedData}
             setSelectedData={setSelectedData}
+            options={userRegistrationEnum}
           />
           <ResponsiveTable
             data={data?.appointments}

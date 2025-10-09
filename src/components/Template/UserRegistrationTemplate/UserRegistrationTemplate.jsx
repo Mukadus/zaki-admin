@@ -26,7 +26,12 @@ const UserRegistrationTemplate = () => {
 
 
   const onClickPopover = (label, rowItem) => {
-    label === 'view'?router.push(`/user-registration/${rowItem?._id}`):null;
+    console.log(rowItem);
+    if(SelectedData?.value === 'user'){
+      router.push(`/user-registration/${rowItem?.id}`);
+    }else{
+      router.push(`/user-registration/${rowItem?.id}?therapist=true`);
+    }
   };
 
 

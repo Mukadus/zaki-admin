@@ -18,7 +18,9 @@ const Header = () => {
       <Container>
         {/* //// logo */}
         <div className={classes?.headerContent}>
-          <div className={classes?.logo}>
+          <div className={classes?.logo} onClick={()=>{
+            router.push("/");
+          }}>
             <Image src={"/app-images/logo.png"} alt="logo" fill />
           </div>
           {/* //// header list */}

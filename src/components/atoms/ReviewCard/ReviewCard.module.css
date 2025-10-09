@@ -1,0 +1,43 @@
+.reviewCard {
+  padding: 20px;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 20px;
+}
+.reviewCardHeader p {
+  color: var(--industrial-gray);
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+  text-transform: capitalize;
+}
+
+.imageDivWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.imageDiv {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  border-radius: 50%;
+}
+.imageDiv img {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.imageDivWrapper h4 {
+  color: #024757;
+  font-family: var(--font-inter);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+}

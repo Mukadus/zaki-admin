@@ -16,6 +16,7 @@ import { MdOutlineAccessTimeFilled } from "react-icons/md";
 export default function PersonalInfo({
   showCertifications = false,
   isAppointment = false,
+  showName = false,
 }) {
   const getStatusClass = (status) => {
     return status === "Completed"
@@ -145,7 +146,7 @@ export default function PersonalInfo({
         <>
           <hr className={classes.divider} />
           <div className={classes.categoryDiv}>
-            <p className={classes.categoryLabel}>Client Name</p>
+            <p className={`${classes.categoryLabel} mb-2`}>Client Name</p>
             <div className={classes.basicInfoDiv}>
               <div className={classes?.photoDiv}>
                 <ImageComponent src={"/app-images/userDummy.png"} />
@@ -175,6 +176,7 @@ export default function PersonalInfo({
           </div>
         </>
       )}
+
     </ShadowWrapper>
   );
 }

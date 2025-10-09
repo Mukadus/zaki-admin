@@ -47,11 +47,13 @@
 }
 
 .shadowWrapper {
-  padding: 16px;
+  padding: 20px !important;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
+
+
 
 .personalInfoTitle {
   color: var(--title);

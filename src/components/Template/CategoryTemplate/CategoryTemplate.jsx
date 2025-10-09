@@ -76,19 +76,15 @@ const CategoryTemplate = () => {
 
   const handleAddCategory = async (formData) => {
     console.log("Adding category:", formData);
-    // Handle add category logic here
-    // You can add API call to save the category
-    // For now, just log the data
   };
 
-  // Simple data and header selection
   const currentData = SelectedData?.value === "requested" ? data?.requested : data?.categories;
   const currentTableHeader = SelectedData?.value === "requested" ? requestedTableHeader : categoryTableHeader;
 
   return (
     <>
       <Container>
-        <TopHeader title="Category" btnlabel="Add Category" on={() => setShowAddModal(true)} leftIcon={<IoMdAddCircleOutline size={22} color="#024757" />} backButton={false} />
+        <TopHeader title="Category" btnlabel="Add Category" onClick={() => setShowAddModal(true)} leftIcon={<IoMdAddCircleOutline size={22} color="#024757" />} backButton={false} />
         <ShadowWrapper>
           <TableHeader 
             onSearch={setSearch}

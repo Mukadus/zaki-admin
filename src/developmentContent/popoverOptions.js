@@ -36,17 +36,10 @@ export const appointmentPopoverOptions = [
 
 export const userRegistrationPopoverOptions = [
   {
-    label: "Upcoming",
-    value: "upcoming",
-  },
-  {
-    label: "Completed",
-    value: "completed",
-  },
-  {
-    label: "Rejected",
-    value: "rejected",
-  },
+    label: "View Details",  
+    value: "view",
+    icon: "👁️"
+  }
 ];
 
 
