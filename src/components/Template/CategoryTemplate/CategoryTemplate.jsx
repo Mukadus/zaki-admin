@@ -13,7 +13,7 @@ import ReasonForRejectionModal from "@/components/molecules/Modal/ReasonForRejec
 import { categoryFilter } from "@/developmentContent/enums/enums";
 import { categoryTableHeader, requestedTableHeader } from "@/developmentContent/tableData/tableHeader";
 import { categoryData, requestedData } from "@/developmentContent/tableData/tableBody";
-import { dashboardPopoverOptions } from "@/developmentContent/popoverOptions";
+import { getCategoryPopoverOptions } from "@/developmentContent/popoverOptions";
 import { useRouter } from "next/navigation";
 import { IoMdAddCircleOutline } from "react-icons/io";
 
@@ -33,7 +33,24 @@ const CategoryTemplate = () => {
   const router = useRouter();
 
   const onClickPopover = (label, rowItem) => {
-    label === "view" ? router.push(`/category/${rowItem?.id}`) : null;
+    if (label === "view") {
+      router.push(`/category/${rowItem?.id}`);
+    } else if (label === "active" || label === "inactive") {
+      handleStatusToggle(rowItem, label);
+    }
+  };
+
+  const handleStatusToggle = (rowItem, newStatus) => {
+    console.log(`Changing status for ${rowItem?.name} to ${newStatus}`);
+    // Update the data state
+    setData(prevData => ({
+      ...prevData,
+      categories: prevData.categories.map(item => 
+        item.id === rowItem.id 
+          ? { ...item, status: newStatus === "active" ? "Active" : "In-Active" }
+          : item
+      )
+    }));
   };
 
   const getStatusClass = (status) => {
@@ -123,7 +140,7 @@ const CategoryTemplate = () => {
                   return (
                     <div className={classes.actionButtons}>
                       <PopOver
-                        popover={dashboardPopoverOptions}
+                        popover={getCategoryPopoverOptions(rowItem.status)}
                         onClick={(label) => onClickPopover(label, rowItem)}
                       />
                     </div>

@@ -49,3 +49,17 @@ export const userRegistrationPopoverOptions = [
   },
 ];
 
+// Category popover options - dynamic based on status
+export const getCategoryPopoverOptions = (status) => {
+  const baseOptions = [
+  
+  ];
+
+  const statusOption = {
+    label: status === "Active" ? "In-Active" : "Active",
+    value: status === "Active" ? "inactive" : "active",
+  };
+
+  return [...baseOptions, statusOption];
+};
+
