@@ -10,10 +10,13 @@ import { IoNotificationsOutline, IoPersonOutline, IoLogOutOutline } from "react-
 import HeaderList from "@/components/atoms/HeaderList/HeaderList";
 import { headerData } from "@/developmentContent/developmentData/HeaderData";
 import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
 import PopOver from "@/components/molecules/PopOver";
+import { signOutRequest } from "@/store/auth/authSlice";
 
 const Header = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
 
   // Profile popover options
   const profilePopoverOptions = [
@@ -37,6 +40,11 @@ const Header = () => {
       console.log("Logging out...");
       // You can add actual logout logic like clearing tokens, redirecting to login, etc.
     }
+  };
+
+  const logout = () => {
+    dispatch(signOutRequest());
+    router.push("/login");
   };
 
   return (
