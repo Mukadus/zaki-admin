@@ -15,6 +15,8 @@ import { categoryTableHeader, requestedTableHeader } from "@/developmentContent/
 import { categoryData, requestedData } from "@/developmentContent/tableData/tableBody";
 import { dashboardPopoverOptions } from "@/developmentContent/popoverOptions";
 import { useRouter } from "next/navigation";
+import { IoMdAddCircleOutline } from "react-icons/io";
+
 
 const CategoryTemplate = () => {
   const [SelectedData, setSelectedData] = useState(categoryFilter[0]);
@@ -69,7 +71,7 @@ const CategoryTemplate = () => {
   return (
     <>
       <Container>
-        <TopHeader title="Category" backButton={false} />
+        <TopHeader title="Category" btnlabel="Add Category" on={() => setShowAddModal(true)} leftIcon={<IoMdAddCircleOutline size={22} color="#024757" />} backButton={false} />
         <ShadowWrapper>
           <TableHeader 
             onSearch={setSearch}

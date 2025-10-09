@@ -34,7 +34,7 @@ const UserRegistrationTemplate = () => {
   return (
     <div>
       <Container>
-        <TopHeader title="User Registration" backButton={false} />
+        <TopHeader title="User Registration"   backButton={false} />
         <ShadowWrapper>
           <TableHeader
             onSearch={setSearch}

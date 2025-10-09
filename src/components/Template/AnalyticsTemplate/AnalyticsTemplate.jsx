@@ -10,6 +10,8 @@ import AreaChart from "@/components/molecules/Chart/AreaChart/AreaChart";
 import ShadowWrapper from "@/components/atoms/ShadowWrapper/ShadowWrapper";
 import SignupChart from "@/components/molecules/Chart/SignupChart/SignupChart";
 import { barChartData, signupChartData, areaChartData, analyticsData } from "@/developmentContent/dummyData/dummyData";
+import { GrDocumentDownload } from "react-icons/gr";
+import { IoCloudDownloadOutline } from "react-icons/io5";
 
 const AnalyticsTemplate = () => {
 
@@ -17,7 +19,7 @@ const AnalyticsTemplate = () => {
   return (
     <div>
       <Container>
-        <TopHeader title="Analytics" backButton={false} />
+        <TopHeader title="Analytics" btnlabel="Download CSV" leftIcon={<IoCloudDownloadOutline size={20} color="#024757" />} backButton={false} />
         <Row>
           <Col lg={6} md={6} sm={12}>
             <div className={classes.analyticsCardsGrid}>
