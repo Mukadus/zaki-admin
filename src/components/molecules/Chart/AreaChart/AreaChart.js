@@ -113,7 +113,7 @@ const data = {
 };
 
 // Chart component
-export default function AreaChart() {
+export default function AreaChart({}) {
   return (
     <div className={classes.chartContainer}>
       <Line options={options} data={data} />

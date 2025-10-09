@@ -75,13 +75,19 @@ const AnalyticsTemplate = () => {
           <Col lg={8} md={6} sm={12} className="mb-3">
             <ShadowWrapper className={classes.shadowWrapper}>
               <GraphsFilter startingYear={"2022"} title={"New Sign Ups"} />
+              <div className={classes.barChartContainer}>
               <SignupChart className={classes.barChartContainer}/>
+              </div>
             </ShadowWrapper>
           </Col>
           <Col lg={4} md={6} sm={12} className="mb-3">
             <ShadowWrapper className={classes.shadowWrapper}>
               <GraphsFilter startingYear={"2022"} title={"Total Appointments Booked"} />
+              <div className={classes.areaChartContainer}>
+                <div className={classes.areaChartContainerChild}>
               <AreaChart className={classes.areaChartContainer}/>
+                </div>
+              </div>
             </ShadowWrapper>
           </Col>
         </Row>

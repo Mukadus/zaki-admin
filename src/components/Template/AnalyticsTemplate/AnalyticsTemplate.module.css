@@ -5,12 +5,20 @@
 
 .barChartContainer{
     padding: 0px !important;
-    height: 220px !important;
+    height: 100% !important;
 }
 
 .areaChartContainer{
     padding: 0px !important;
-    height: 220px !important;
+    height: 100% !important;
+}
+
+.areaChartContainerChild{
+    height: 270px!important;
+}
+
+.barChartContainer{
+    height: 300px !important;
 }
 
 .analyticsCardsGrid {
