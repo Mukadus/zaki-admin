@@ -42,3 +42,6 @@ export const notificationCardData = [
         time: "Today 11:50 PM",
     }
 ]
+
+
+export const signupChartData = [23.5, 12.5, 15.0, 22.0, 19.5, 10.5, 13.0, 19.5, 23.5, 13.0, 19.5, 13.0];

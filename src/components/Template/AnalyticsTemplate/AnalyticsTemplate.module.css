@@ -1,24 +1,24 @@
 .shadowWrapper{
     padding: 20px 20px 0px 20px !important;
-    height: 100% !important;
+    height: auto !important;
+    overflow: hidden;
 }
 
 .barChartContainer{
     padding: 0px !important;
-    height: 100% !important;
+    height: 300px !important;
+    overflow: hidden;
 }
 
 .areaChartContainer{
     padding: 0px !important;
-    height: 100% !important;
+    height: 270px !important;
+    overflow: hidden;
 }
 
 .areaChartContainerChild{
-    height: 270px!important;
-}
-
-.barChartContainer{
-    height: 300px !important;
+    height: 270px !important;
+    overflow: hidden;
 }
 
 .analyticsCardsGrid {

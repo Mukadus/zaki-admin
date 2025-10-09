@@ -49,41 +49,29 @@ const options = {
       display: false, // Hide title
     },
     tooltip: {
-      enabled: true, // Enable tooltips
+      enabled: false, // Disable tooltips for clean look
     },
   },
   scales: {
     x: {
-      display: true, // Show X-axis
+      display: false, // Hide X-axis
       grid: {
         display: false,
       },
-      ticks: {
-        color: '#666',
-        font: {
-          size: 12,
-        },
-      },
     },
     y: {
-      display: true, // Show Y-axis
+      display: false, // Hide Y-axis
       grid: {
         display: false,
       },
       min: 0,
       max: 1000,
-      ticks: {
-        color: '#666',
-        font: {
-          size: 12,
-        },
-      },
     },
   },
   elements: {
     point: {
-      radius: 3, // Show data points
-      hoverRadius: 5,
+      radius: 0, // Hide data points
+      hoverRadius: 0,
     },
     line: {
       tension: 0.4, // Smooth curves
