@@ -84,27 +84,26 @@ const options = {
   },
 };
 
-// Smooth, organic curve data
-const data = {
-  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-  datasets: [
-    {
-      fill: true,
-      label: 'Revenue',
-      data: [200, 350, 250, 450, 300, 600, 400, 750, 500, 850, 600, 700, 450, 800, 550, 900, 650, 550, 350, 250, 400, 600, 500, 750, 600, 800, 700, 650, 500, 300],
-      borderColor: '#4AC4B4', // Teal color
-      backgroundColor: 'rgba(74, 196, 180, 0.3)', // Light teal gradient
-      borderWidth: 2,
-      tension: 0.4,
-    },
-  ],
-};
-
 // Chart component
-export default function AreaChart({}) {
+export default function AreaChart({ data = [] }) {
+  const chartData = {
+    labels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    datasets: [
+      {
+        fill: true,
+        label: '',
+        data: data,
+        borderColor: '#4AC4B4', // Teal color
+        backgroundColor: 'rgba(74, 196, 180, 0.3)', // Light teal gradient
+        borderWidth: 2,
+        tension: 0.4,
+      },
+    ],
+  };
+
   return (
     <div className={classes.chartContainer}>
-      <Line options={options} data={data} />
+      <Line options={options} data={chartData} />
     </div>
   );
 }

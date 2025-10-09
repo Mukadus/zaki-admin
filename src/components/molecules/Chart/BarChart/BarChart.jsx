@@ -10,8 +10,8 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import classes from './BarChart.module.css';
 import { mergeClass } from '@/resources/utils/helper';
+import classes from './BarChart.module.css';
 
 ChartJS.register(
   CategoryScale,
@@ -93,51 +93,51 @@ const options = {
   },
 };
 
-// Monthly data matching the image
+// Monthly labels
 const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Revenue',
-      data: [1.5, 2.5, 2.0, 3.5, 1.2, 2.2, 1.0, 2.8, 1.2, 1.8, 1.2, 2.8],
-      backgroundColor: [
-        '#EEF7F6', 
-        '#EEF7F6', 
-        '#EEF7F6', 
-        '#024757', 
-        '#EEF7F6',
-        '#EEF7F6', 
-        '#EEF7F6', 
-        '#EEF7F6',
-        '#EEF7F6',
-        '#EEF7F6',
-        '#EEF7F6',
-      ],
-      borderColor: [
-        '#4AC4B4',
-        '#4AC4B4',
-        '#4AC4B4',
-        '#2A8B7A', // Apr - dark teal border
-        '#4AC4B4',
-        '#4AC4B4',
-        '#4AC4B4',
-        '#4AC4B4',
-        '#4AC4B4',
-        '#4AC4B4',
-        '#4AC4B4',
-        '#4AC4B4',
-      ],
-      borderWidth: 1,
-    },
-  ],
-};
+export default function BarChart({ data = [], className }) {
+  const chartData = {
+    labels,
+    datasets: [
+      {
+        label: 'Revenue',
+        data: data,
+        backgroundColor: [
+          '#EEF7F6', 
+          '#EEF7F6', 
+          '#EEF7F6', 
+          '#024757', 
+          '#EEF7F6',
+          '#EEF7F6', 
+          '#EEF7F6', 
+          '#EEF7F6',
+          '#EEF7F6',
+          '#EEF7F6',
+          '#EEF7F6',
+        ],
+        borderColor: [
+          '#4AC4B4',
+          '#4AC4B4',
+          '#4AC4B4',
+          '#2A8B7A', // Apr - dark teal border
+          '#4AC4B4',
+          '#4AC4B4',
+          '#4AC4B4',
+          '#4AC4B4',
+          '#4AC4B4',
+          '#4AC4B4',
+          '#4AC4B4',
+          '#4AC4B4',
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
 
-export default function BarChart({className}) {
   return (
     <div className={mergeClass(classes.chartContainer, className)}>
-      <Bar options={options} data={data} />
+      <Bar options={options} data={chartData} />
     </div>
   );
 }

@@ -9,6 +9,7 @@ import TherapistCard from "@/components/molecules/TherapistCard/TherapistCard";
 import ResponsiveTable from "@/components/organisms/ResponsiveTable/ResponsiveTable";
 import PopOver from "@/components/molecules/PopOver";
 import {
+  barChartData,
   notificationCardData,
   recentTherapistData,
 } from "@/developmentContent/dummyData/dummyData";
@@ -116,7 +117,7 @@ const DashboardTemplate = () => {
             </Col>
             <Col lg={5}>
             <ShadowWrapper>
-            <BarChart className={classes.barChartContainer}/>
+            <BarChart data={barChartData} className={classes.barChartContainer}/>
             </ShadowWrapper>
             </Col>
           </Row>

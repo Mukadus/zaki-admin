@@ -102,26 +102,26 @@ const options = {
   },
 };
 
-// Monthly signup data matching the image
+// Monthly labels
 const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Signups',
-      data: [23.5, 12.5, 15.0, 22.0, 19.5, 10.5, 13.0, 19.5, 23.5, 13.0, 19.5, 13.0],
-      backgroundColor: '#024757', // Dark teal color
-      borderColor: '#024757',
-      borderWidth: 0,
-    },
-  ],
-};
+export default function SignupChart({ data = [] }) {
+  const chartData = {
+    labels,
+    datasets: [
+      {
+        label: 'Signups',
+        data: data,
+        backgroundColor: '#024757', // Dark teal color
+        borderColor: '#024757',
+        borderWidth: 0,
+      },
+    ],
+  };
 
-export default function SignupChart() {
   return (
     <div className={classes.chartContainer}>
-      <Bar options={options} data={data} />
+      <Bar options={options} data={chartData} />
     </div>
   );
 }
