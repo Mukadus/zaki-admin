@@ -8,7 +8,7 @@ First, run the development server:
 npm run dev
 # or
 yarn devDD
-# or
+# org
 pnpm dev
 # or
 bun dev
