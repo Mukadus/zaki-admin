@@ -6,7 +6,7 @@ import ResponsiveTable from "@/components/organisms/ResponsiveTable/ResponsiveTa
 import { registerUserFilter } from "@/developmentContent/enums/enums";
 import { tableHeader } from "@/developmentContent/tableData/tableHeader";
 import { tableBodyData } from "@/developmentContent/tableData/tableBody";
-import { dashboardPopoverOptions } from "@/developmentContent/popoverOptions";
+import {  userRegistrationPopoverOptions } from "@/developmentContent/popoverOptions";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Container } from "react-bootstrap";
@@ -70,7 +70,7 @@ const UserRegistrationTemplate = () => {
                 return (
                   <div className={classes.actionButtons}>
                     <PopOver
-                      popover={dashboardPopoverOptions}
+                      popover={userRegistrationPopoverOptions}
                       onClick={(label) => {
                         onClickPopover(label, rowItem);
                       }}

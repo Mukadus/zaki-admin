@@ -12,7 +12,7 @@ import {
   appointmentData,
 } from "@/developmentContent/tableData/tableHeader";
 import { appointmentData as appointmentTableData } from "@/developmentContent/tableData/tableBody";
-import { dashboardPopoverOptions } from "@/developmentContent/popoverOptions";
+import { appointmentPopoverOptions, dashboardPopoverOptions } from "@/developmentContent/popoverOptions";
 import TableHeader from "@/components/molecules/TableHeader/TableHeader";
 import { useRouter } from "next/navigation";
 
@@ -72,7 +72,7 @@ const AppointmentTemplate = () => {
                 return (
                   <div className={classes.actionButtons}>
                     <PopOver
-                      popover={dashboardPopoverOptions}
+                      popover={appointmentPopoverOptions}
                       onClick={(label) => {
                         onClickPopover(label, rowItem);
                       }}

@@ -25,3 +25,27 @@ export const dashboardPopoverOptions = [
     icon: "❌"
   }
 ];
+
+export const appointmentPopoverOptions = [
+  {
+    label: "View Details",
+    value: "view",
+    icon: "👁️"
+  }
+]
+
+export const userRegistrationPopoverOptions = [
+  {
+    label: "Upcoming",
+    value: "upcoming",
+  },
+  {
+    label: "Completed",
+    value: "completed",
+  },
+  {
+    label: "Rejected",
+    value: "rejected",
+  },
+];
+
