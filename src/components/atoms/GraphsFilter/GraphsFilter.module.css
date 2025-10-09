@@ -1,0 +1,61 @@
+.mainDiv {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.dropdownWrapper {
+  position: relative;
+  max-width: 100px;
+}
+
+.dropdownContainer {
+  max-width: 120px;
+  flex: 1;
+}
+
+.calendarIcon {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(2, 71, 87, 0.7);
+  font-size: 18px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.dropdownContainer :global(.react-dropdown-select) {
+  display: flex !important;
+  padding: 2px 8px 2px 35px !important;
+  align-items: center !important;
+  gap: 0px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(2, 71, 87, 0.51) !important;
+  min-height: 35px !important;
+  height: 35px !important;
+}
+
+.dropdownContainer :global(.react-dropdown-select .react-dropdown-select-content) {
+  height: 35px !important;
+  min-height: 35px !important;
+  max-height: 35px !important;
+}
+
+.dropdownContainer :global(.react-dropdown-select .react-dropdown-select-input) {
+  height: 35px !important;
+  min-height: 35px !important;
+  max-height: 35px !important;
+  line-height: 35px !important;
+}
+
+.mainDiv h4 {
+  color: var(--Heading-color, #032e38);
+  font-family: var(--font-inter), sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+}

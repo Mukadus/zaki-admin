@@ -1,0 +1,26 @@
+.actionButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.statusPill {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+  display: inline-block;
+}
+
+.completedStatus {
+  background-color: #024757;
+  color: #ffffff;
+  border: 1px solid #024757;
+}
+
+.upcomingStatus {
+  background-color: #C5F1EE;
+  color: #024757;
+  border: 1px solid #C5F1EE;
+}

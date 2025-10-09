@@ -1,0 +1,11 @@
+
+.appointmentTitle{
+    color: var(--Heading-color);
+font-family: var(--font-inter);
+font-size: 18px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+text-transform: capitalize;
+margin-bottom: 20px;
+}

@@ -1,5 +1,3 @@
-
-
 :root {
   --primary: #4b5563;
   --error: #db1717;
@@ -12,7 +10,6 @@
   --white-1: #f8fafc;
   --white-2: #e2e8f0;
   --cloud-white: #F8F8F8;
-
 
 
 
@@ -36,6 +33,9 @@
   --sunbeam-yellow:#FFFA89;
   --pure-blank:#FDFDFD;
   --midnight-teal:#052328;
+  --border-thin: #c5f1ee;
+  --title: #116063;
+  --border-gray: #d1d5db;
 
 
 

@@ -52,13 +52,13 @@
 }
 
 .react-dropdown-select .react-dropdown-select-item:hover {
-    background-color: var(--primary, #0074d9) !important;
-    color: var(--white, #ffffff) !important;
+    background-color: var(--mint-whisper) !important;
+    color: var(--Heading-color) !important;
 }
 
 .react-dropdown-select .react-dropdown-select-item.react-dropdown-select-item-selected {
-    background-color: var(--primary, #0074d9) !important;
-    color: var(--white, #ffffff) !important;
+    background-color: var(--mint-whisper) !important;
+    color: var(--Heading-color) !important;
     font-weight: 500 !important;
 }
 

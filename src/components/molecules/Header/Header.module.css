@@ -3,72 +3,73 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  border-bottom: 0.667px solid var(--white-2);
+  /* border-bottom: 0.667px solid var(--white-2); */
   background: #ffffffcc;
   backdrop-filter: blur(6px);
+  padding: 20px 0px;
+  margin-bottom: 20px;
 }
 
-.headerContent {
-  height: 76px;
-  padding: 16px 0px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.profile{
+  cursor: pointer;
 }
 
-.logo {
+.logo{
+  width: 70px;
+  height: 70px;
   position: relative;
-  width: 123px;
-  height: 45px;
+  flex-shrink: 0;
+  cursor: pointer;
 }
 
-.nav {
-  display: none;
-  align-items: center;
-  gap: 32px;
-}
-
-.navLink {
-  color: var(--black-1);
-  font-size: 0.875rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: color 0.2s ease-in-out;
-}
-
-.navLink:hover {
-  color: var(--purple);
-}
-
-.actionButtons {
+.headerContent{
   display: flex;
   align-items: center;
   gap: 20px;
+  width: 100%;
 }
 
-.mobileMenuButton {
-  display: block;
-  color: var(--black-1);
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: color 0.2s ease-in-out;
+.headerList,.rightSideAction{
+  background-color:var(--deep-teal);
+  border-radius: 16px;
+  padding: 10px 20px;
 }
 
-.mobileMenuButton:hover,
-.mobileMenuButton:focus {
-  color: var(--purple);
-  outline: none;
+.btn{
+  border-radius: 16px !important;
+  background: #FFF !important;
+  height: 44px !important;
 }
 
-@media (min-width: 768px) {
-  .nav {
-    display: flex;
-  }
+.rightSideAction{
+  width: 230px;
+  padding: 13px 10px;
+  margin-top:0px;
 }
 
-@media (min-width: 768px) {
-  .mobileMenuButton {
-    display: none;
-  }
+.headerList{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 0 1 auto;
+  min-width: 0;
 }
+
+.profile{
+  width: 44px;
+  height: 44px;
+  position: relative;
+  border-radius: 8px;
+  border: 1px solid var(--pastel-aqua);
+}
+.profile img{
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.rightSideAction{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+

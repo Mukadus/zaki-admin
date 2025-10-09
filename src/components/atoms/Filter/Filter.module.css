@@ -1,0 +1,29 @@
+
+.filter{
+    border-radius: 14px;
+    background: #F8F8F8;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: fit-content;
+    max-width: 100%;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+
+
+.filter h4{
+    color: var(--Heading-color);
+    font-family: var(--font-sen);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+}
+
+.active{
+    background:#C5F1EE;
+    color: var(--Heading-color);
+}

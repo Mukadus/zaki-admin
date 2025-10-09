@@ -1,0 +1,75 @@
+.shadowWrapper{
+    padding: 20px 20px 0px 20px !important;
+    height: auto !important;
+    overflow: hidden;
+}
+
+.barChartContainer{
+    padding: 0px !important;
+    height: 300px !important;
+    overflow: hidden;
+}
+
+.areaChartContainer{
+    padding: 0px !important;
+    height: 270px !important;
+    overflow: hidden;
+}
+
+.areaChartContainerChild{
+    height: 270px !important;
+    overflow: hidden;
+}
+
+.appoinment{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 4px;
+  }
+  
+  .appoinment > div{
+  font-size: 30px;
+  color: #1F2733;
+  font-family: var(--font-inter);
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px; /* 100% */
+  }
+  
+  .appoinment > div > span{
+    color: #A0AEC0;
+  font-family: var(--font-inter);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-left: 5px;
+  }
+  
+  .appoinment h6{
+    color: #A0AEC0;
+  font-family: var(--font-inter);
+  font-size: 17.612px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26.418px; /* 150% */
+  }
+
+.analyticsCardsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 12px;
+    height: 100%;
+}
+
+.analyticsCardWrapper {
+    display: flex;
+}
+
+.colRight{
+    padding: 0px !important;
+    margin-bottom: 0px !important;
+}

@@ -1,0 +1,48 @@
+.notificationCard {
+  padding: 16px;
+  background-color: var(--white);
+  border-radius: 20px;
+}
+.notificationCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.notificationCard h4 {
+  color: var(--Heading-color);
+  font-family: var(--font-inter);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.notificationCard .description{
+    color: var(--industrial-gray);
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 120%; /* 16.8px */
+text-transform: capitalize;
+height: 30px;
+
+}
+
+.notificationCard span{
+    color: var(--tidewater-blue);
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 120%; /* 16.8px */
+text-transform: capitalize;
+margin-top: 5px;
+}
+
+
+
+.notificationCard:last-child{
+    border-bottom: none;
+}

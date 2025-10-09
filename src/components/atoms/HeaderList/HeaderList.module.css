@@ -1,0 +1,24 @@
+.headerList {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 15px 20px;
+  color: var(--white);
+  border-radius: 16px;
+cursor: pointer;
+}
+
+.headerList span {
+  color: var(--white);
+  font-family: var(--font-sen);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+
+.active,.active span{
+  background-color: var(--white) !important;
+  color: var(--Heading-color) !important;
+}
