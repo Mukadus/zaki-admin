@@ -46,12 +46,22 @@ export default function VerifyOtpTemplate() {
                   type="text"
                   placeholder="Enter 6-digit code"
                   value={form.values.otp}
-                  setValue={(val) => form.setFieldValue("otp", val)}
-                  onBlur={form.handleBlur}
+                  setValue={(val) => {
+                    // Only allow digits and limit to 6 characters
+                    const numericValue = val.replace(/\D/g, '').slice(0, 6);
+                    form.setFieldValue("otp", numericValue);
+                    // Trigger validation on change
+                    form.validateField("otp");
+                  }}
+                  onBlur={() => {
+                    form.handleBlur("otp");
+                    form.validateField("otp");
+                  }}
                   error={form.touched.otp && form.errors.otp}
                   onEnterClick={() => {
                     form.handleSubmit();
                   }}
+                  maxLength={6}
                 />
 
                 <Button
