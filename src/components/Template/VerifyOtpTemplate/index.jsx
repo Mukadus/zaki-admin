@@ -3,7 +3,7 @@
 import { verifyOtpValues } from "@/formik/initialValues";
 import { VerifyOtpSchema } from "@/formik/schema";
 import { useFormik } from "formik";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Input from "@/components/atoms/Input/Input";
 import Button from "@/components/atoms/Button";
 import classes from "../LoginTemplate/LoginTemplate.module.css";
@@ -13,9 +13,12 @@ import { Container, Row, Col } from "react-bootstrap";
 import Image from "next/image";
 import Cookies from "js-cookie";
 import RenderToast from "@/components/atoms/RenderToast";
+import { getEmailCookie, setCodeCookie } from "@/resources/utils/cookie";
 
 export default function VerifyOtpTemplate() {
   const [loading, setLoading] = useState("");
+  const [timer, setTimer] = useState(60);
+  const [canResend, setCanResend] = useState(false);
   const { Post } = useAxios();
 
   const form = useFormik({
@@ -26,11 +29,12 @@ export default function VerifyOtpTemplate() {
     },
   });
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (values) => {
     setLoading("loading");
+    const email = getEmailCookie() || Cookies.get("email");
     const obj = {
-      email: userEmail || Cookies.get("email"),
-      code: otp,
+      email: email,
+      code: values.otp,
     };
     const { response } = await Post({route: "auth/verify/otp", data: obj});
     if(response){
@@ -40,6 +44,41 @@ export default function VerifyOtpTemplate() {
     }
     setLoading("");
   };
+
+  const handleResendOTP = async () => {
+    if (loading) return;
+    
+    const email = getEmailCookie() || Cookies.get("email");
+    if (!email) {
+      RenderToast({ type: "error", message: "Email not found. Please try the forgot password process again." });
+      return;
+    }
+    
+    const obj = {
+      email: email,
+    };
+    setLoading("otp");
+    const { response } = await Post({ route: "auth/resend/otp", data: obj });
+    setLoading("");
+    if (response) {
+      form.setFieldValue("otp", "");
+      RenderToast({ type: "info", message: "OTP resent successfully" });
+      setTimer(60);
+      setCanResend(false);
+    }
+  };
+
+  useEffect(() => {
+    let interval;
+    if (timer > 0) {
+      interval = setInterval(() => {
+        setTimer((prev) => prev - 1);
+      }, 1000);
+    } else {
+      setCanResend(true);
+    }
+    return () => clearInterval(interval);
+  }, [timer]);
 
   return (
     <div className={classes.wrapper}>
@@ -97,10 +136,16 @@ export default function VerifyOtpTemplate() {
                 />
 
                 <div className={classes.footerNote}>
-                  <span>Didn’t receive it?</span>
-                  <Link href="/forgot-password" className={classes.signUpLink}>
-                    Resend code
-                  </Link>
+                  {timer > 0 ? (
+                    <span>Resend code in {timer} seconds</span>
+                  ) : (
+                    <span 
+                      onClick={canResend ? handleResendOTP : undefined}
+                      style={{ cursor: canResend ? 'pointer' : 'default', color: canResend ? '#007bff' : '#6c757d' }}
+                    >
+                      {loading === "otp" ? "Sending..." : "Didn't receive it? Resend code"}
+                    </span>
+                  )}
                 </div>
               </div>
             </div>

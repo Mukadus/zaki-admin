@@ -3,7 +3,7 @@
 import { resetPasswordValues } from "@/formik/initialValues";
 import { ResetPasswordSchema } from "@/formik/schema";
 import { useFormik } from "formik";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Input from "@/components/atoms/Input/Input";
 import Button from "@/components/atoms/Button";
 import classes from "../LoginTemplate/LoginTemplate.module.css";
@@ -11,17 +11,52 @@ import Link from "next/link";
 import { FiLock } from "react-icons/fi";
 import { Container, Row, Col } from "react-bootstrap";
 import Image from "next/image";
+import useAxios from "@/interceptor/axios-functions";
+import { useRouter } from "next/navigation";
+import RenderToast from "@/components/atoms/RenderToast";
+import Cookies from "js-cookie";
+import { handleDecrypt } from "@/interceptor/encryption";
+import { getEmailCookie, getCodeCookie, removeEmailCookie, removeCodeCookie } from "@/resources/utils/cookie";
 
 export default function ResetPasswordTemplate() {
+  const router = useRouter();
+  const { Post } = useAxios();
   const [loading, setLoading] = useState("");
+
+  // Get email and code from cookies
+  const emailFromCookie = getEmailCookie();
+  const codeFromCookie = getCodeCookie();
 
   const form = useFormik({
     initialValues: resetPasswordValues,
     validationSchema: ResetPasswordSchema,
     onSubmit: (values) => {
-      console.log(values);
+      handleRecoverPassword(values);
     },
   });
+
+  const handleRecoverPassword = async (values) => {
+    // Combine form values with cookie data
+    setLoading("loading");
+    const payload = {
+      email: emailFromCookie,
+      code: codeFromCookie,
+      password: values.password,
+      confirmPassword: values.confirmPassword,
+    };
+    const {response} = await Post({
+      route: "auth/reset/password",
+      data: payload,
+    });
+    if (response?.status === "success") {      
+      // Clear cookies after successful password reset
+      RenderToast({ type: "success", message: "Password Reset Successfully" });
+      router.push("/login");
+      removeEmailCookie();
+      removeCodeCookie();
+    }
+    setLoading("");
+  };
 
   return (
     <div className={classes.wrapper}>
@@ -76,12 +111,12 @@ export default function ResetPasswordTemplate() {
                   type="submit"
                   variant="primary"
                   className={classes.submitBtn}
-                  label="Update password"
+                  label={loading === "loading" ? "Loading..." : "Update password"}
                   onClick={() => {
                     form.handleSubmit();
                   }}
-                  disabled={loading === "submit-form"}
-                  loading={loading === "submit-form"}
+                  disabled={loading === "loading"}
+                  loading={loading === "loading"}
                 />
 
                 <div className={classes.footerNote}>

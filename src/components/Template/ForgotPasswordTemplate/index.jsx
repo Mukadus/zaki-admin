@@ -15,6 +15,7 @@ import { useRouter } from "next/navigation";
 import useAxios from "@/interceptor/axios-functions";
 import RenderToast from "@/components/atoms/RenderToast";
 import Cookies from "js-cookie";
+import { setEmailCookie } from "@/resources/utils/cookie";
 
 export default function ForgotPasswordTemplate() {
   const [loading, setLoading] = useState("");
@@ -35,7 +36,7 @@ export default function ForgotPasswordTemplate() {
       data: values?.email,
     });
     if(response){
-      Cookies.set('email', obj.email);
+      setEmailCookie(obj.email);
       router.push('verify-otp')
       RenderToast({
         message: "Email sent successfully",
