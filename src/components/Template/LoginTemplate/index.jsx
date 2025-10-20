@@ -11,16 +11,45 @@ import Link from "next/link";
 import { FiLock, FiMail } from "react-icons/fi";
 import { Container, Row, Col } from "react-bootstrap";
 import Image from "next/image";
+import useAxios from "@/interceptor/axios-functions";
+import { setRefreshTokenCookie, setTokenCookie, setUserMetadataCookie } from "@/resources/utils/cookie";
+import { saveLoginUserData } from "@/store/auth/authSlice";
+import { useDispatch } from "react-redux";
 
 export default function LoginTemplate() {
   const [loading, setLoading] = useState("");
-
+  const { Post } = useAxios();
+  const dispatch = useDispatch();
   const loginForm = useFormik({
     initialValues: loginFormValues,
     validationSchema: LoginSchema,
     onSubmit: (values) => {
+      handleSubmit(values);
     },
   });
+
+  const handleSubmit = async (values) => {
+    setLoading('loading');
+    const { response } = await Post({
+      route: "auth/login",
+      data: values,
+    });
+    if(response){
+      const {response} = await Post({
+        route: "auth/refresh/token",
+      });
+      if(response){
+        const token = response?.data?.token;
+        const user = response?.data?.user;
+
+        setTokenCookie(token);
+        setUserMetadataCookie(user);  
+        dispatch(saveLoginUserData(response?.data));
+        router.push("/");
+      }
+    }
+    setLoading('');
+  };
 
   return (
     <div className={classes.wrapper}>

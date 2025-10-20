@@ -11,17 +11,40 @@ import Link from "next/link";
 import { FiMail } from "react-icons/fi";
 import { Container, Row, Col } from "react-bootstrap";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import useAxios from "@/interceptor/axios-functions";
+import RenderToast from "@/components/atoms/RenderToast";
+import Cookies from "js-cookie";
 
 export default function ForgotPasswordTemplate() {
   const [loading, setLoading] = useState("");
-
+  const {Post} = useAxios();
+  const router = useRouter();
   const form = useFormik({
     initialValues: forgotPasswordValues,
     validationSchema: ForgotPasswordSchema,
     onSubmit: (values) => {
-      console.log(values);
+      handleSubmit(values);
     },
   });
+
+  const handleSubmit = async (values) => {
+    setLoading("submit-form");
+    const {response} = await Post({
+      route: "auth/forgot/password",
+      data: values?.email,
+    });
+    if(response){
+      Cookies.set('email', obj.email);
+      router.push('verify-otp')
+      RenderToast({
+        message: "Email sent successfully",
+        type: "success",
+      });
+  };
+    
+    setLoading('');
+  };
 
   return (
     <div className={classes.wrapper}>
