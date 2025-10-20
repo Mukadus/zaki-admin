@@ -26,7 +26,6 @@ const UserRegistrationTemplate = () => {
 
 
   const onClickPopover = (label, rowItem) => {
-    console.log(rowItem);
     if(SelectedData?.value === 'user'){
       router.push(`/user-registration/${rowItem?.id}`);
     }else{

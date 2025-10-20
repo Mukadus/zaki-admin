@@ -15,7 +15,7 @@ import {
 } from "@/developmentContent/dummyData/dummyData";
 import { tableHeader } from "@/developmentContent/tableData/tableHeader";
 import { dashboardTableData, tableBodyData } from "@/developmentContent/tableData/tableBody";
-import { dashboardPopoverOptions } from "@/developmentContent/popoverOptions";
+import { dashboardPopoverOptions, userRegistrationPopoverOptions } from "@/developmentContent/popoverOptions";
 import { useRouter } from "next/navigation";
 import { GoArrowUpRight } from "react-icons/go";
 import NotificationCard from "@/components/atoms/NotificationCard/NotificationCard";
@@ -101,7 +101,7 @@ const DashboardTemplate = () => {
                       return (
                         <div className={classes.actionButtons}>
                           <PopOver
-                            popover={dashboardPopoverOptions}
+                            popover={userRegistrationPopoverOptions}
                             onClick={(label) => {
                               onClickPopover(label, rowItem);
                             }}
