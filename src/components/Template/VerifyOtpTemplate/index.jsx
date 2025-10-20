@@ -8,19 +8,38 @@ import Input from "@/components/atoms/Input/Input";
 import Button from "@/components/atoms/Button";
 import classes from "../LoginTemplate/LoginTemplate.module.css";
 import Link from "next/link";
+import useAxios from "@/interceptor/axios-functions";
 import { Container, Row, Col } from "react-bootstrap";
 import Image from "next/image";
+import Cookies from "js-cookie";
+import RenderToast from "@/components/atoms/RenderToast";
 
 export default function VerifyOtpTemplate() {
   const [loading, setLoading] = useState("");
+  const { Post } = useAxios();
 
   const form = useFormik({
     initialValues: verifyOtpValues,
     validationSchema: VerifyOtpSchema,
     onSubmit: (values) => {
-      console.log(values);
+      handleSubmit(values);
     },
   });
+
+  const handleSubmit = async () => {
+    setLoading("loading");
+    const obj = {
+      email: userEmail || Cookies.get("email"),
+      code: otp,
+    };
+    const { response } = await Post({route: "auth/verify/otp", data: obj});
+    if(response){
+      setCodeCookie(obj.code);
+      router.push("/reset-password");
+      RenderToast({ type: "success", message: "OTP verified successfully" });
+    }
+    setLoading("");
+  };
 
   return (
     <div className={classes.wrapper}>
@@ -48,7 +67,7 @@ export default function VerifyOtpTemplate() {
                   value={form.values.otp}
                   setValue={(val) => {
                     // Only allow digits and limit to 6 characters
-                    const numericValue = val.replace(/\D/g, '').slice(0, 6);
+                    const numericValue = val.replace(/\D/g, "").slice(0, 6);
                     form.setFieldValue("otp", numericValue);
                     // Trigger validation on change
                     form.validateField("otp");
