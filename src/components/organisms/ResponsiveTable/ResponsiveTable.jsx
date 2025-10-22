@@ -15,6 +15,9 @@ export default function ResponsiveTable({
   renderTableHeader = null,
   hasPagination,
   renderItem,
+  currentPage,
+  onPageChange,
+  totalRecords,
   ...props
 }) {
   return (
@@ -80,7 +83,7 @@ export default function ResponsiveTable({
         </table>
       </div>
 
-      {hasPagination && <Pagination {...props} />}
+      {hasPagination && <Pagination currentPage={currentPage} onPageChange={onPageChange} totalRecords={totalRecords} {...props} />}
     </>
   );
 }

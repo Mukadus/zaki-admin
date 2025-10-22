@@ -13,6 +13,8 @@ const TableHeader = ({
   search,
   rightSide=true,
   options = [],
+  selectedOption,
+  setSelectedOption,
 }) => {
   return (
     <div className={classes?.tableHeader}>
@@ -38,7 +40,9 @@ const TableHeader = ({
           <DropDown
             containerClassName={classes?.dropdownContainer}
             options={options}
-            onChange={setSelectedData}
+            multi={false}
+            onChange={(e)=>{setSelectedOption(e)}}
+            // values={selectedOption}
           />
         </div>
         )
