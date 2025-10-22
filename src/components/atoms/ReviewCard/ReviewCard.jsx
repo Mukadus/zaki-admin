@@ -4,28 +4,24 @@ import PersonalInfo from "../PersonalInfo/PersonalInfo";
 import Wrapper from "../Wrapper/Wrapper";
 import Image from "next/image";
 import Rating from "../Rating";
+import {imageUrl} from "@/resources/utils/helper";
 
-const ReviewCard = () => {
+const ReviewCard = ({data}) => {
   return (
     <div className={classes.reviewCard}>
       <div className={classes.reviewCardHeader}>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut Lorem
-          ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-          veniam, quis nostrud exercitation ullamco laboris nisi ut{" "}
+          {data?.review}
         </p>
       </div>
       <Wrapper>
         <div className={classes.imageDivWrapper}>
           <div className={classes.imageDiv}>
-            <Image src={"/app-images/userDummy.png"} alt="user" fill />
+            <Image src={imageUrl(data?.photo) || "/app-images/userDummy.png"} alt="user" fill />
           </div>
           <div>
-            <h4>John Doe</h4>
-            <Rating rating={4.5} />
+            <h4>{data?.fullName}</h4>
+            <Rating rating={data?.rating} />
           </div>
         </div>
       </Wrapper>

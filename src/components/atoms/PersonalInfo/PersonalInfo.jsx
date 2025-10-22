@@ -7,21 +7,22 @@ import { FaCalendarDays } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
 import { BiWorld } from "react-icons/bi";
 import ImageComponent from "../ImageComponent/ImageComponent";
-import { mergeClass } from "@/resources/utils/helper";
+import { imageUrl, mergeClass } from "@/resources/utils/helper";
 import { FaPhone } from "react-icons/fa6";
 import Button from "../Button";
 import { MdEmail } from "react-icons/md";
 import { MdOutlineAccessTimeFilled } from "react-icons/md";
+import moment from "moment";
+import { getFormattedPrice } from "@/resources/utils/helper";
 
 export default function PersonalInfo({
   showCertifications = false,
   isAppointment = false,
   showName = false,
+  data,
 }) {
   const getStatusClass = (status) => {
-    return status === "Completed"
-      ? classes.completedStatus
-      : classes.upcomingStatus;
+    return status === data?.status ? classes.completedStatus : classes.upcomingStatus;
   };
 
   const personalInfoData = isAppointment
@@ -29,44 +30,44 @@ export default function PersonalInfo({
         {
           icon: FaCalendarDays,
           label: "Date",
-          value: "Mon Feb, 16",
+          value: moment(data?.date).format("MMM DD, YYYY"),
         },
         {
           icon: MdOutlineAccessTimeFilled,
           label: "Time",
-          value: "9:00 AM",
+          value: moment(data?.time).format("HH:mm A"),
         },
         {
           icon: FaLocationDot,
           label: "Location",
-          value: "Ondrickachester",
+          value: data?.location || data?.user?.location,
         },
         {
           icon: BiWorld,
           label: "Language",
-          value: "English",
+          value: data?.language || data?.user?.language,
         },
       ]
     : [
         {
           icon: MdEmail,
           label: "Email",
-          value: "anastasya@yahoo.com",
+          value: data?.email || data?.user?.email,
         },
         {
           icon: FaPhone,
           label: "Contact",
-          value: "(209) 555-0104",
+          value: data?.phoneNumber || data?.user?.phoneNumber,
         },
         {
           icon: FaLocationDot,
           label: "Location",
-          value: "Ondrickachester",
+          value: data?.location || data?.user?.location,
         },
         {
           icon: BiWorld,
           label: "Language",
-          value: "English",
+          value: data?.language || data?.user?.language,
         },
       ];
 
@@ -101,25 +102,25 @@ export default function PersonalInfo({
       <Wrapper className={classes.photoNameDiv}>
         <div className={classes.basicInfoDiv}>
           <div className={classes?.photoDiv}>
-            <ImageComponent src={"/app-images/userDummy.png"} />
+            <ImageComponent src={imageUrl(data?.therapist?.photo || data?.user?.photo) || "/app-images/userDummy.png"} />
           </div>
           <div className={classes.profileInfoDiv}>
-            <h4 className={classes.userName}>John Doe</h4>
-            <p className={classes.email}>janie_Hermann13@yahoo.com</p>
+            <h4 className={classes.userName}>{data?.therapist?.fullName || data?.user?.fullName}</h4>
+            <p className={classes.email}>{data?.therapist?.email || data?.user?.email}</p>
           </div>
         </div>
         {isAppointment && (
           <span
-            className={`${classes.statusPill} ${getStatusClass("Completed")}`}
+            className={`${classes.statusPill} ${getStatusClass(data?.status)}`}
           >
-            Completed
+            {data?.status}
           </span>
         )}
       </Wrapper>
       {isAppointment && (
         <div className={classes.categoryDiv}>
           <p className={classes.categoryLabel}>Category</p>
-          <h6 className={classes.category}>Psychodynamic Therapy</h6>
+          <h6 className={classes.category}>{data?.category}</h6>
         </div>
       )}
        {!isAppointment && (
@@ -137,7 +138,7 @@ export default function PersonalInfo({
              {personalInfoData?.map(renderInfoItem)}
            </div>
            <div className={classes.priceDiv}>
-             <h4>$96.99</h4>
+             <h4>{getFormattedPrice(data?.price)}</h4>
              <p>Total Bill</p>
            </div>
          </div>
@@ -149,11 +150,11 @@ export default function PersonalInfo({
             <p className={`${classes.categoryLabel} mb-2`}>Client Name</p>
             <div className={classes.basicInfoDiv}>
               <div className={classes?.photoDiv}>
-                <ImageComponent src={"/app-images/userDummy.png"} />
+                <ImageComponent src={imageUrl(data?.user?.photo) || "/app-images/userDummy.png"} />
               </div>
               <div className={classes.profileInfoDiv}>
-                <h4 className={classes.userName}>John Doe</h4>
-                <p className={classes.email}>janie_Hermann13@yahoo.com</p>
+                <h4 className={classes.userName}>{data?.user?.fullName}</h4>
+                <p className={classes.email}>{data?.user?.email }</p>
               </div>
             </div>
           </div>

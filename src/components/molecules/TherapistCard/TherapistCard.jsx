@@ -15,7 +15,7 @@ const TherapistCard = ({item}) => {
             <Image src={item?.image || "/svgs/profile.svg"} fill alt="profile" />
           </div>
           <div className={classes?.therapistName}>
-            <h4 className="maxLine1">{item?.name}</h4>
+            <h4 className="maxLine1">{item?.fullName}</h4>
             <TiStarFullOutline color="#DBA02E" />
             <span>({item?.rating})</span>
           </div>

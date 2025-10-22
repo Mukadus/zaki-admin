@@ -11,11 +11,14 @@ import { useSearchParams } from 'next/navigation';
 import { appointmentFilter } from '@/developmentContent/enums/enums'
 import { recentTherapistData } from '@/developmentContent/dummyData/dummyData'
 import TherapistCard from '@/components/molecules/TherapistCard/TherapistCard'
+import { userRegistrationData } from '@/developmentContent/dummyData/userRegistration'
 
 const UserRegisterationoDetailTemplate = ({slug}) => {
   const [SelectedData, setSelectedData] = useState(appointmentFilter[0]);
   const searchParams = useSearchParams();
   const id = searchParams.get('therapist') || "";
+
+  const [data, setData] = useState(userRegistrationData);
 
   return (
     <>
@@ -26,7 +29,7 @@ const UserRegisterationoDetailTemplate = ({slug}) => {
                     das
                 </Wrapper>
             </ShadowWrapper> */}
-            <PersonalInfo showCertifications={id !== ''}/>
+            <PersonalInfo showCertifications={id !== ''} data={data}/>
             {
               !id && (
             <div className='mt-4'>
