@@ -23,7 +23,7 @@ const UserRegisterationoDetailTemplate = ({slug}) => {
   return (
     <>
         <Container>
-            <TopHeader title="User Registration" back={true} />
+            <TopHeader title="User Detail" back={true} />
             {/* <ShadowWrapper className={classes?.shadowWrapper}>
                 <Wrapper>
                     das

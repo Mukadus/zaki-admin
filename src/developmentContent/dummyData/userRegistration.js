@@ -8,4 +8,14 @@ export const userRegistrationData = {
     },
     category: "Therapy Specialist",
     location: "United States",
+    appointments: [
+        {
+            _id: 1,
+            therapist: {
+                fullName: "John Doe",
+                email: "john.doe@example.com",
+                photo: "/app-images/userDummy.png",
+            },
+        },
+    ],
 }
