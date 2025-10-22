@@ -11,16 +11,47 @@ import Link from "next/link";
 import { FiLock, FiMail } from "react-icons/fi";
 import { Container, Row, Col } from "react-bootstrap";
 import Image from "next/image";
+import { TOKEN_COOKIE_NAME } from "@/resources/utils/cookie";
+import { handleEncrypt } from "@/interceptor/encryption";
+import RenderToast from "@/components/atoms/RenderToast";
+import Cookies from "js-cookie";
+import { useRouter } from "next/navigation";
 
 export default function LoginTemplate() {
+
+  const router = useRouter();
   const [loading, setLoading] = useState("");
 
   const loginForm = useFormik({
     initialValues: loginFormValues,
     validationSchema: LoginSchema,
     onSubmit: (values) => {
+      handleSubmit(values);
     },
   });
+
+
+  const handleSubmit = async (values) => {
+    // setLoading("login");
+
+    if (
+      values.email === "admin@yopmail.com" &&
+      values.password === "12345678"
+    ) {
+      router.push("/");
+      Cookies.set(TOKEN_COOKIE_NAME, handleEncrypt("12345678"));
+      RenderToast({
+        message: "Login successful",
+        type: "success",
+      });
+    } else {
+      RenderToast({
+        message: "Invalid email or password",
+        type: "error",
+      });
+    }
+  };
+
 
   return (
     <div className={classes.wrapper}>
@@ -61,9 +92,7 @@ export default function LoginTemplate() {
                   value={loginForm.values.password}
                   setValue={(val) => loginForm.setFieldValue("password", val)}
                   onBlur={loginForm.handleBlur}
-                  error={
-                    loginForm.touched.password && loginForm.errors.password
-                  }
+                  error={loginForm.errors.password}
                   onEnterClick={() => {
                     loginForm.handleSubmit();
                   }}
@@ -86,12 +115,12 @@ export default function LoginTemplate() {
                 />
               </div>
 
-              <div className={classes.footerNote}>
+              {/* <div className={classes.footerNote}>
                 <span>Don&apos;t have an account?</span>
                 <Link href="/sign-up" className={classes.signUpLink}>
                   Sign up
                 </Link>
-              </div>
+              </div> */}
             </div>
           </Col>
         </Row>

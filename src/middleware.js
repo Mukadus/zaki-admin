@@ -1,18 +1,33 @@
 import { NextResponse } from "next/server";
+import { TOKEN_COOKIE_NAME } from "./resources/utils/cookie";
 
 export default function middleware(req) {
   const { cookies, nextUrl } = req;
-  const publicRoutes = [
 
+  const privateRoutes = [
+    "/",
+    "/user-registration",
+    "/appointment",
+    "/category",
+    "/analytics",
+    "/wallet",
+    "/notification",
+    "/profile",
   ];
-  return NextResponse.next();
+
+  const authRoutes = [
+    "/login",
+    "/forgot-password",
+    "/verify-otp",
+    "/reset-password",
+  ];
 
   if (cookies.has(TOKEN_COOKIE_NAME)) {
-    if (nextUrl.pathname === "/login") {
-      return NextResponse.redirect(new URL("/dashboard", req.url));
+    if (authRoutes.includes(nextUrl.pathname)) {
+      return NextResponse.redirect(new URL("/", req.url));
     }
   } else {
-    if (nextUrl.pathname === "/dashboard") {
+    if (privateRoutes.includes(nextUrl.pathname)) {
       return NextResponse.redirect(new URL("/login", req.url));
     }
   }

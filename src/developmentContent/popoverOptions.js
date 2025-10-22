@@ -1,8 +1,10 @@
+import { FiEye } from "react-icons/fi";
+
 export const dashboardPopoverOptions = [
   {
     label: "View Details",
     value: "view",
-    icon: "👁️"
+    icon: <FiEye />
   },
   {
     label: "Edit",
@@ -30,7 +32,7 @@ export const appointmentPopoverOptions = [
   {
     label: "View Details",
     value: "view",
-    icon: "👁️"
+    icon: <FiEye />
   }
 ]
 
@@ -38,7 +40,7 @@ export const userRegistrationPopoverOptions = [
   {
     label: "View Details",  
     value: "view",
-    icon: "👁️"
+    icon: <FiEye />
   }
 ];
 
