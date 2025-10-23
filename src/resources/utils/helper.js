@@ -1,6 +1,6 @@
 import React from "react";
 import config from "@/config";
-import { formRegEx, formRegExReplacer } from "./regex";
+
 
 export const mergeClass = (...classes) => {
   return classes.join(" ");
@@ -210,3 +210,86 @@ export function splitTextIntoTags(text, tag, wordsPerLine) {
     React.createElement(tag, { key: index }, line)
   );
 }
+
+
+export const formRegEx = /([a-z])([A-Z0-9])|([A-Za-z])([0-9])/g;
+export const formRegExReplacer = "$1$3 $2$4";
+
+export const formattedKey = (key) => {
+  return key
+    ?.replace(/([A-Z])/g, " $1")
+    .replace(/^./, (str) => str?.toUpperCase());
+};
+
+
+export const getObjectDepth = (object) => {
+  let level = 1;
+  for (let key in object) {
+    if (!object.hasOwnProperty(key) || typeof object[key] !== "object") {
+      continue;
+    }
+    level += getObjectDepth(object[key]);
+  }
+  return level;
+};
+
+export const postVideoToS3 = async ({ video, url, setVideoProgress }) => {
+  await axios
+    .put(url, video, {
+      headers: {
+        "Content-Type": video.type,
+      },
+      onUploadProgress: (data) => {
+        setVideoProgress(Math.round((100 * data.loaded) / data.total));
+      },
+    })
+    .then(() => {
+      // toast.success("Video updated successfully.");
+      return true;
+    })
+    .catch(async (e) => {
+      RenderToast({
+        message: "Something went wrong. Please try again later.",
+        type: "error",
+      });
+      return false;
+    })
+    .finally(() => {
+      setVideoProgress(0);
+    });
+};
+
+export const returnKeyEmptyAsPerType = (item) => {
+  if (typeof item === "object") {
+    if (Array.isArray(item)) {
+      return [];
+    } else {
+      return fillObjectToEmptyWithSameKey(item);
+    }
+  } else if (typeof item === "string") {
+    return "";
+  }
+};
+
+export const fillObjectToEmptyWithSameKey = (item) => {
+  return Object.keys(item).reduce((acc, key) => {
+    acc[key] = "";
+    return acc;
+  }, {});
+};
+
+export const unWantedKeys = [
+  "_id",
+  "__v",
+  "updatedAt",
+  "createdAt",
+  "__comment",
+  "_comment",
+  "updatedAt",
+  "status",
+  "slug",
+
+];
+
+
+export const fallbackImage = "/images/app-images/default-fallback-image.png";

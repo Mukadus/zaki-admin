@@ -3,9 +3,7 @@ import React from "react";
 import classes from "./Header.module.css";
 import Image from "next/image";
 import { Container } from "react-bootstrap";
-import Link from "next/link";
 import Button from "@/components/atoms/Button";
-import { BiMenu, BiOutline } from "react-icons/bi";
 import { IoNotificationsOutline, IoPersonOutline, IoLogOutOutline } from "react-icons/io5";
 import HeaderList from "@/components/atoms/HeaderList/HeaderList";
 import { headerData } from "@/developmentContent/developmentData/HeaderData";
@@ -13,6 +11,10 @@ import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import PopOver from "@/components/molecules/PopOver";
 import { signOutRequest } from "@/store/auth/authSlice";
+import { clearAllCookies } from "@/resources/utils/cookie";
+import { PiSealQuestionLight } from "react-icons/pi";
+import { TbLayoutDashboard } from "react-icons/tb";
+import { PiNewspaperClippingLight } from "react-icons/pi";
 
 const Header = () => {
   const router = useRouter();
@@ -23,27 +25,51 @@ const Header = () => {
     {
       label: "Profile",
       value: "profile",
-      icon: <IoPersonOutline size={18} />
+      icon: <IoPersonOutline size={18} />,
+      link: "/profile",
+    },
+    {
+      label: "CMS",
+      value: "cms",
+      icon: <TbLayoutDashboard size={18} />,
+      link: "/cms",
+    },
+    {
+      label: "FAQ",
+      value: "faq",
+      icon:<PiSealQuestionLight size={18} />,
+      link: "/faq",
+    },
+    {
+      label: "Blog",
+      value: "blog",
+      icon:<PiNewspaperClippingLight size={18} />,
+      link: "/blog",
     },
     {
       label: "Logout",
       value: "logout",
       icon: <IoLogOutOutline size={18} />
-    }
+    },
+    
   ];
 
   const handleProfileClick = (value) => {
     if (value === "profile") {
       router.push("/profile");
+    } else if (value === "cms") {
+      router.push("/cms");
+    } else if (value === "faq") {
+      router.push("/faq");
+    } else if (value === "blog") {
+      router.push("/blog");
     } else if (value === "logout") {
-      logout();
+      dispatch(signOutRequest());
+      clearAllCookies();
+      router.push("/login");
     }
   };
 
-  const logout = () => {
-    dispatch(signOutRequest());
-    router.push("/login");
-  };
 
   return (
     <header className={classes.header}>

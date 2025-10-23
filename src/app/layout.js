@@ -31,8 +31,8 @@ const ranade = localFont({
 });
 
 export const metadata = {
-  title: "Improself Web ",
-  description: `Your go-to source for mental health insights, tools, and advice.`,
+  title: "Improself Admin Panel ",
+  description: `Improself Admin Panel`,
 };
 
 export default function RootLayout({ children }) {

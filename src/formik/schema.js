@@ -1,5 +1,6 @@
 import { emailRegex } from "@/resources/utils/regex";
 import * as Yup from "yup";
+import { statusOptions } from "@/developmentContent/enums/enums";
 
 export const LoginSchema = Yup.object({
   email: Yup.string()
@@ -82,4 +83,19 @@ export const ChangePasswordFormSchema = Yup.object({
   currentPassword: Yup.string().required("Current password is required"),
   password: Yup.string().required("Password is required"),
   confirmPassword: Yup.string().required("Confirm password is required"),
+});
+
+
+export const faqSchema = Yup.object({
+  question: Yup.string().required("Question is required"),
+  answer: Yup.string().required("Answer is required"),
+  status: Yup.string().oneOf(["Active", "In-Active"], "Status must be either Active or In-Active").required("Status is required"),
+});
+
+export const blogSchema = Yup.object({
+  blogTitle: Yup.string().required("Blog title is required"),
+  blogContent: Yup.string().required("Blog content is required"),
+  photo: Yup.mixed().required("Blog image is required"),
+  category: Yup.object().required("Category is required"),
+  status: Yup.string().oneOf(statusOptions.map(status => status.value), "Status must be either Active or In-Active").required("Status is required"),
 });

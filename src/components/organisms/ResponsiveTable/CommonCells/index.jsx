@@ -2,6 +2,7 @@ import { getFormattedParams } from "@/resources/utils/helper";
 import clsx from "clsx";
 import moment from "moment";
 import classes from "./CommonCells.module.css";
+import Image from "next/image";
 
 const statusClassMap = {
   "Upcoming": {
@@ -51,7 +52,7 @@ export const RenderDateCell = ({ cellValue: item }) => {
 
 export const RenderStatusCell = ({ cellValue: item }) => {
   const isBoolean = typeof item === "boolean";
-  
+
   const displayValue = isBoolean ? (item ? "active" : "inactive") : item;
 
   const statusClass = statusClassMap[displayValue];
@@ -62,5 +63,13 @@ export const RenderStatusCell = ({ cellValue: item }) => {
     >
       {getFormattedParams(displayValue)}
     </span>
+  );
+};
+
+export const RenderImageCell = ({ cellValue: item }) => {
+  return (
+    <div className={classes.imageContainer}>
+      <Image src={item} alt="image" fill className={classes.image} />
+    </div>
   );
 };

@@ -377,3 +377,56 @@ export const billingData = [
     amount: "$56.7"
   }
 ];
+
+
+// FAQ Data
+export const faqData = [
+  {
+    slug: 1,
+    question: "What is the purpose of this website?",
+    answer: "This website is a platform for users to find and book therapy sessions with licensed therapists.",
+    status: "In-Active"
+  },
+  {
+    slug: 2,
+    question: "What is the purpose of this website?",
+    answer: "This website is a platform for users to find and book therapy sessions with licensed therapists.",
+    status: "Active"
+  },
+  {
+    slug: 3,
+    question: "What is the purpose of this website?",
+    answer: "This website is a platform for users to find and book therapy sessions with licensed therapists.",
+    status: "Active"
+  },
+];
+
+// Blog Data
+export const blogData = [
+  {
+    slug: 1,
+    blogTitle: "What is the purpose of this website?",
+    blogContent: "This website is a platform for users to find and book therapy sessions with licensed therapists.",
+    photo: "/app-images/blog.png",
+    category: "Psychodynamic Therapy",
+    status: "In-Active"
+  },
+  {
+    slug: 2,
+    blogTitle: "What is the purpose of this website?",
+    blogContent: "This website is a platform for users to find and book therapy sessions with licensed therapists.",
+    photo: "/app-images/blog.png",
+    category: "Psychodynamic Therapy",
+    status: "Active"
+  },
+  {
+    slug: 3,
+    blogTitle: "What is the purpose of this website?",
+    blogContent: "This website is a platform for users to find and book therapy sessions with licensed therapists.",
+    photo: "/app-images/blog.png",
+    category: {
+      value: "psychodynamic-therapy",
+    },
+    status: "In-Active"
+  },
+];

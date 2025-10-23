@@ -1,3 +1,4 @@
+import { statusOptions } from "@/developmentContent/enums/enums";
 export const loginFormValues = {
   email: "",
   password: "",
@@ -48,4 +49,19 @@ export const addCategoryValues = {
 
 export const reasonForRejectionValues = {
   reason: "",
+};
+
+
+export const faqValues = {
+  question: "",
+  answer: "",
+  status: statusOptions[0]?.value || "",
+};
+
+export const blogValues = {
+  blogTitle: "",
+  blogContent: "",
+  photo: null,
+  category: null,
+  status: statusOptions[0]?.value || "",
 };

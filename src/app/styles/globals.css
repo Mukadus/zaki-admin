@@ -78,3 +78,11 @@ a {
 .c-p {
   cursor: pointer;
 }
+
+.error {
+  color: var(--error);
+  font-size: var(--fs12);
+  font-family: var(--font-inter);
+  font-weight: 400;
+  margin-top: 5px;
+}

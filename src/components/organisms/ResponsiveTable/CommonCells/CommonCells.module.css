@@ -47,3 +47,13 @@
   font-weight: 600;
   color: var(--deep-teal);
 }
+.imageContainer {
+  border-radius: 50%;
+  width: 65px;
+  height: 64px;
+  position: relative;
+}
+.image {
+  object-fit: cover;
+  border-radius: 50%;
+}

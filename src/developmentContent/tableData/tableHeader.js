@@ -1,4 +1,4 @@
-import { RenderStatusCell, RenderTextCell } from "@/components/organisms/ResponsiveTable/CommonCells";
+import { RenderStatusCell, RenderTextCell, RenderImageCell } from "@/components/organisms/ResponsiveTable/CommonCells";
 
 export const tableHeader = [
   {
@@ -423,5 +423,106 @@ export const billingTableHeader = [
     renderValue: (cellValue) => (
       <RenderTextCell cellValue={cellValue} />
     ),
+  },
+];
+
+
+// FAQ Table Header
+export const faqTableHeader = [
+  {
+    title: "Question",
+    key: "question",
+    renderValue: (cellValue) => (
+      <RenderTextCell cellValue={cellValue} bold />
+    ),
+    style: {
+      width: "35%",
+    },
+  },
+  {
+    title: "Answer",
+    key: "answer",
+    renderValue: (cellValue) => (
+      <RenderTextCell cellValue={cellValue} />
+    ),
+      style: {
+        width: "35%",
+    },
+  },
+  {
+    title: "Status",
+    key: "status",
+    renderValue: (cellValue) => <RenderStatusCell cellValue={cellValue} />,
+    style: {
+      width: "20%",
+    },
+  },
+
+  {
+    title: "Actions",
+    key: "actions",
+    style: {
+      width: "10%",
+    },
+  },
+];
+
+// Blog Table Header
+export const blogTableHeader = [
+  {
+    title: "Blog Image",
+    key: "photo",
+    renderValue: (cellValue) => (
+      <RenderImageCell cellValue={cellValue} />
+    ),
+    style: {
+      width: "10%",
+    },
+  },
+  {
+    title: "Blog Title",
+    key: "blogTitle",
+    renderValue: (cellValue) => (
+      <RenderTextCell cellValue={cellValue} bold />
+    ),
+    style: {
+      width: "20%",
+    },
+  },
+ 
+  {
+    title: "Blog Content",
+    key: "blogContent",
+    renderValue: (cellValue) => (
+      <RenderTextCell cellValue={cellValue} />
+    ),
+    style: {
+      width: "30%",
+    },
+  },
+  {
+    title: "Category",
+    key: "category",
+    renderValue: (cellValue) => (
+      <RenderTextCell cellValue={cellValue} />
+    ),
+    style: {
+      width: "20%",
+    },
+  },
+  {
+    title: "Status",  
+    key: "status",
+    renderValue: (cellValue) => <RenderStatusCell cellValue={cellValue} />,
+    style: {
+      width: "15%",
+    },
+  },
+  {
+    title: "Actions",
+    key: "actions",
+    style: {
+      width: "5%",
+    },
   },
 ];

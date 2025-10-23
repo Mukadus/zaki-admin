@@ -81,3 +81,29 @@ export const walletFilter = [
         value:"billing",
     }
 ]
+
+export const faqEnum = [
+    {
+        label:"All",
+        value:"all",
+    },
+    {
+        label:"Active",
+        value:"active",
+    },
+    {
+        label:"Inactive",
+        value:"inactive",
+    },
+]
+
+export const statusOptions = [
+    {
+        label:"Active",
+        value:"active",
+    },
+    {
+        label:"Inactive",
+        value:"inactive",
+    },
+]
