@@ -95,3 +95,13 @@
 .submitBtn{
   width: 100% !important;
 }
+
+/* Animation for loading dots */
+@keyframes dotPulse {
+  0%, 80%, 100% {
+    opacity: 0.3;
+  }
+  40% {
+    opacity: 1;
+  }
+}

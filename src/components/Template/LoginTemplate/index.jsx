@@ -11,17 +11,17 @@ import Link from "next/link";
 import { FiLock, FiMail } from "react-icons/fi";
 import { Container, Row, Col } from "react-bootstrap";
 import Image from "next/image";
-import { TOKEN_COOKIE_NAME } from "@/resources/utils/cookie";
-import { handleEncrypt } from "@/interceptor/encryption";
-import RenderToast from "@/components/atoms/RenderToast";
-import Cookies from "js-cookie";
-import { useRouter } from "next/navigation";
+import useAxios from "@/interceptor/axios-functions";
+import { setRefreshTokenCookie, setTokenCookie, setUserMetadataCookie } from "@/resources/utils/cookie";
+import { saveLoginUserData } from "@/store/auth/authSlice";
+import { useDispatch } from "react-redux";
 
 export default function LoginTemplate() {
 
   const router = useRouter();
   const [loading, setLoading] = useState("");
-
+  const { Post } = useAxios();
+  const dispatch = useDispatch();
   const loginForm = useFormik({
     initialValues: loginFormValues,
     validationSchema: LoginSchema,
@@ -30,28 +30,28 @@ export default function LoginTemplate() {
     },
   });
 
-
   const handleSubmit = async (values) => {
-    // setLoading("login");
+    setLoading('loading');
+    const { response } = await Post({
+      route: "auth/login",
+      data: values,
+    });
+    if(response){
+      const {response} = await Post({
+        route: "auth/refresh/token",
+      });
+      if(response){
+        const token = response?.data?.token;
+        const user = response?.data?.user;
 
-    if (
-      values.email === "admin@yopmail.com" &&
-      values.password === "12345678"
-    ) {
-      router.push("/");
-      Cookies.set(TOKEN_COOKIE_NAME, handleEncrypt("12345678"));
-      RenderToast({
-        message: "Login successful",
-        type: "success",
-      });
-    } else {
-      RenderToast({
-        message: "Invalid email or password",
-        type: "error",
-      });
+        setTokenCookie(token);
+        setUserMetadataCookie(user);  
+        dispatch(saveLoginUserData(response?.data));
+        router.push("/");
+      }
     }
+    setLoading('');
   };
-
 
   return (
     <div className={classes.wrapper}>

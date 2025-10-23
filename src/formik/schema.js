@@ -27,9 +27,10 @@ export const ForgotPasswordSchema = Yup.object({
 });
 
 export const VerifyOtpSchema = Yup.object({
-  code: Yup.string()
+  otp: Yup.string()
     .required("OTP is required")
-    .matches(/^\d{4,6}$/, "Enter a valid 4-6 digit code"),
+    .matches(/^\d{6}$/, "Enter a valid 6-digit code")
+    .length(6, "OTP must be exactly 6 digits"),
 });
 
 

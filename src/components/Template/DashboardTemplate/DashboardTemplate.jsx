@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./DashboardTemplate.module.css";
 import TopHeader from "@/components/atoms/TopHeader/TopHeader";
 import { Col, Container, Row } from "react-bootstrap";
@@ -9,24 +9,24 @@ import TherapistCard from "@/components/molecules/TherapistCard/TherapistCard";
 import ResponsiveTable from "@/components/organisms/ResponsiveTable/ResponsiveTable";
 import PopOver from "@/components/molecules/PopOver";
 import {
-  barChartData,
-  notificationCardData,
-  recentTherapistData,
+  dashboardData,
 } from "@/developmentContent/dummyData/dummyData";
 import { tableHeader } from "@/developmentContent/tableData/tableHeader";
 import { dashboardTableData, tableBodyData } from "@/developmentContent/tableData/tableBody";
-import { dashboardPopoverOptions } from "@/developmentContent/popoverOptions";
+import { dashboardPopoverOptions, userRegistrationPopoverOptions } from "@/developmentContent/popoverOptions";
 import { useRouter } from "next/navigation";
 import { GoArrowUpRight } from "react-icons/go";
 import NotificationCard from "@/components/atoms/NotificationCard/NotificationCard";
 import NoDataFound from "@/components/atoms/NoDataFound/NoDataFound";
 import ShadowWrapper from "@/components/atoms/ShadowWrapper/ShadowWrapper";
 import BarChart from "@/components/molecules/Chart/BarChart/BarChart";
+import useAxios from "@/interceptor/axios-functions";
 
 const DashboardTemplate = () => {
-
+  const [loading,setLoading] = useState('');
+  const [data,setData] = useState(dashboardData);
   const router = useRouter();
-
+  const {Get} = useAxios();
 
   const onClickPopover = (label, rowItem) => {
     label === 'view'?router.push(`/user-registration/${rowItem?._id}`):null;
@@ -35,6 +35,19 @@ const DashboardTemplate = () => {
   const getStatusClass = (status) => {
     return status === "Completed" ? classes.completedStatus : classes.upcomingStatus;
   };
+
+  const getData = async ()=>{
+    setLoading('loading');
+    const {response} = await Get({route: "/dashboard"});
+    if(response){
+      setData(response?.data);
+    }
+  setLoading('');
+  }
+
+  useEffect(()=>{
+    // getData();
+  },[]);
 
   return (
     <>
@@ -45,7 +58,7 @@ const DashboardTemplate = () => {
               <TopHeader title="Dashboard" backButton={false} />
               <Wrapper>
                 <Row className="gy-4">
-                  {recentTherapistData?.map((item) => {
+                  {data?.recentTherapistData?.map((item) => {
                     return (
                       <Col lg={4} key={item?._id}>
                         <TherapistCard item={item} />
@@ -65,11 +78,11 @@ const DashboardTemplate = () => {
                   </div>
                 </div>
                 <div className={classes?.notificationCardContainer}>
-                  { notificationCardData?.length > 0 ? notificationCardData?.map((item) => {
+                  { data?.notificationCardData?.length > 0 ? data?.notificationCardData?.map((item) => {
                     return <NotificationCard item={item} key={item?._id} />;
                   }):<NoDataFound className={classes?.noDataFound} />}
                 </div>
-                {notificationCardData?.length === 2 && (
+                {data?.notificationCardData?.length === 2 && (
                   <SeeAll title="See All Notifications" link="/notification" />
                 )}
               </Wrapper>
@@ -80,7 +93,7 @@ const DashboardTemplate = () => {
               <Wrapper>
                 <h4 className="mb-3">User Management</h4>
                 <ResponsiveTable
-                  data={dashboardTableData}
+                  data={data?.dashboardTableData}
                   tableHeader={tableHeader}
                   hasPagination={false}
                   renderItem={({ item, key, rowIndex, renderValue }) => {
@@ -101,7 +114,7 @@ const DashboardTemplate = () => {
                       return (
                         <div className={classes.actionButtons}>
                           <PopOver
-                            popover={dashboardPopoverOptions}
+                            popover={userRegistrationPopoverOptions}
                             onClick={(label) => {
                               onClickPopover(label, rowItem);
                             }}
@@ -121,7 +134,7 @@ const DashboardTemplate = () => {
              Subscription sales breakdown
              </div>
              <div className={classes?.mainChart}>
-            <BarChart data={barChartData} className={classes.barChartContainer}/>
+            <BarChart data={data?.barChartData} className={classes.barChartContainer}/>
              </div>
             </ShadowWrapper>
             </Col>

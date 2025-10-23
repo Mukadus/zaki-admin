@@ -19,69 +19,72 @@ export default function PersonalInfo({
   showCertifications = false,
   isAppointment = false,
   showName = false,
-  data,
+  user,
 }) {
+
+  console.log("user",user);
+
   const getStatusClass = (status) => {
     return status === data?.status ? classes.completedStatus : classes.upcomingStatus;
   };
 
-  const personalInfoData = isAppointment
-    ? [
-        {
-          icon: FaCalendarDays,
-          label: "Date",
-          value: moment(data?.date).format("MMM DD, YYYY"),
-        },
-        {
-          icon: MdOutlineAccessTimeFilled,
-          label: "Time",
-          value: moment(data?.time).format("HH:mm A"),
-        },
-        {
-          icon: FaLocationDot,
-          label: "Location",
-          value: data?.location || data?.user?.location,
-        },
-        {
-          icon: BiWorld,
-          label: "Language",
-          value: data?.language || data?.user?.language,
-        },
-      ]
-    : [
-        {
-          icon: MdEmail,
-          label: "Email",
-          value: data?.email || data?.user?.email,
-        },
-        {
-          icon: FaPhone,
-          label: "Contact",
-          value: data?.phoneNumber || data?.user?.phoneNumber,
-        },
-        {
-          icon: FaLocationDot,
-          label: "Location",
-          value: data?.location || data?.user?.location,
-        },
-        {
-          icon: BiWorld,
-          label: "Language",
-          value: data?.language || data?.user?.language,
-        },
-      ];
+  // const personalInfoData = isAppointment
+  //   ? [
+  //       {
+  //         icon: FaCalendarDays,
+  //         label: "Date",
+  //         value: "Mon Feb, 16",
+  //       },
+  //       {
+  //         icon: MdOutlineAccessTimeFilled,
+  //         label: "Time",
+  //         value: "9:00 AM",
+  //       },
+  //       {
+  //         icon: FaLocationDot,
+  //         label: "Location",
+  //         value: "Ondrickachester",
+  //       },
+  //       {
+  //         icon: BiWorld,
+  //         label: "Language",
+  //         value: "English",
+  //       },
+  //     ]
+  //   : [
+  //       {
+  //         icon: MdEmail,
+  //         label: "Email",
+  //         value: "anastasya@yahoo.com",
+  //       },
+  //       {
+  //         icon: FaPhone,
+  //         label: "Contact",
+  //         value: "(209) 555-0104",
+  //       },
+  //       {
+  //         icon: FaLocationDot,
+  //         label: "Location",
+  //         value: "Ondrickachester",
+  //       },
+  //       {
+  //         icon: BiWorld,
+  //         label: "Language",
+  //         value: "English",
+  //       },
+  //     ];
 
-  const renderInfoItem = (item, index) => {
-    const IconComponent = item.icon;
-    return (
-      <div key={index} className={classes.infoDiv}>
-        <IconComponent className={classes.icon} />
-        <p className={classes.keyValue}>
-          {item.label} <span>{item.value}</span>
-        </p>
-      </div>
-    );
-  };
+  // const renderInfoItem = (item, index) => {
+  //   const IconComponent = item.icon;
+  //   return (
+  //     <div key={index} className={classes.infoDiv}>
+  //       <IconComponent className={classes.icon} />
+  //       <p className={classes.keyValue}>
+  //         {item.label} <span>{item.value}</span>
+  //       </p>
+  //     </div>
+  //   );
+  // };
 
   const renderCertificateItem = (item, index) => {
     return (
@@ -102,11 +105,11 @@ export default function PersonalInfo({
       <Wrapper className={classes.photoNameDiv}>
         <div className={classes.basicInfoDiv}>
           <div className={classes?.photoDiv}>
-            <ImageComponent src={imageUrl(data?.therapist?.photo || data?.user?.photo) || "/app-images/userDummy.png"} />
+            <ImageComponent src={user?.image} />
           </div>
           <div className={classes.profileInfoDiv}>
-            <h4 className={classes.userName}>{data?.therapist?.fullName || data?.user?.fullName}</h4>
-            <p className={classes.email}>{data?.therapist?.email || data?.user?.email}</p>
+            <h4 className={classes.userName}>{user?.userName}</h4>
+            <p className={classes.email}>{user?.userEmail}</p>
           </div>
         </div>
         {isAppointment && (
@@ -123,43 +126,47 @@ export default function PersonalInfo({
           <h6 className={classes.category}>{data?.category}</h6>
         </div>
       )}
-       {!isAppointment && (
-         <h3 className={classes.personalInfoTitle}>Personal Info</h3>
-       )}
-       <hr className={classes.divider} />
-       {!isAppointment && (
-         <div className={classes.flexColumn}>
-           {personalInfoData?.map(renderInfoItem)}
-         </div>
-       )}
-       {isAppointment && (
-         <div className={classes.appointmentInfoDiv}>
-           <div className={classes.flexColumn}>
-             {personalInfoData?.map(renderInfoItem)}
-           </div>
-           <div className={classes.priceDiv}>
-             <h4>{getFormattedPrice(data?.price)}</h4>
-             <p>Total Bill</p>
-           </div>
-         </div>
-       )}
-      {isAppointment && (
-        <>
-          <hr className={classes.divider} />
-          <div className={classes.categoryDiv}>
-            <p className={`${classes.categoryLabel} mb-2`}>Client Name</p>
-            <div className={classes.basicInfoDiv}>
-              <div className={classes?.photoDiv}>
-                <ImageComponent src={imageUrl(data?.user?.photo) || "/app-images/userDummy.png"} />
-              </div>
-              <div className={classes.profileInfoDiv}>
-                <h4 className={classes.userName}>{data?.user?.fullName}</h4>
-                <p className={classes.email}>{data?.user?.email }</p>
-              </div>
-            </div>
-          </div>
-        </>
+      {!isAppointment && (
+        <h3 className={classes.personalInfoTitle}>Personal Info</h3>
       )}
+      <hr className={classes.divider} />
+      
+        <div className={classes.flexColumn}>
+          {/* {personalInfoData?.map(renderInfoItem)} */}
+          {
+            user?.userEmail && (
+              <div className={classes.infoDiv}>
+                <MdEmail className={classes.icon} />
+                <p className={classes.keyValue}>
+                  Email <span> {user?.userEmail}</span>
+                </p>
+              </div>
+            )
+          }
+        {
+          user?.location && (
+            <div className={classes.infoDiv}>
+              <FaLocationDot className={classes.icon} />
+              <p className={classes.keyValue}>
+                Location<span> {user?.location}</span>
+              </p>
+            </div>
+          )
+        }
+        {
+          user?.language && (
+            <div className={classes.infoDiv}>
+              <BiWorld className={classes.icon} />
+              <p className={classes.keyValue}>
+                Language<span> {user?.language}</span>
+              </p>
+            </div>
+          )
+        }
+         
+        </div>
+  
+    
       {showCertifications && (
         <>
           <h3
@@ -177,7 +184,6 @@ export default function PersonalInfo({
           </div>
         </>
       )}
-
     </ShadowWrapper>
   );
 }

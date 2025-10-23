@@ -2,12 +2,18 @@ import { handleDecrypt, handleEncrypt } from "@/interceptor/encryption";
 import Cookies from "js-cookie";
 
 // ! replace _proj with YOUR_PROJ_NAME for samurai and _projx for projexor
-export const PROJECT_NAME = "proj";
+export const PROJECT_NAME = "zaki";
 
 
 export const TOKEN_COOKIE_NAME = `_xpdx_${PROJECT_NAME}`;
 export const REFRESH_TOKEN_COOKIE_NAME = `_xpdx_rf_${PROJECT_NAME}`;
 export const USER_METADATA_COOKIE_NAME = `_xpdx_m_${PROJECT_NAME}`;
+
+
+// 1 hour cookie utilities
+export const EMAIL_COOKIE_NAME = "email";
+export const CODE_COOKIE_NAME = "code";
+export const ONE_HOUR_IN_DAYS = 1 / 24; // Convert 1 hour to days
 
 export const setTokenCookie = (token) => {
   Cookies.set(TOKEN_COOKIE_NAME, handleEncrypt(token), { expires: 90 });
@@ -20,6 +26,31 @@ export const getTokenCookie = () => {
 
 export const removeTokenCookie = () => {
   Cookies.remove(TOKEN_COOKIE_NAME);
+};
+
+export const setCodeCookie = (code) => {
+  Cookies.set(CODE_COOKIE_NAME, handleEncrypt(code), { expires: ONE_HOUR_IN_DAYS });
+};
+
+export const setEmailCookie = (email) => {
+  Cookies.set(EMAIL_COOKIE_NAME, handleEncrypt(email), { expires: ONE_HOUR_IN_DAYS });
+};
+
+export const getEmailCookie = () => {
+  const email = Cookies.get(EMAIL_COOKIE_NAME);
+  return email ? handleDecrypt(email) : null;
+};
+export const removeEmailCookie = () => {
+  Cookies.remove(EMAIL_COOKIE_NAME);
+};
+
+export const getCodeCookie = () => {
+  const code = Cookies.get(CODE_COOKIE_NAME);
+  return code ? handleDecrypt(code) : null;
+};
+
+export const removeCodeCookie = () => {
+  Cookies.remove(CODE_COOKIE_NAME);
 };
 
 export const setRefreshTokenCookie = (refreshToken) => {
