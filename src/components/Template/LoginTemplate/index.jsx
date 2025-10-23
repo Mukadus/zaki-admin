@@ -15,6 +15,7 @@ import useAxios from "@/interceptor/axios-functions";
 import { setRefreshTokenCookie, setTokenCookie, setUserMetadataCookie } from "@/resources/utils/cookie";
 import { saveLoginUserData } from "@/store/auth/authSlice";
 import { useDispatch } from "react-redux";
+import { useRouter } from "next/navigation";
 
 export default function LoginTemplate() {
 
