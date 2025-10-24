@@ -99,12 +99,13 @@ const useAxios = () => {
       ...headers,
     };
 
+
     try {
       const response = await axios({
         method,
         url,
         data,
-        headers: { _headers },
+        headers:  _headers ,
         signal,
         ...(responseType && { responseType }),
       });
