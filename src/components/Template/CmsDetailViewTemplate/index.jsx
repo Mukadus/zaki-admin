@@ -293,7 +293,7 @@ const CmsDetailViewTemplate = ({ pageName }) => {
         style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer", marginBottom: 12 }}
         onClick={() => router.back()}
       >
-        <IoArrowBackCircleOutline cursor={"pointer"} color="#1D4ED8" size={26} />
+        <IoArrowBackCircleOutline cursor={"pointer"} color="var(--deep-teal)" size={26} />
         <h4 style={{ margin: 0 }}>Back</h4>
       </div>
       <div className={classes.pageHeader}>
@@ -310,7 +310,7 @@ const CmsDetailViewTemplate = ({ pageName }) => {
       {loading === "image" && (
         <div className={classes.loadingOverlay}>
           <div className={classes.loadingCard}>
-            <LottieLoader />
+            {/* <LottieLoader /> */}
             <div className={classes.loadingTitle}>
               {videoProgress > 0 ? `Uploading Video ${videoProgress}%` : "Uploading media..."}
             </div>

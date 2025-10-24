@@ -25,7 +25,7 @@ const StatusToggle = ({
         >
           <div className={classes.toggleSlider}></div>
         </div>
-        <span className={classes.statusText}>{isActive ? "Active" : "In-Active"}</span>
+        <span className={classes.statusText}>{isActive ? "Active" : "Inactive"}</span>
       </div>
     </div>
   );

@@ -19,8 +19,9 @@ export default function CMSTemplate() {
 
     // get data
     const getData = async (_pg = 1, _s = "") => {
-        const route = `cms/page/all`;
         setLoading("table");
+        const route = `cms/page/all`;
+
         const { response } = await Get({ route });
         setLoading("");
 

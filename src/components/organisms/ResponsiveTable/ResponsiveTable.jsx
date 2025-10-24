@@ -20,6 +20,8 @@ export default function ResponsiveTable({
   totalRecords,
   ...props
 }) {
+  console.log("data", data)
+  console.log("loading", loading);
   return (
     <>
       <div className={clsx(classes.tableWrapper)}>

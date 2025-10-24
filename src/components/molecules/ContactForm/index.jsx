@@ -6,11 +6,11 @@ import Button from "@/components/atoms/Button";
 import { HiArrowRightCircle } from "react-icons/hi2";
 import UploadImageBoxNew from "@/components/molecules/UploadImageBoxNew";
 
-export default function ContactForm({ form = {} }) {
+export default function ContactForm({ form = {}, handleSubmit, loading }) {
   return (
     <div className={classes.contactForm}>
       <UploadImageBoxNew
-        state={form.values.photo}
+        state={form?.values?.photo}
         setValue={(val) => form.setFieldValue("photo", val)}
         error={form.touched.photo && form.errors.photo}
         label="Profile Picture"
@@ -18,22 +18,23 @@ export default function ContactForm({ form = {} }) {
       <Input
         label="Name"
         placeholder="Enter your name"
-        value={form.values.name}
-        setValue={(val) => form.setFieldValue("name", val)}
-        error={form.touched.name && form.errors.name}
+        value={form?.values?.fullName}
+        setValue={(val) => form.setFieldValue("fullName", val)}
+        error={form?.touched?.fullName && form?.errors?.fullName}
         className={classes.inputContainer}
         containerClass={classes.input}
       />
       <Input
         label="Email address*"
         placeholder="Enter your email"
-        value={form.values.email}
+        value={form?.values?.email}
         setValue={(val) => form.setFieldValue("email", val)}
-        error={form.touched.email && form.errors.email}
+        error={form?.touched?.email && form?.errors?.email}
         className={classes.inputContainer}
         containerClass={classes.input}
+        disabled={true}
       />
-      <Input
+      {/* <Input
         label="Message"
         placeholder="Enter your message"
         value={form.values.message}
@@ -41,15 +42,28 @@ export default function ContactForm({ form = {} }) {
         error={form.touched.message && form.errors.message}
         className={classes.inputContainer}
         containerClass={classes.input}
-      />
-      <Button
-        label="Save Profile"
-        variant="primary"
-        onClick={() => {
-          form.handleSubmit();
-        }}
-        className={classes.button}
-      />
+      /> */}
+      <div className={classes.buttonContainer}>
+        <Button
+          label="Save Profile"
+          variant="primary"
+          onClick={handleSubmit}
+          className={classes.button}
+          loading={loading==="loading"}
+          disabled={loading==="loading"}
+        />
+
+        <Button
+          label="Change Password"
+          variant="secondary"
+          onClick={() => {
+            setShowModal(true);
+          }}
+          className={classes.button}
+          loading={loading==="loading"}
+          disabled={loading==="loading"}
+        />
+      </div>
     </div>
   );
 }

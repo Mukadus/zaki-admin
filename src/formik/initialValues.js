@@ -10,15 +10,17 @@ export const changePasswordFormValues = {
   confirmPassword: "",
 };
 
-export const profileFormValues = {
-  fullName: "",
-  email: "",
-  phoneNumber: "",
-  callingCode: "",
-  location: "",
-  language: "",
-  photo: null,
+export const profileFormValues = (user) => {
+  return {
+  fullName: user?.fullName || "",
+  email: user?.email || "",
+  phoneNumber: user?.phoneNumber || "",
+  callingCode: user?.callingCode || "",
+  location: user?.location || "",
+  language: user?.language || "",
+  photo: user?.photo || null,
 };
+}
 
 
 

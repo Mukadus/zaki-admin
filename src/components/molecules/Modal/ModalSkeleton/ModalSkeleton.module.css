@@ -1,157 +1,126 @@
 .modal {
-  border-radius: 50px;
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .header {
-  font-size: 24px;
-  font-weight: 600;
-}
-
-.header h4 {
-  margin-bottom: 0;
-  text-align: left;
-  margin-left: 20px;
-  font-family: var(--plusJakartaSans);
-  font-size: 24px;
-}
-
-.header button {
-  padding: 0 !important;
-  margin: 0 !important;
-  right: 27px;
-  top: 27px;
-  opacity: 1;
-  width: 16px;
-  height: 16px;
-  background-repeat: no-repeat !important;
-  font-family: var(--plusJakartaSans);
-}
-
-.header button:hover {
-  opacity: 1;
-  box-shadow: none;
-}
-
-
-
-.body {
-  padding: 20px;
-  background-color: #fffdfd;
-}
-
-/* Right-side slide animation styles */
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
+  padding: 15px;
+  position: static;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1040;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  pointer-events: none;
 }
 
-.backdropShow {
-  opacity: 1;
-  pointer-events: all;
+.header h2 {
+  color: var(--heading-color);
 }
 
-.modal {
-  position: fixed;
-  right: 0px;
-  top: 10px;
-  width: 60%;
-  max-width: 350px;
-  height: 97vh;
-  background-color: white;
-  border-radius: 0;
-  border-radius: 16px;
-  border-bottom-left-radius: 20px;
-  transform: translateX(100%);
-  transition: transform 0.3s ease-in-out;
-  z-index: 1050;
-  display: flex;
-  flex-direction: column;
-  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+.modalDialogSecondary {
+  width: 380px !important;
+  overflow-y: auto;
+}
+.modalSecondary :global(.modal-content)::-webkit-scrollbar {
+  display: none;
+}
+.body {
+  padding: 18px 5px;
+  min-height: 200px;
+  height: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-.modalShow {
-  transform: translateX(0);
+.modalSecondary :global(.modal-content) {
+  max-height: calc(100vh - 240px);
+  overflow: auto;
+}
+.body::-webkit-scrollbar {
+  display: none;
+}
+.iconBox svg {
+  color: var(--industrial-gray);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 
-.modalHeader {
+.headingBox {
   display: flex;
   justify-content: space-between;
+  background-color: transparent;
   align-items: center;
-  padding: 20px 20px 0 20px;
-  border-bottom: none;
+  padding: 16px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
 }
 
-.modalTitle {
-  font-size: 24px;
+.heading {
+  color: var(--heading-color);
+  font-family: var(--font-inter);
+  font-size: var(--fs24);
   font-weight: 600;
-  color: var(--black-color);
-  font-family: var(--plusJakartaSans);
-  margin: 0;
+  line-height: var(--lh24);
+  text-transform: capitalize;
 }
 
-.closeButton {
-  background: none;
-  border: none;
-  font-size: 30px;
-  color: #717680;
-  cursor: pointer;
-  padding: 0;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: background-color 0.2s ease;
+.subheading {
+  color: var(--industrial-gray);
+  margin-bottom: 1.5rem;
 }
+.modal :global(.modal-content) {
+  background: var(--white);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  height: 100%;
 
-.closeButton:hover {
-  background-color: #f0f0f0;
+  /* Shadow/xs */
+  box-shadow: 0px 1px 2px 0px rgba(10, 13, 18, 0.05);
 }
-
-.modalContent {
-  padding: 0px;
-  height: 100% !important;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  overflow-y: auto;
-  border-radius: 16px;
+.footer {
+  padding: var(--fs14);
+  border-top: 1px solid var(--grey-400);
+  background: var(--sea-mist-50);
 }
-
-.modalContent::-webkit-scrollbar {
-  width: 6px;
+.footerSecondary {
+  justify-content: flex-start;
 }
-
-.modalContent::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-
-.modalContent::-webkit-scrollbar-thumb {
-  background: var(--primary-bg);
-  border-radius: 10px;
-}
-
-/* Responsive adjustments */
-@media screen and (max-width: 768px) {
-  .modal {
-    width: 80%;
+/* modalSkeleton.module.css */
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 
-@media screen and (max-width: 576px) {
-  .modal {
-    width: 90%;
+@keyframes slideOutToRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
   }
 }
 
+.modalEnter {
+  animation: slideInFromRight 0.4s ease forwards;
+}
 
+.modalExit {
+  animation: slideOutToRight 0.4s ease forwards;
+}
+
+.modalDialog {
+  margin: 0; /* Remove default Bootstrap centering */
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  max-width: 100%;
+
+  margin-right: 20px !important;
+  width: 326px !important;
+  padding-block: var(--p-30);
+}

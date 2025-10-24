@@ -69,7 +69,7 @@ export const ProfileFormSchema = Yup.object({
   callingCode: Yup.string(),
   location: Yup.string().required("Location is required"),
   language: Yup.object().required("Language is required"),
-  photo: Yup.mixed().required("Photo is required"),
+  photo: Yup.mixed().nullable(),
 });
 
 export const ReasonForRejectionSchema = Yup.object({
@@ -90,7 +90,7 @@ export const ChangePasswordFormSchema = Yup.object({
 export const faqSchema = Yup.object({
   question: Yup.string().required("Question is required"),
   answer: Yup.string().required("Answer is required"),
-  status: Yup.string().oneOf(["Active", "In-Active"], "Status must be either Active or In-Active").required("Status is required"),
+  status: Yup.string().oneOf(statusOptions.map(status => status.value), "Status must be either Active or Inactive").required("Status is required"),
 });
 
 export const blogSchema = Yup.object({

@@ -43,15 +43,26 @@
 
 .tableBody .bodyRow {
   transition: all 0.3s ease;
-  border-bottom: 1px solid rgba(172, 228, 224, 0.5);
+}
+
+.tableBody .bodyRow td {
+  border-bottom: 1px solid rgba(172, 228, 224, 0.5) !important;
 }
 
 .tableBody .bodyRow:hover {
   background: #eef7f6;
 }
+.tableBody .bodyRow:hover td:first-child {
+  border-top-left-radius: 10px !important;
+  border-bottom-left-radius: 10px !important;
+}
+.tableBody .bodyRow:hover td:last-child {
+  border-top-right-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
+}
 
-.tableBody .bodyRow:last-child {
-  border-bottom: none;
+.tableBody .bodyRow:last-child td {
+  border-bottom: none !important;
 }
 
 .tableBody td {

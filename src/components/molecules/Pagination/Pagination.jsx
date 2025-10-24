@@ -71,6 +71,12 @@ export default function Pagination({
   showResultsText = true,
   maxVisiblePages = 5,
 }) {
+  console.log("limit", limit);
+  console.log("totalRecords", totalRecords);
+  console.log("currentPage", currentPage);
+  console.log("onPageChange", onPageChange);
+  console.log("showResultsText", showResultsText);
+  console.log("maxVisiblePages", maxVisiblePages);
   // Input validation - ensure required props are provided
   if (!onPageChange || typeof onPageChange !== 'function') {
     console.error('Pagination: onPageChange is required and must be a function');

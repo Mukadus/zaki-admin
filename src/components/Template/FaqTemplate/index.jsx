@@ -14,27 +14,33 @@ import PopOver from '@/components/molecules/PopOver'
 import { faqEnum } from '@/developmentContent/enums/enums'
 import AddorEditFaqModal from '@/components/molecules/Modal/AddorEditFaqModal'
 import { IoMdAddCircleOutline } from 'react-icons/io'
+import RenderToast from '@/components/atoms/RenderToast'
+import AreYouSureModal from '@/components/molecules/Modal/AreYouSureModal';
 
 
 
 const FAQTemplate = () => {
 
-    const { Get, Post, Patch } = useAxios();
+    const { Get, Post, Patch, Delete } = useAxios();
 
 
     const [search, setSearch] = useState('')
     const [data, setData] = useState(faqData)
     const [loading, setLoading] = useState('')
     const [page, setPage] = useState(1)
-    const [filter, setFilter] = useState("")
     const [totalRecords, setTotalRecords] = useState(0)
     const [showModal, setShowModal] = useState("")
     const [selectedData, setSelectedData] = useState(null)
+    const [status, setStatus] = useState(faqEnum)
 
     const faqPopoverOptions = [
         {
             label: 'Edit',
             value: 'edit',
+        },
+        {
+            label: 'Delete',
+            value: 'delete',
         }
     ]
 
@@ -43,6 +49,25 @@ const FAQTemplate = () => {
             setShowModal("edit");
             setSelectedData(rowItem);
         }
+        if (label === 'delete') {
+            setShowModal("delete");
+            setSelectedData(rowItem);
+
+        }
+    }
+
+    const handleDelete = async (rowItem) => {
+        setLoading("delete");
+        const { response } = await Delete({
+            route: `admin/faq/delete/${slug}`,
+        });
+
+        if (response) {
+            RenderToast({ type: "success", message: "FAQ deleted successfully" });
+            getData({ page: page });
+        }
+        setLoading("");
+
     }
 
 
@@ -50,15 +75,16 @@ const FAQTemplate = () => {
     const getData = async ({
         _page = page,
         _search = search,
-        _filter = filter,
+        _status = status?.value || "",
+        _limit = 5,
     }) => {
         setLoading("getData");
 
         const params = {
             page: _page,
-            limit: 10,
+            limit: _limit,
             search: _search,
-            filter: _filter,
+            status: _status,
         };
 
 
@@ -67,20 +93,20 @@ const FAQTemplate = () => {
 
 
         const { response } = await Get({
-            route: `faq?${queryParams}`,
+            route: `admin/faq/all?${queryParams}`,
         });
 
         if (response) {
-            setData(response?.data?.data);
-            setTotalRecords(response?.data?.totalRecords);
+            setData(response?.data);
+            setTotalRecords(response?.totalRecords);
             setPage(_page);
         }
         setLoading("");
     };
 
     useEffect(() => {
-        getData();
-    }, []);
+        getData({ page: 1 });
+    }, [status]);
 
     const handleAddClick = () => {
         setShowModal("add");
@@ -95,11 +121,17 @@ const FAQTemplate = () => {
                     onSearch={setSearch}
                     search={search}
                     options={faqEnum}
+                    selectedOption={status}
+                    setSelectedOption={(e) => { setStatus(e[0]) }}
                 />
                 <ResponsiveTable
                     data={data}
                     tableHeader={faqTableHeader}
-                    hasPagination={false}
+                    hasPagination={true}
+                    currentPage={page}
+                    onPageChange={(page) => { setPage(page); getData({ _page: page }); }}
+                    limit={5}
+                    totalRecords={totalRecords}
                     loading={loading === "getData"}
                     renderItem={({ item, key, rowIndex, renderValue }) => {
                         const rowItem = data[rowIndex];
@@ -130,7 +162,10 @@ const FAQTemplate = () => {
                 />
             </ShadowWrapper>
             {(showModal === "add" || showModal === "edit") && (
-                <AddorEditFaqModal show={showModal} setShow={setShowModal} selectedData={selectedData} />
+                <AddorEditFaqModal show={showModal} setShow={setShowModal} selectedData={selectedData} getData={getData} />
+            )}
+            {showModal === "delete" && (
+                <AreYouSureModal show={showModal} setShow={setShowModal} onSubmit={handleDelete} />
             )}
         </Container>
     )

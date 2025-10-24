@@ -9,7 +9,7 @@ export const dashboardData = {
   recentTherapistData: [
     {
       _id: 1,
-      name: "John Doe",
+      fullName: "John Doe",
       description:
         "As a licensed therapist with 10+ years of experience, I help families and couples build stronger relationships through open communication and trust.",
       slots: "11:00 - 12:00 PM",
@@ -19,7 +19,7 @@ export const dashboardData = {
     },
     {
       _id: 2,
-      name: "Jane Doe",
+      fullName: "Jane Doe",
       description:
         "As a licensed therapist with 10+ years of experience, I help families and couples build stronger relationships through open communication and trust.",
       slots: "11:00 - 12:00 PM",
@@ -29,7 +29,7 @@ export const dashboardData = {
     },
     {
       _id: 3,
-      name: "John Doe",
+      fullName: "John Doe",
       description:
         "As a licensed therapist with 10+ years of experience, I help families and couples build stronger relationships through open communication and trust.",
       slots: "11:00 - 12:00 PM",

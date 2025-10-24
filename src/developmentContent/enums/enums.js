@@ -84,10 +84,6 @@ export const walletFilter = [
 
 export const faqEnum = [
     {
-        label:"All",
-        value:"all",
-    },
-    {
         label:"Active",
         value:"active",
     },
