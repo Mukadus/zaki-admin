@@ -19,7 +19,7 @@ import { setEmailCookie } from "@/resources/utils/cookie";
 
 export default function ForgotPasswordTemplate() {
   const [loading, setLoading] = useState("");
-  const {Post} = useAxios();
+  const { Post } = useAxios();
   const router = useRouter();
   const form = useFormik({
     initialValues: forgotPasswordValues,
@@ -31,19 +31,19 @@ export default function ForgotPasswordTemplate() {
 
   const handleSubmit = async (values) => {
     setLoading("submit-form");
-    const {response} = await Post({
-      route: "auth/forgot/password",
-      data: values?.email,
+    const { response } = await Post({
+      route: "admin/forgot/password",
+      data: values,
     });
-    if(response){
-      setEmailCookie(obj.email);
+    if (response) {
+      setEmailCookie(values?.email);
       router.push('verify-otp')
       RenderToast({
         message: "Email sent successfully",
         type: "success",
       });
-  };
-    
+    };
+
     setLoading('');
   };
 
@@ -78,6 +78,7 @@ export default function ForgotPasswordTemplate() {
                   onEnterClick={() => {
                     form.handleSubmit();
                   }}
+                  disabled={loading === "submit-form"}
                 />
 
                 <Button

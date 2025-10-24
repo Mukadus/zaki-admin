@@ -14,8 +14,12 @@ import Image from "next/image";
 import Cookies from "js-cookie";
 import RenderToast from "@/components/atoms/RenderToast";
 import { getEmailCookie, setCodeCookie } from "@/resources/utils/cookie";
+import { useRouter } from "next/navigation";
 
 export default function VerifyOtpTemplate() {
+
+  const router = useRouter();
+
   const [loading, setLoading] = useState("");
   const [timer, setTimer] = useState(60);
   const [canResend, setCanResend] = useState(false);
@@ -30,14 +34,15 @@ export default function VerifyOtpTemplate() {
   });
 
   const handleSubmit = async (values) => {
-    setLoading("loading");
+    setLoading("submit-form");
     const email = getEmailCookie() || Cookies.get("email");
     const obj = {
       email: email,
-      code: values.otp,
+      code: values?.code,
+      fromForgotPassword: true,
     };
-    const { response } = await Post({route: "auth/verify/otp", data: obj});
-    if(response){
+    const { response } = await Post({ route: "auth/verify/otp", data: obj });
+    if (response) {
       setCodeCookie(obj.code);
       router.push("/reset-password");
       RenderToast({ type: "success", message: "OTP verified successfully" });
@@ -47,13 +52,13 @@ export default function VerifyOtpTemplate() {
 
   const handleResendOTP = async () => {
     if (loading) return;
-    
+
     const email = getEmailCookie() || Cookies.get("email");
     if (!email) {
       RenderToast({ type: "error", message: "Email not found. Please try the forgot password process again." });
       return;
     }
-    
+
     const obj = {
       email: email,
     };
@@ -61,7 +66,7 @@ export default function VerifyOtpTemplate() {
     const { response } = await Post({ route: "auth/resend/otp", data: obj });
     setLoading("");
     if (response) {
-      form.setFieldValue("otp", "");
+      form.setFieldValue("code", "");
       RenderToast({ type: "info", message: "OTP resent successfully" });
       setTimer(60);
       setCanResend(false);
@@ -103,23 +108,24 @@ export default function VerifyOtpTemplate() {
                   label="One-time code"
                   type="text"
                   placeholder="Enter 6-digit code"
-                  value={form.values.otp}
+                  value={form.values.code}
                   setValue={(val) => {
                     // Only allow digits and limit to 6 characters
                     const numericValue = val.replace(/\D/g, "").slice(0, 6);
-                    form.setFieldValue("otp", numericValue);
+                    form.setFieldValue("code", numericValue);
                     // Trigger validation on change
-                    form.validateField("otp");
+                    form.validateField("code");
                   }}
                   onBlur={() => {
-                    form.handleBlur("otp");
-                    form.validateField("otp");
+                    form.handleBlur("code");
+                    form.validateField("code");
                   }}
-                  error={form.touched.otp && form.errors.otp}
+                  error={form.touched.code && form.errors.code}
                   onEnterClick={() => {
                     form.handleSubmit();
                   }}
                   maxLength={6}
+                  disabled={loading === "submit-form"}
                 />
 
                 <Button
@@ -139,7 +145,7 @@ export default function VerifyOtpTemplate() {
                   {timer > 0 ? (
                     <span>Resend code in {timer} seconds</span>
                   ) : (
-                    <span 
+                    <span
                       onClick={canResend ? handleResendOTP : undefined}
                       style={{ cursor: canResend ? 'pointer' : 'default', color: canResend ? '#007bff' : '#6c757d' }}
                     >

@@ -9,9 +9,15 @@ import UpdatePasswordModal from '@/components/molecules/Modal/UpdatePasswordModa
 import { profileFormValues } from '@/formik/initialValues';
 import { ProfileFormSchema } from '@/formik/schema';
 import Wrapper from '@/components/atoms/Wrapper/Wrapper';
+import { useSelector } from 'react-redux';
 
 const ProfileTemplate = () => {
+
+
     const [loading, setLoading] = useState("");
+
+    const { user } = useSelector((state) => state.authReducer);
+    console.log("user", user);
 
     const [showModal, setShowModal] = useState(false);
     const profileFormik = useFormik({
@@ -26,7 +32,7 @@ const ProfileTemplate = () => {
         <Container>
             <TopHeader title="Profile" backButton={false} />
             <Wrapper>
-            <ContactForm form={profileFormik} setShowModal={setShowModal} />
+            <ContactForm form={profileFormik} setShowModal={setShowModal} user={user} />
             </Wrapper>
         </Container>
     </div>

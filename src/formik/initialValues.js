@@ -27,7 +27,7 @@ export const forgotPasswordValues = {
 };
 
 export const verifyOtpValues = {
-  otp: "",
+  code: "",
 };
 
 export const resetPasswordValues = {

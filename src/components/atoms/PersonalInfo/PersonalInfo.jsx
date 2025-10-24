@@ -20,6 +20,7 @@ export default function PersonalInfo({
   isAppointment = false,
   showName = false,
   user,
+  data,
 }) {
 
   console.log("user",user);

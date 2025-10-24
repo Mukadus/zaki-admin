@@ -16,6 +16,7 @@ import { setRefreshTokenCookie, setTokenCookie, setUserMetadataCookie } from "@/
 import { saveLoginUserData } from "@/store/auth/authSlice";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
+import RenderToast from "@/components/atoms/RenderToast";
 
 export default function LoginTemplate() {
 
@@ -34,22 +35,23 @@ export default function LoginTemplate() {
   const handleSubmit = async (values) => {
     setLoading('loading');
     const { response } = await Post({
-      route: "auth/login",
+      route: "auth/admin/login",
       data: values,
     });
-    if(response){
-      const {response} = await Post({
-        route: "auth/refresh/token",
-      });
-      if(response){
-        const token = response?.data?.token;
-        const user = response?.data?.user;
+    if (response) {
+      const token = response?.data?.token;
+      const user = response?.data?.user;
 
-        setTokenCookie(token);
-        setUserMetadataCookie(user);  
-        dispatch(saveLoginUserData(response?.data));
-        router.push("/");
-      }
+      setTokenCookie(token);
+      console.log("token", token);
+      console.log("user", user);
+      setUserMetadataCookie(user);
+      dispatch(saveLoginUserData(response?.data));
+      router.push("/");
+      RenderToast({
+        message: "Login successful",
+        type: "success",
+      });
     }
     setLoading('');
   };
@@ -83,6 +85,7 @@ export default function LoginTemplate() {
                   onEnterClick={() => {
                     loginForm.handleSubmit();
                   }}
+                  disabled={loading === "loading"}
                 />
 
                 <Input
@@ -97,6 +100,7 @@ export default function LoginTemplate() {
                   onEnterClick={() => {
                     loginForm.handleSubmit();
                   }}
+                  disabled={loading === "loading"}
                 />
 
                 <Link href="/forgot-password" className={classes.forgotLink}>
@@ -111,8 +115,8 @@ export default function LoginTemplate() {
                   onClick={() => {
                     loginForm.handleSubmit();
                   }}
-                  disabled={loading === "submit-form"}
-                  loading={loading === "submit-form"}
+                  disabled={loading === "loading"}
+                  loading={loading === "loading"}
                 />
               </div>
 

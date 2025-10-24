@@ -18,6 +18,7 @@ import Cookies from "js-cookie";
 import { handleDecrypt } from "@/interceptor/encryption";
 import { getEmailCookie, getCodeCookie, removeEmailCookie, removeCodeCookie } from "@/resources/utils/cookie";
 
+
 export default function ResetPasswordTemplate() {
   const router = useRouter();
   const { Post } = useAxios();
@@ -41,14 +42,14 @@ export default function ResetPasswordTemplate() {
     const payload = {
       email: emailFromCookie,
       code: codeFromCookie,
-      password: values.password,
-      confirmPassword: values.confirmPassword,
+      password: values?.password,
+      confirmPassword: values?.confirmPassword,
     };
-    const {response} = await Post({
+    const { response } = await Post({
       route: "auth/reset/password",
       data: payload,
     });
-    if (response?.status === "success") {      
+    if (response?.status === "success") {
       // Clear cookies after successful password reset
       RenderToast({ type: "success", message: "Password Reset Successfully" });
       router.push("/login");
@@ -89,6 +90,7 @@ export default function ResetPasswordTemplate() {
                   onEnterClick={() => {
                     form.handleSubmit();
                   }}
+                  disabled={loading === "loading"}
                 />
 
                 <Input
@@ -105,6 +107,7 @@ export default function ResetPasswordTemplate() {
                   onEnterClick={() => {
                     form.handleSubmit();
                   }}
+                  disabled={loading === "loading"}
                 />
 
                 <Button
